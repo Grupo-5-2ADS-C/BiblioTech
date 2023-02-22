@@ -1,0 +1,20 @@
+/* FONTE PADRÃO DO SITE  */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/*  */
+
+
+/* RESETAR A ESTILIZAÇÃO PADRÃO NOS NAVEGADORES PARA NÃO OCORRER BUGS NA ESTILIZAÇÃO  */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  background: none;
+  list-style: none;
+}
