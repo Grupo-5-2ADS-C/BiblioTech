@@ -142,7 +142,7 @@
 }
 
 .container-footer {
-    background-color: #F5F5F5;
+    background-color: white;
     height: 200px;
     width: 60%;
     display: flex;
@@ -172,7 +172,7 @@
 }
 
 .container-reserved-rights {
-    background-color: #f5f5f5;
+    background-color: white;
     height: 55px;
     display: flex;
     justify-content: center;
