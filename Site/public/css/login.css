@@ -1,27 +1,64 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url(main.css);
+
 body{
     margin: 0;
     color: black;
+    background-image: url("../img/Background\ Login\ e\ Cadastro.jpg");
 }
-header{
-    display: flex;
-    justify-content: space-between;
-   
+.header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  
+
+}
+.header .content_header {
+  margin-top: 18px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+.header ul {
+  display: flex;
+  justify-content: center;
+  
+
+}
+.header a, li {
+  color: black;
+  padding: 0 4px;
+  font-weight: 500;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.header li::after {
+  margin-top: 2px;
+  content: '';
+  width: 0;
+  height: 1px;
+  display: block;
+  background-color: black;
+  transition: 0.5s;
+}
+.header li:hover::after {
+  width: 100%;
+}
+.low-opacity {
+  opacity: 50%;
 }
 .main_login {
-    width: 100vw;
-    height: 100vh;
+    width: 910px;
+    height: 500px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    background-color: aqua;
+    margin: auto; 
+    padding: 0 auto;
   }
   .left_login {
-    width: 60vh;
-    height: 100vh;
+    width: 100vh;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,11 +74,11 @@ header{
     
   }
 .left_img{
-    width: 55vh;
+    width: 80vh;
 }
 .right_login {
     width: 60vh;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

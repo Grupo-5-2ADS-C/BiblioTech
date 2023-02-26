@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/login.css" />
     <title>Login</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="header">
-            <div class="container">
-                <nav class="navbar">
-                    <ul>
-                        <li>Início</li>
-                        <li>/</li>
-                        <li>Quem somos</li>
-                        <li>/</li>
-                        <li>Serviços</li>
-                        <li>/</li>
-                        <li>Login</li>
-                        <li>/</li>
-                        <li>Cadastre-se</li>
-                    </ul>
-                </nav>
-            </div>
+      <div class="header">
+        <div class="content_header">
+          <nav class="navbar">
+            <ul>
+              <li><a href="">Início</a></li>
+              <li class="low-opacity">/</li>
+              <li><a href="">Quem somos</a></li>
+              <li class="low-opacity">/</li>
+              <li><a href="">Serviços</a></li>
+              <li class="low-opacity">/</li>
+              <li><a href="">Login</a></li>
+              <li class="low-opacity">/</li>
+              <li><a href="">Cadastre-se</a></li>
+            </ul>
+          </nav>
         </div>
+      </div>
     </header>
     <div class="main_login">
-        <div class="left_login">
-            <h1>Faça o login <br></h1>
-            <h2>Entre em sua conta para executar o monitoramento de suas máquinas</h2>
-            <img src="">
+      <div class="left_login">
+        <div class="content_login">
+          <h1>Faça o login <br /></h1>
+          <h2>
+            Entre em sua conta para executar o monitoramento de suas máquinas
+          </h2>
         </div>
-        <div class="right_login">
-            <div class="cards">
-                <h1>Nome de usuário</h1>
-                <div class="text_fild">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" name="usuario" id="email_input" placeholder="Usuário">
-                </div>
-                <div class="text_fild">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha_input" placeholder="Senha">
-                </div>
-                <button class="botao" onclick="entrar()">Próximo</button>
-            </div>
-            <br>
-            <h2> <a href="">Esqueceu a senha ?</a> </h2>
 
+        <div class="text_fild">
+          <label for="usuario">Usuario</label>
+          <input
+            type="text"
+            name="usuario"
+            id="email_input"
+            placeholder="Usuário"
+          />
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            name="senha"
+            id="senha_input"
+            placeholder="Senha"
+          />
         </div>
+        <button class="btn" onclick="entrar()">Enter</button>
+        <div class="links">
+            <a href="">Esqueceu a senha ?</a>
+            <a href="">Sing Up</a>
+        </div>
+       
+      </div>
+      <div class="right_login">
+        <img src="./img/Sliced library photo.jpg" alt="" />
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
