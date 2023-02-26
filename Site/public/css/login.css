@@ -10,8 +10,6 @@ body{
   height: 70px;
   display: flex;
   justify-content: center;
-  
-
 }
 .header .content_header {
   margin-top: 18px;
@@ -52,17 +50,16 @@ body{
     height: 500px;
     display: flex;
     justify-content: center;
-    background-color: aqua;
-    margin: auto; 
-    padding: 0 auto;
+    background-color: white;
+    margin: auto;
+    margin-top: 5%; 
   }
   .left_login {
-    width: 100vh;
-    height: 50vh;
+    width: 910px;
+    height: 500px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    justify-content: space-between;
   }
   .left_login h1 {
     color: rgb(24, 24, 23);
@@ -73,13 +70,45 @@ body{
     font-size: 3vh;
     
   }
+  .content_login{
+display: flex;
+justify-content: center;
+flex-direction: column;
+  }
+ .content_login h2{
+    font-size: 15px;
+  }
 .left_img{
     width: 80vh;
 }
 .right_login {
-    width: 60vh;
+    width: 50vh;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding:0;
   }
+  .text_fild{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  html{
+    width: 100vw;
+    height: 100vh;
+    font-size: 62.5;
+  }
+  
+ 
