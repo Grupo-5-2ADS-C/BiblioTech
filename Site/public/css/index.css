@@ -224,9 +224,35 @@
     margin-top: 42px;
 }
 
-.container-services {
+.services {
     background-color: white;
     height: 530px;
+    display: flex;
+    justify-content: center;
+}
+
+.container-services {
+    display: flex;
+    width: 80%;
+    gap: 66px;
+}
+
+.container-services img {
+    margin-top: 100px;
+}
+
+.container-services h2 {
+    color: #57B4CE;
+    margin-top: 88px;
+    font-size: 2.5rem;
+}
+
+.container-services p {
+    text-align: justify;
+    text-indent: 32px;
+    font-weight: 500;
+    margin-top: 16px;
+    font-size: 1.125rem;
 }
 
 .footer {
