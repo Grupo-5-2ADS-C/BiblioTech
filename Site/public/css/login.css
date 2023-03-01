@@ -1,114 +1,173 @@
 @import url(main.css);
 
-body{
-    margin: 0;
-    color: black;
-    background-image: url("../img/Background\ Login\ e\ Cadastro.jpg");
+body {
+  margin: 0;
+  color: black;
+  background-image: url("../img/Background\ Login\ e\ Cadastro.jpg");
 }
+
 .header {
   width: 100%;
   height: 70px;
   display: flex;
   justify-content: center;
 }
+
 .header .content_header {
   margin-top: 18px;
   width: 80%;
   display: flex;
   justify-content: center;
 }
+
 .header ul {
   display: flex;
   justify-content: center;
-  
-
 }
-.header a, li {
+
+.header a,
+li {
   color: black;
   padding: 0 4px;
   font-weight: 500;
   font-size: 1.125rem;
   cursor: pointer;
 }
+
 .header li::after {
   margin-top: 2px;
-  content: '';
+  content: "";
   width: 0;
   height: 1px;
   display: block;
   background-color: black;
   transition: 0.5s;
 }
+
 .header li:hover::after {
   width: 100%;
 }
+
 .low-opacity {
   opacity: 50%;
 }
-.main_login {
-    width: 910px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    margin: auto;
-    margin-top: 5%; 
-  }
-  .left_login {
-    width: 910px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .left_login h1 {
-    color: rgb(24, 24, 23);
-    font-size: 6vh;
-  }
-  .left_login h2 {
-    color: rgb(29, 28, 27);
-    font-size: 3vh;
-    
-  }
-  .content_login{
-display: flex;
-justify-content: center;
-flex-direction: column;
-  }
- .content_login h2{
-    font-size: 15px;
-  }
-.left_img{
-    width: 80vh;
-}
-.right_login {
-    width: 50vh;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:0;
-  }
-  .text_fild{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .links{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
 
-  }
-  img{
-    width: 100%;
-    height: 100%;
-  }
-  html{
-    width: 100vw;
-    height: 100vh;
-    font-size: 62.5;
-  }
-  
- 
+.main_login {
+  width: 910px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.left_login {
+  width: 910px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left_login h1 {
+  color: rgb(24, 24, 23);
+  font-size: 6vh;
+}
+
+.left_login h2 {
+  color: rgb(29, 28, 27);
+  font-size: 3vh;
+}
+
+.content_login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  padding: 1rem 0rem 0rem 1rem;
+  border-bottom: solid 1px black;
+}
+
+.content_login h2 {
+  font-size: 15px;
+}
+
+.content_login h1 {
+  color: #57b4ce;
+}
+
+.left_img {
+  width: 80vh;
+}
+
+.right_login {
+  width: 50vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.text_fild {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 60%;
+  margin-bottom: 4.5rem;
+}
+
+.text_fild .links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.inputs input {
+  text-align: center;
+  background-color: #f6f6f6;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+}
+
+.botao {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.botao button {
+  background-color: #57b4ce;
+  border-radius: 1rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+  font-size: 1rem;
+  color: white;
+}
+
+.botao a {
+  font-size: 0.7rem;
+  border-bottom: solid 1px black;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.right_login img {
+  opacity: 0.5;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  font-size: 62.5;
+}
