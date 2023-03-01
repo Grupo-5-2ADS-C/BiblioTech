@@ -1,0 +1,295 @@
+@media only screen and (max-width:1366px) and (max-height:768px){
+    
+
+body{
+    background-image: url('./background-livros.jpg');
+    overflow: hidden;
+}
+
+
+/* Inicio da "HEADER" */
+ul{
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+li{
+    display: flex;
+    cursor: pointer;
+}
+
+/* Fim da "HEADER" */
+
+
+/* Inicio do formulario */
+.box-formulario{
+    background-color: #fff;
+    width: 55em;
+    height: 30em;
+    border-radius: 12px;
+    position: absolute;
+    left: 16em;
+    margin-top: 2em;
+}
+
+.imagem-formulario{
+    width: 18em;
+    position: relative;
+    left: 37em;
+}
+
+   .title{
+        color: #000;
+        position: relative;
+        bottom: 30em;
+        width: 32em;
+        left: 2em;
+    }
+
+
+form{
+    position:relative;
+    bottom: 15em;
+    left: 1em;
+}
+
+input{
+    background-color: #EBEBEB;
+    width: 18em;
+    height: 2em;
+    box-shadow: 3px 3px 3px #000;
+    position: relative;
+    bottom: 14.5em;
+    border-radius: 5px;
+    border-width: 0px;
+    text-align: center;
+}
+
+/* Inicio dos inputs da esquerda */
+.form-left{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 1em;
+    bottom: 3em;
+}
+
+.n-input{
+    position: relative;
+    bottom: 12.5em;
+}
+/* Fim inputs da esquerda*/
+
+/* Inicio inputs da direita */
+.form-right{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 18em;
+    bottom: 10em;
+}
+
+    .form-right2{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        left: 18em;
+        bottom: 14em;
+    }
+
+.form-down{
+    display: flex;
+    position: relative;
+    bottom: 8em;
+}
+/* Fim dos inputs da direita */
+
+/* Botão */
+
+.btn{
+    position: relative;
+    bottom: 20em;
+    left: 15em;
+    color:#fff;
+    border-width: 0px;
+    border-radius: 12px;
+    width: 12em;
+    height: 2em;
+    background-color: #57B4CE;
+    cursor: pointer;
+}
+
+/* Frases embaixo do botão */
+
+.h-conta{
+    position: relative;
+    bottom: 13em;
+    left: 3em;
+    color: #000;
+}
+
+a{
+    text-decoration: none;
+
+}
+
+}
+
+/* Responsividade  A51/A71*/
+
+@media only screen and (max-width:600px){
+/* Inicio da "HEADER" */
+
+h1{
+    display: flex;
+    position: relative;
+    color: #57B4CE;
+    left: 1em;
+
+}
+
+hr{
+    display:none;
+}
+ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    position: relative;
+    right: 12%;
+    font-size: 1em;
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+    font-family: sans-serif;
+}
+
+li{
+    display: flex;
+    cursor: pointer;
+}
+
+/* Fim da "HEADER" */
+
+
+/* Inicio do formulario */
+.box-formulario{
+    background-color: white;
+    position: relative;
+    height: 550px;
+    width: 90%;
+    top: 2em;
+    left: 1em;
+}
+
+.imagem-formulario{
+    background-color: white;
+    width: 0em;
+    position: relative;
+}
+   .title{
+        color: #000;
+        position: relative;
+        flex-direction: row;
+        bottom: 0em;
+        width: 15em;
+        left: 2em;
+    }
+
+
+form{
+    position:relative;
+    top: 10em;
+    left: 1em;
+}
+
+.form-frase{
+    font-size: 0px;
+}
+
+input{
+    background-color: #EBEBEB;
+    width: 18em;
+    height: 2em;
+    box-shadow: 3px 3px 3px #000;
+    position: relative;
+    bottom: 14.5em;
+    border-radius: 5px;
+    border-width: 0px;
+    text-align: center;
+}
+
+/* Inicio dos inputs da esquerda */
+.form-left{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 2em;
+    bottom: 3em;
+}
+
+.n-input{
+    position: relative;
+    bottom: 12.5em;
+}
+/* Fim inputs da esquerda*/
+
+/* Inicio inputs da direita */
+.form-right{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 2em;
+    bottom: 1em;
+}
+
+.form-right2{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 2em;
+    bottom: 1em;
+}
+/* Fim dos inputs da direita */
+
+/* Botão */
+
+.btn{
+    position: relative;
+    bottom: 14em;
+    left: 6em;
+    color:#fff;
+    border-radius: 12px;
+    width: 12em;
+    height: 2em;
+    background-color: #353535;
+    cursor: pointer;
+}
+
+/* Frases embaixo do botão */
+
+.h-conta{
+    position: relative;
+    bottom: 9em;
+    left: -5em;
+    color: #000;
+}
+
+.h-inicio{
+    position: relative;
+    bottom: 9em;
+    left: 7em;
+    color: #000;
+}
+a{
+    text-decoration: none;
+
+}
+    
+}
