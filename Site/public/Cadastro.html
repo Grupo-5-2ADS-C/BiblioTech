@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/css/Cadastro.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -11,24 +12,33 @@
     <header>
         <nav>
             <ul>
-                <li> Inicio / </li>
-                <li> Quem somos / </li>
-                <li> Serviços / </li>
-                <li> Login / </li>
-                <li> Cadastre-se </li>
+                <a href="./index.html">
+                    <li> Inicio / </li>
+                </a>
+                <a href="./index.html#about-us">
+                    <li> Quem somos / </li>
+                </a>
+                <a href="./index.html#services">
+                    <li> Serviços / </li>
+                </a>
+                <a href="./login.html">
+                    <li> Login / </li>
+                </a>
+                <a href="">
+                    <li> Cadastre-se </li>
+                </a>
             </ul>
         </nav>
     </header>
 
     <!-- Inicio do primeiro formulario  -->
     <div class="box-formulario" id="box1">
-        <img src="./background-formulario2.jpg" alt="" class="imagem-formulario">
+        <img src="../public/img/Sliced Studying.jpg" alt="" class="imagem-formulario">
         <div class="title">
-            <h1 style="font-size: 2em;color:#57B4CE;">Junte-se a nós</h1>
+            <h1 style="font-size: 2em;color:#57B4CE;" class="first-title-form">Junte-se a nós</h1>
             <span class="form-frase">Cadastre-se no nosso site para ter acesso ao nosso serviço de monitoramento </span>
-            <hr>
         </div>
-        <h3 style="position:relative; bottom:26.6em;left:1em">Dados da empresa</h3>
+        <h3 style="position:relative; bottom:24em;left:2em">Dados da empresa</h3>
         <form>
             <div class="form-left">
                 <label for="" class="n-input">Nome da empresa</label>
@@ -43,8 +53,7 @@
                 <input type="text" placeholder="(00)0000-0000" id="numeroDeTelefone">
             </div>
             <button type="button" class="btn" id="btn1" onclick="proximo1()">Proximo</button>
-            <a href=""><span class="h-conta">Já possui conta? Entrar</span></a><br>
-            <a href=""><span class="h-inicio">Voltar ao inicio</span></a>
+            <a href="./login.html"><span class="h-conta">Já possui conta? Entrar</span></a><br>
         </form>
     </div>
     <!-- Fim do primeiro formulario -->
@@ -52,13 +61,14 @@
     <!-- Inicio do segundo formulario -->
     
     <div class="box-formulario" id="box2" style="display:none;">
-        <img src="./background-formulario2.jpg" alt="" class="imagem-formulario">
+        <img src="./img/Sliced Studying.jpg" alt="" class="imagem-formulario">
         <div class="title">
-            <h1 style="font-size: 2em;">Junte-se a nós</h1>
+            <!-- Class only mobile -->
+            <h1 style="font-size: 2em;color:#57B4CE" class="first-title-form">Junte-se a nós</h1>
+            <!-- Class only mobile  -->
             <span class="form-frase">Cadastre-se no nosso site para ter acesso ao nosso serviço de monitoramento </span>
-            <hr>
         </div>
-        <h3 style="position:relative; bottom:26.6em;left:1em">Dados de Endereço</h3>
+        <h3 style="position:relative; bottom:24em;left:2em">Dados de Endereço</h3>
             <form action="Cadastro.html" method="post">
                 <div class="form-left">
                     <label for="" class="n-input">CEP</label>
@@ -78,8 +88,7 @@
                 </div>
                 <div class="form-down">
                     <button type="button" class="btn" id="btn2" onclick="proximo2()">Proximo</button>
-                    <a href=""><span class="h-conta">Já possui conta? Entrar</span></a><br>
-                    <a href=""><span class="h-inicio">Voltar ao inicio</span></a>
+                    <a href="./login.html"><span class="h-conta">Já possui conta? Entrar</span></a><br>
                 </div>
             </form>
         </div>
@@ -87,13 +96,12 @@
 
         <!-- Inicio do terceiro e ultimo formulario -->
         <div class="box-formulario" id="box3" style="display:none;">
-            <img src="./background-formulario2.jpg" alt="" class="imagem-formulario">
+            <img src="../public/img/Sliced Studying.jpg" alt="" class="imagem-formulario">
             <div class="title">
-                <h1 style="font-size: 2em;">Junte-se a nós</h1>
+                <h1 style="font-size: 2em;color:#57B4CE">Junte-se a nós</h1>
                 <span class="form-frase">Cadastre-se no nosso site para ter acesso ao nosso serviço de monitoramento </span>
-                <hr>
             </div>
-            <h3 style="position:relative; bottom:26.6em;left:1em">Dados de Segurança</h3>
+            <h3 style="position:relative; bottom:24em;left:2em">Dados de Segurança</h3>
                 <form action="Cadastro.html" method="post">
                     <div class="form-left">
                         <label for="" class="n-input">Nome</label>
@@ -108,8 +116,7 @@
                         <input type="text" placeholder="(00)0000-0000" id="numeroDeTelefone">
                     </div>
                     <button type="button" class="btn" id="btn3">Cadastrar</button>
-                    <a href=""><span class="h-conta">Já possui conta? Entrar</span></a><br>
-                    <a href=""><span class="h-inicio">Voltar ao inicio</span></a>
+                    <a href="./login.html"><span class="h-conta">Já possui conta? Entrar</span></a><br>
                 </form>
             </div>
 
