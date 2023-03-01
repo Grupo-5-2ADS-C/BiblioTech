@@ -18,3 +18,33 @@
   background: none;
   list-style: none;
 }
+
+[data-move] {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+[data-move="left"] {
+  transform: translate3d(-80px, 0, 0);
+}
+
+[data-move="right"] {
+  transform: translate3d(80px, 0, 0);
+}
+
+[data-move="top"] {
+  transform: translate3d(0, -30px, 0);
+}
+
+[data-move="bottom"] {
+  transform: translate3d(0, 30px, 0);
+}
+
+[data-move].animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html {
+  scroll-behavior: smooth;
+}

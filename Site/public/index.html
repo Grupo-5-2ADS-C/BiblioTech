@@ -19,9 +19,9 @@
                     <ul>
                         <li><a href="">Início</a></li>
                         <li class="low-opacity">/</li>
-                        <li><a href="">Quem somos</a></li>
+                        <li><a href="#about-us">Quem somos</a></li>
                         <li class="low-opacity">/</li>
-                        <li><a href="">Serviços</a></li>
+                        <li><a href="#services">Serviços</a></li>
                         <li class="low-opacity">/</li>
                         <li><a href="">Login</a></li>
                         <li class="low-opacity">/</li>
@@ -32,7 +32,7 @@
         </div>
     </header>
 
-    <section>
+    <section class="title">
         <div class="container-title">
             <h1>BiblioTech</h1>
             <p>BiblioTech é um sistema onde você pode monitorar o uso indevido
@@ -59,32 +59,74 @@
         </div>
     </section>
 
-    <section>
+    <section id="about-us">
         <div class="container-about-us">
             <div class="about-us">
-                <div class="text-about-us">
+                <div class="text-about-us" data-move="left">
                     <h2>Quem somos</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum facilis ea unde magnam molestiae
                         voluptatem possimus veniam quas veritatis eaque quos sapiente, itaque obcaecati odit iusto optio
                         quibusdam quae fugiat!</p>
                 </div>
-                <div class="books">
-                    <img src="img/Book-1.png" width="150px" height="100px" alt="">
-                    <img src="img/Book-2.png" width="150px" height="100px" alt="">
-                    <img src="img/Book-3.png" width="150px" height="100px" alt="">
+                <div class="books" data-move="right">
+                    <div class="book1">
+                        <img src="img/Book-1.png" width="150px" height="100px" alt="">
+                    </div>
+                    <div class="book2">
+                        <img src="img/Book-2.png" width="150px" height="100px" alt="">
+                    </div>
+                    <div class="book3">
+                        <img src="img/Book-3.png" width="150px" height="100px" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="values">
+        <div class="container-values">
+            <div class="text-values" data-move="top">
+                <h2>Valores</h2>
+            </div>
+            <div class="box-values">
+                <div class="box-value1" data-move="left">
+                    <h3>Resiliência</h3>
+                    <img src="img/Book-1.png" alt="">
+                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                </div>
+                <div class="box-value2" data-move="bottom">
+                    <h3>AAAAAAAAA</h3>
+                    <img src="img/Book-2.png" alt="">
+                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                </div>
+                <div class="box-value3" data-move="right">
+                    <h3>AAAAAAAAA</h3>
+                    <img src="img/Book-3.png" alt="">
+                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
+    <section id="services" class="services">
         <div class="container-services">
-
+            <img src="img/gif.gif" loop width="500px" height="320px" alt="" data-move="bottom">
+            <div class="text-services" data-move="bottom">
+                <h2>Serviços</h2>
+                <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam necessitatibus ullam, animi quasi
+                    corrupti soluta perferendis earum vel distinctio ea nisi maiores hic magnam, assumenda architecto
+                    repudiandae culpa doloribus veniam!
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor, quasi amet! Et sapiente corrupti
+                    voluptatem accusantium tempora dolorum nesciunt ea, voluptates, necessitatibus similique reiciendis
+                    inventore natus esse accusamus quae possimus?
+                </p>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="container-footer">
+        <div class="container-footer" data-move="bottom">
             <div class="boxes">
                 <div class="box1"></div>
                 <div class="box2">
@@ -110,3 +152,5 @@
 </body>
 
 </html>
+
+<script src="js/index.js"></script>
