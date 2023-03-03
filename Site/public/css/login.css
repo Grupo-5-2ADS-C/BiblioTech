@@ -53,64 +53,83 @@ li {
 }
 
 .main_login {
-  width: 910px;
-  height: 500px;
   display: flex;
   justify-content: center;
-  background-color: white;
+  align-items: center;
+  border-radius: 15px 0px 0px 15px;
+  height: 500px;
+  width: 900px;
   margin: auto;
   margin-top: 5%;
+  background-color: #f6f6f6;
 }
-
-.left_login {
-  width: 910px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.left_login h1 {
-  color: rgb(24, 24, 23);
-  font-size: 6vh;
-}
-
-.left_login h2 {
-  color: rgb(29, 28, 27);
-  font-size: 3vh;
-}
-
 .content_login {
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 90%;
   padding: 1rem 0rem 0rem 1rem;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px #000000;
 }
-
-.content_login h2 {
-  font-size: 15px;
-}
-
 .content_login h1 {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
   color: #57b4ce;
 }
-
-.left_img {
-  width: 80vh;
+.content_login h2 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 44px;
+  color: #5e5c5c;
+}
+.content_acesso label {
+  left: 481px;
+  top: 300px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+.content_acesso .btn {
+  width: 130px;
+  height: 28px;
+  left: 467px;
+  top: 461px;
+  background: #57b4ce;
+  border-radius: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+}
+.content_acesso input {
+  width: 228px;
+  height: 28px;
+  left: 418px;
+  top: calc(50% - 28px / 2 - 51px);
+  background: #f7f7f7;
+  text-align: center;
+}
+.content_acesso a {
+  left: 485px;
+  top: 507px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 12px;
+  text-decoration-line: underline;
+  color: #000000;
 }
 
-.right_login {
-  width: 50vh;
-  height: 100%;
+.left_login {
+  width: 600px;
+  height: 500px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.text_fild {
+.content_acesso {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -119,10 +138,15 @@ li {
   margin-bottom: 4.5rem;
 }
 
-.text_fild .links {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+.left_img {
+  width: 80vh;
+}
+
+.right_login {
+  width: 300px;
+  height: 500px;
+  left: 600px;
+  top: 0%;
 }
 
 .inputs {

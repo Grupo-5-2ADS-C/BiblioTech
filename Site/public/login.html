@@ -31,35 +31,31 @@
     </header>
     <div class="main_login">
       <div class="left_login">
-        <div class="content_login">
-          <h1>Faça o login <br /></h1>
-          <h2>
-            Entre em sua conta para executar o monitoramento de suas máquinas
-          </h2>
-        </div>
+        <div class="content_login"> 
+        <h1>Faça o login <br /></h1>
+        <h2>
+          Entre em sua conta para executar o monitoramento de suas máquinas
+        </h2>
+      </div>
+      <div class="content_acesso">
+        <label for="usuario">Nome de usuário</label>
+        <input
+          type="text"
+          name="usuario"
+          id="email_input"
+          placeholder="Usuário"
+        />
+        <label for="senha">Senha</label>
+        <input
+          type="password"
+          name="senha"
+          id="senha_input"
+          placeholder="Senha"
+        />
 
-        <div class="text_fild">
-          <div class="inputs">
-            <label for="usuario">Nome de usuário</label>
-            <input
-              type="text"
-              name="usuario"
-              id="email_input"
-              placeholder="Usuário"
-            />
-            <label for="senha">Senha</label>
-            <input
-              type="password"
-              name="senha"
-              id="senha_input"
-              placeholder="Senha"
-            />
-          </div>
-          <div class="botao">
-            <button class="btn" onclick="entrar()">Enter</button>
-            <a href="">Esqueceu a senha ?</a>
-          </div>
-        </div>
+        <button class="btn" onclick="entrar()">Enter</button>
+        <a href="">Esqueceu a senha ?</a>
+      </div>
       </div>
       <div class="right_login">
         <img src="./img/Sliced library photo.jpg" alt="" />
