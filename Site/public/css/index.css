@@ -73,7 +73,7 @@ li {
         z-index: 999;
         top: 0;
         left: 0;
-        background-color: rgba(87, 180, 206, 0.9);
+        background-color: rgba(235, 235, 235, 0.9);
         overflow-x: hidden;
         transition: 0.5s;
     }
@@ -90,7 +90,7 @@ li {
         padding: 8px;
         font-size: 2rem;
         font-weight: 700;
-        color: white;
+        color: rgb(107, 107, 107);
         display: block;
         transition: 0.3s;
     }
