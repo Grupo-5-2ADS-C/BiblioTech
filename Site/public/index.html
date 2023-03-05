@@ -32,6 +32,18 @@
         </div>
     </header>
 
+    <header class="header-nav">
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+              <a href="#">Login</a>
+              <a href="#">Cadastre-se</a>
+            </div>
+          </div>
+
+          <span class="btn-nav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    </header>
+
     <section class="title">
         <div class="container-title">
             <h1>BiblioTech</h1>
@@ -62,13 +74,13 @@
     <section id="about-us">
         <div class="container-about-us">
             <div class="about-us">
-                <div class="text-about-us" data-move="left">
+                <div class="text-about-us" data-move="bottom">
                     <h2>Quem somos</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum facilis ea unde magnam molestiae
                         voluptatem possimus veniam quas veritatis eaque quos sapiente, itaque obcaecati odit iusto optio
                         quibusdam quae fugiat!</p>
                 </div>
-                <div class="books" data-move="right">
+                <div class="books" data-move="top">
                     <div class="book1">
                         <img src="img/Book-1.png" width="150px" height="100px" alt="">
                     </div>
@@ -86,11 +98,11 @@
 
     <section id="values">
         <div class="container-values">
-            <div class="text-values" data-move="top">
+            <div class="text-values" data-move="bottom">
                 <h2>Valores</h2>
             </div>
             <div class="box-values">
-                <div class="box-value1" data-move="left">
+                <div class="box-value1" data-move="bottom">
                     <h3>Resiliência</h3>
                     <img src="img/Book-1.png" alt="">
                     <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
@@ -100,7 +112,7 @@
                     <img src="img/Book-2.png" alt="">
                     <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
                 </div>
-                <div class="box-value3" data-move="right">
+                <div class="box-value3" data-move="bottom">
                     <h3>AAAAAAAAA</h3>
                     <img src="img/Book-3.png" alt="">
                     <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
@@ -126,7 +138,7 @@
     </section>
 
     <footer class="footer">
-        <div class="container-footer" data-move="bottom">
+        <div class="container-footer">
             <div class="boxes">
                 <div class="box1"></div>
                 <div class="box2">

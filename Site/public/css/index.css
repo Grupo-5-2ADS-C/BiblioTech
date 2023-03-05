@@ -20,7 +20,8 @@
     justify-content: center;
 }
 
-.header a, li {
+.header a,
+li {
     color: black;
     padding: 0 4px;
     font-weight: 500;
@@ -46,13 +47,64 @@
     opacity: 50%;
 }
 
+.header-nav {
+    display: none;
+}
+
 @media screen and (max-width: 600px) {
-    .header .container-header {
-        width: 100%;
+    .header {
+        display: none;
     }
-    .header a, li {
-        padding: 0 2px;
-        font-size: 0.85rem;
+
+    .header-nav {
+        margin-top: 6px;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .btn-nav {
+        margin-right: 20px;
+    }
+
+    .overlay {
+        height: 0%;
+        width: 100%;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        background-color: rgba(87, 180, 206, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    .overlay-content {
+        position: relative;
+        top: 10%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .overlay a {
+        padding: 8px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .overlay a:hover,
+    .overlay a:focus {
+        color: #f8f8f8;
+    }
+
+    .overlay .closebtn {
+        position: absolute;
+        top: -18px;
+        right: 6px;
+        font-size: 60px;
     }
 }
 
@@ -82,12 +134,15 @@
         flex-direction: column;
         align-items: center;
     }
+
     .container-title {
         width: 90%;
     }
+
     .container-title h1 {
         font-size: 3.25;
     }
+
     .container-title p {
         font-size: 1rem;
         text-align: center;
@@ -133,23 +188,28 @@
     .container-index {
         height: 720px;
     }
+
     .container-index .content {
         display: flex;
         flex-direction: column;
     }
+
     .container-index .content img {
         height: 280px;
         margin-top: 0;
     }
+
     .container-index .security-control {
         margin-top: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     .container-index .security-control h2 {
         font-size: 1.5rem;
     }
+
     .container-index .security-control p {
         font-size: 1rem;
     }
@@ -184,28 +244,60 @@
 }
 
 @keyframes flutuar {
-    0%   {top: 50px;}
-    50%  {top: 120px;}
-    100% {top: 0px;}
-  }
+    0% {
+        top: 50px;
+    }
+
+    50% {
+        top: 120px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
 
 @keyframes flutuar2 {
-    0%   {top: 50px;}
-    50%  {top: 250px;}
-    100% {top: 0px;}
-  }
-  
-  @keyframes flutuarResponsivo {
-    0%   {bottom: 0px;}
-    50%  {bottom: 120px;}
-    100% {bottom: 0px;}
-  }
+    0% {
+        top: 50px;
+    }
+
+    50% {
+        top: 250px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes flutuarResponsivo {
+    0% {
+        bottom: 0px;
+    }
+
+    50% {
+        bottom: 120px;
+    }
+
+    100% {
+        bottom: 0px;
+    }
+}
 
 @keyframes flutuar2Responsivo {
-    0%   {bottom: 50px;}
-    50%  {bottom: 200px;}
-    100% {bottom: 50px;}
-  }
+    0% {
+        bottom: 50px;
+    }
+
+    50% {
+        bottom: 200px;
+    }
+
+    100% {
+        bottom: 50px;
+    }
+}
 
 .container-about-us .about-us .books {
     display: flex;
@@ -234,6 +326,7 @@
         display: flex;
         align-items: center;
     }
+
     .container-about-us .about-us {
         display: flex;
         flex-direction: column-reverse;
@@ -241,37 +334,43 @@
         gap: 50px;
         height: 100%;
     }
+
     .container-about-us .about-us .books {
         margin-top: 0px;
     }
+
     .container-about-us .about-us .text-about-us {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     .container-about-us .about-us .text-about-us h2 {
         margin-top: 0;
         font-size: 1.5rem;
     }
+
     .container-about-us .about-us .text-about-us p {
         margin-top: 18px;
         font-size: 1rem;
         margin-bottom: 50px;
     }
+
     .books img {
         width: 120px;
         height: 80px;
-    }     
+    }
+
     .container-about-us .about-us .book1 {
         animation: flutuarResponsivo 8s infinite;
         position: relative;
     }
-    
+
     .container-about-us .about-us .book2 {
         animation: flutuar2Responsivo 10s infinite;
         position: relative;
     }
-    
+
     .container-about-us .about-us .book3 {
         animation: flutuarResponsivo 9s infinite;
         position: relative;
@@ -312,7 +411,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     width: 200px;
     height: 200px;
 }
@@ -321,7 +420,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     width: 200px;
     height: 200px;
 }
@@ -344,21 +443,25 @@
     .container-values {
         height: 720px;
     }
+
     .container-values .text-values h2 {
         margin-top: 50px;
         font-size: 1.5rem;
     }
+
     .container-values .box-values {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 80%;
     }
+
     .container-values .box-values img {
         margin-top: 12px;
         width: 100px;
         height: 66.666px;
     }
+
     .container-values .box-values h3 {
         font-size: 1.125rem;
         margin-top: 42px;
@@ -401,26 +504,31 @@
         height: 720px;
         display: flex;
     }
+
     .container-services {
         flex-direction: column;
         align-items: center;
         width: 80%;
         gap: 0px;
     }
+
     .container-services img {
         margin-top: 80px;
         width: 350px;
         height: 224px;
     }
+
     .container-services h2 {
         margin-top: 50px;
         font-size: 1.5rem;
     }
+
     .container-services .text-services {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     .container-services p {
         font-size: 1rem;
     }
@@ -455,11 +563,13 @@
     height: 100px;
 }
 
-.container-footer .box2 h3, .box3 h3 {
+.container-footer .box2 h3,
+.box3 h3 {
     margin-bottom: 14px;
 }
 
-.container-footer .box2 p, .box3 p {
+.container-footer .box2 p,
+.box3 p {
     margin-bottom: 5px;
 }
 
@@ -476,9 +586,11 @@
         height: 200px;
         width: 80%;
     }
+
     .container-footer .box1 {
         display: none;
     }
+
     .container-reserved-rights {
         text-align: center;
         width: 80%;
