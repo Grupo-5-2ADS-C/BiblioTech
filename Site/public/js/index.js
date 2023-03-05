@@ -22,7 +22,7 @@ if (target.length) {
 
 function openNav() {
     document.getElementById("myNav").style.width = "100%";
-    document.getElementById("myNav").style.height = "25%";
+    document.getElementById("myNav").style.height = "35%";
   }
 
   function closeNav() {
