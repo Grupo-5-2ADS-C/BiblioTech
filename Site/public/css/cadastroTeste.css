@@ -78,6 +78,7 @@ body {
     font-size: 1rem;
     border: rgba(221, 221, 221, 0.8) 1px solid;
     background-color: #F6F6F6;
+    box-shadow: 0px 2px 5px 0px rgba(39, 39, 39, 0.1);
 }
 
 .fase1 input:focus-visible {
@@ -130,6 +131,7 @@ body {
     font-size: 1rem;
     border: rgba(221, 221, 221, 0.8) 1px solid;
     background-color: #F6F6F6;
+    box-shadow: 0px 2px 5px 0px rgba(39, 39, 39, 0.1);
 }
 
 .fase2 input:focus-visible {
@@ -177,6 +179,7 @@ body {
     font-size: 1rem;
     border: rgba(221, 221, 221, 0.8) 1px solid;
     background-color: #F6F6F6;
+    box-shadow: 0px 2px 5px 0px rgba(39, 39, 39, 0.1);
 }
 
 .fase3 input:focus-visible {
