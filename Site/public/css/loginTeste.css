@@ -1,0 +1,169 @@
+body {
+    background-image: url(../img/Background\ Login\ e\ Cadastro.jpg);
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+.login-data {
+    width: 600px;
+    height: 500px;
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.login-data h1 {
+    font-size: 2.25rem;
+    color: #57B4CE;
+    margin-top: 25px;
+    margin-left: 32px;
+}
+
+.login-data .top-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 32px;
+    margin-top: 6px;
+}
+
+.login-data .separation {
+    height: 1px;
+    background-color: #DFDFDF;
+    width: 532px;
+
+    margin-top: 8px;
+    margin-left: 32px;
+}
+
+.login-image {
+    opacity: 0.5;
+}
+
+.input-label-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login label:first-of-type {
+    margin-top: 65px;
+}
+
+.login label:last-of-type {
+    margin-top: 16px;
+}
+
+.login label {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.login input {
+    margin-top: 6px;
+    width: 40%;
+    height: 32px;
+    background-color: #F6F6F6;
+    padding: 16px;
+    font-size: 1rem;
+    border: rgba(221, 221, 221, 0.8) 1px solid;
+}
+
+.login input:focus-visible {
+    transition: 1s;
+    border: #57B4CE 1px solid;
+}
+
+.login input::placeholder {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.btn-login {
+    width: 20%;
+    padding: 6px;
+    background-color: #57B4CE;
+    border-radius: 16px;
+    font-size: 1rem;
+    color: white;
+    margin-top: 44px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    transition: 0.3s;
+    transform: scale(1.02);
+}
+
+.btn-login:active {
+    transition: 0.3s;
+    transform: scale(0.97);
+}
+
+.input-label-login p {
+    text-decoration: underline;
+    margin-top: 18px;
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        display: none;
+    }
+
+    .login-image {
+        display: none;
+    }
+
+    body {
+        background-image: none;
+        background-color: white;
+    }
+
+    .login-data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+    }
+
+    .login-data h1 {
+        margin-left: 0;
+    }
+
+    .login-data .top-text {
+        margin-left: 0px;
+        margin-top: 12px;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .login-data .separation {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .input-label-login label {
+        font-size: 1.125rem;
+        margin-bottom: 6px;
+    }
+
+    .input-label-login input {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .input-label-login button {
+        width: 60%;
+        padding: 8px;
+    }
+
+    .input-label-login p {
+        font-size: 0.8rem;
+    }
+}
