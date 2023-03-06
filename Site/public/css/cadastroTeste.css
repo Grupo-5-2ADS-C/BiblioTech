@@ -1,0 +1,247 @@
+body {
+    background-image: url(../img/Background\ Login\ e\ Cadastro.jpg);
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+.sign-up-data {
+    width: 600px;
+    height: 500px;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.sign-up-data h1 {
+    font-size: 2.25rem;
+    color: #57B4CE;
+    margin-top: 25px;
+    margin-left: 32px;
+}
+
+.sign-up-data p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 32px;
+}
+
+.sign-up-data .separation {
+    height: 1px;
+    width: 532px;
+    background-color: #DFDFDF;
+    margin-top: 8px;
+    margin-left: 32px;
+}
+
+.sign-up-data h2 {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-left: 32px;
+}
+
+.fase1 {
+    display: none;
+}
+
+.first-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 48px;
+}
+
+.fase1 .first-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 60px;
+}
+
+.fase1 label {
+    margin-bottom: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.fase1 .first-column label:last-of-type {
+    margin-top: 14px;
+}
+
+.fase1 input {
+    width: 100%;
+    height: 32px;
+    padding: 16px;
+    font-size: 1rem;
+    border: rgba(221, 221, 221, 0.8) 1px solid;
+    background-color: #F6F6F6;
+}
+
+.fase1 input:focus-visible {
+    transition: 1s;
+    border: #57B4CE 1px solid;
+}
+
+.fase1 input::placeholder {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.fase1 .second-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.fase1 .second-column label:last-of-type {
+    margin-top: 14px;
+}
+
+.second-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.fase2 .first-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 60px;
+}
+
+.fase2 label {
+    margin-top: 14px;
+    margin-bottom: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.fase2 .first-column label:last-of-type {
+    margin-top: 14px;
+}
+
+.fase2 input {
+    width: 100%;
+    height: 32px;
+    padding: 16px;
+    font-size: 1rem;
+    border: rgba(221, 221, 221, 0.8) 1px solid;
+    background-color: #F6F6F6;
+}
+
+.fase2 input:focus-visible {
+    transition: 1s;
+    border: #57B4CE 1px solid;
+}
+
+.fase2 input::placeholder {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.fase2 .second-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.third-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 48px;
+}
+
+.fase3 .first-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 60px;
+}
+
+.fase3 label {
+    margin-bottom: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.fase3 .first-column label:last-of-type {
+    margin-top: 14px;
+}
+
+.fase3 input {
+    width: 100%;
+    height: 32px;
+    padding: 16px;
+    font-size: 1rem;
+    border: rgba(221, 221, 221, 0.8) 1px solid;
+    background-color: #F6F6F6;
+}
+
+.fase3 input:focus-visible {
+    transition: 1s;
+    border: #57B4CE 1px solid;
+}
+
+.fase3 input::placeholder {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.fase3 .second-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.fase3 .second-column label:last-of-type {
+    margin-top: 14px;
+}
+
+.sign-up-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.sign-up-btn button {
+    width: 20%;
+    padding: 8px 16px;
+    background-color: #57B4CE;
+    border-radius: 16px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+.sign-up-btn .dots {
+    display: flex;
+    margin-top: 12px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #57B4CE;
+  }
+
+.fade {
+    animation-name: fade;
+    animation-duration: 0.5s;
+  }
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }

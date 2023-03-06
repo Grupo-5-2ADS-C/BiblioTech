@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cadastroTeste.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <div class="container-header">
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li class="low-opacity">/</li>
+                        <li><a href="loginTeste.html">Login</a></li>
+                        <li class="low-opacity">/</li>
+                        <li><a href="cadastroTeste.html">Cadastre-se</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <header class="header-nav">
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="index.html">Início</a>
+                <a href="cadastroTeste.html">Cadastre-se</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="sign-up">
+        <div class="sign-up-data">
+            <h1>Junte-se a nós</h1>
+            <p>Cadastre-se no nosso site para ter acesso ao serviço de monitoramento.</p>
+            <div class="separation"></div>
+            <div class="fase1 mySlides fade">
+                <h2>Dados da Empresa</h2>
+                <div class="first-form">
+                    <div class="first-column">
+                        <label for="">Nome da Empresa</label>
+                        <input placeholder="Digite o nome da empresa" type="text">
+                        <label for="">CNPJ</label>
+                        <input placeholder="Digite o CNPJ da empresa" type="text">
+                    </div>
+                    <div class="second-column">
+                        <label for="">Responsável da Empresa</label>
+                        <input placeholder="Digite o responsável" type="text">
+                        <label for="">Celular / Telefone</label>
+                        <input placeholder="Digite o email da empresa" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="fase2 mySlides fade">
+                <h2>Dados de Endereço</h2>
+                <div class="second-form">
+                    <div class="first-column">
+                        <label for="">CEP</label>
+                        <input placeholder="Digite o CEP" type="text">
+                        <label for="">Número</label>
+                        <input placeholder="Digite número do endereço" type="text">
+                        <label for="">Cidade</label>
+                        <input placeholder="Digite a cidade" type="text">
+                    </div>
+                    <div class="second-column">
+                        <label for="">Logradouro</label>
+                        <input placeholder="Digite o logradouro" type="text">
+                        <label for="">Bairro</label>
+                        <input placeholder="Digite o bairro" type="text">
+                        <label for="">Complemento</label>
+                        <input placeholder="Digite o complemento" type="text">
+                    </div>
+                    <div class="second-column"></div>
+                </div>
+            </div>
+            <div class="fase3 mySlides fade">
+                <h2>Dados de Segurança</h2>
+                <div class="third-form">
+                    <div class="first-column">
+                        <label for="">Nome de Usuário</label>
+                        <input placeholder="Digite seu nome de usuário" type="text">
+                        <label for="">Senha</label>
+                        <input placeholder="Digite sua senha" type="text">
+                    </div>
+                    <div class="second-column">
+                        <label for="">Email</label>
+                        <input placeholder="Digite seu email" type="text">
+                        <label for="">Confirmação de Senha</label>
+                        <input placeholder="Confirme sua senha" type="text">
+                    </div>
+                </div>
+            </div>
+                <div class="sign-up-btn">
+                    <button onclick="plusSlides(1)">Próximo</button>
+                    <div class="dots">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+        </div>
+        <div class="sign-up-image">
+            <img src="img/Sliced Studying.jpg" alt="">
+        </div>
+    </section>
+
+</body>
+
+</html>
+
+<script src="js/index.js"></script>
+<script src="js/cadastro.js"></script>
