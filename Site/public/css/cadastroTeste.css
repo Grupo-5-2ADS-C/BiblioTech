@@ -293,13 +293,20 @@ body {
         margin-top: 20px;
     }
 
+    .overlay .closebtn {
+        position: absolute;
+        top: -4px;
+        right: 25px;
+    }
+
     .sign-up-data {
         width: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: start;
-        height: 100vh;
+        height: auto;
+        padding-bottom: 50px;
         border-bottom-left-radius: 0px;
         border-top-left-radius: 0px;
         margin-bottom: 20px;

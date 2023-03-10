@@ -129,16 +129,26 @@ body {
     }
 
     body {
-        background-image: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-nav {
+        margin-top: 20px !important;
         background-color: white;
+        width: 90%;
     }
 
     .login-data {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        padding-top: 50px;
         width: 90%;
+        height: 89vh;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
     }
 
     .login-data h1 {
@@ -164,7 +174,7 @@ body {
 
     .input-label-login input {
         width: 100%;
-        padding: 20px;
+        padding: 16px;
     }
 
     .input-label-login button {
@@ -174,5 +184,11 @@ body {
 
     .input-label-login p {
         font-size: 0.8rem;
+    }
+
+    .header-nav {
+        background-color: white;
+        margin-top: 20px;
+        width: 90%;
     }
 }
