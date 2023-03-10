@@ -206,16 +206,25 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    width: 100%;
+}
+
+.sign-up-btn .btn-go-back {
+    display: flex;
+    gap: 30px;
+    width: 45%;
+    justify-content: center;
 }
 
 .sign-up-btn button {
-    width: 20%;
+    width: 50%;
     padding: 8px 16px;
     background-color: #57B4CE;
     border-radius: 16px;
     font-size: 1rem;
     color: white;
     cursor: pointer;
+    text-align: center;
 }
 
 .sign-up-btn button:hover {
@@ -230,7 +239,7 @@ body {
 
 .sign-up-btn .dots {
     display: flex;
-    margin-top: 12px;
+    margin-top: 20px;
 }
 
 /* The dots/bullets/indicators */
@@ -260,3 +269,135 @@ body {
         transform: translateX(10px);
     }
   }
+
+@media screen and (max-width: 600px) {
+    .sign-up-image {
+        display: none;
+    }
+
+    .sign-up {
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-nav {
+        background-color: white;
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .sign-up-data {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        height: 100vh;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        margin-bottom: 20px;
+    }
+
+    .sign-up-data .separation {
+        width: 85%;
+        margin-left: 0;
+    }
+
+    .sign-up-data p {
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 12px;
+        margin-left: 0;
+        width: 85%;
+    }
+
+    .sign-up-data h1 {
+        margin-left: 0;
+    }
+
+    .fase1 .first-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fase1 .first-column {
+        margin-right: 0;
+    }
+
+    .fase1 input {
+        margin-bottom: 30px;
+    }
+
+    .fase1 .first-column label:last-of-type {
+        margin-top: 0px;
+    }
+
+    .fase1 .second-column label:last-of-type {
+        margin-top: 0px;
+    }
+
+    .fase1 h2 {
+        margin-top: 50px;
+        margin-left: 0;
+    }
+
+    .sign-up-btn .btn-go-back {
+        width: 70%;
+    }
+
+    .sign-up-btn button {
+        width: 50%;
+    }
+
+    .fase2 .second-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fase2 .first-column {
+        margin-right: 0;
+    }
+
+    .fase2 input {
+        margin-bottom: 20px;
+    }
+
+    .fase2 h2 {
+        margin-top: 50px;
+        margin-left: 0;
+    }
+
+    .fase3 .third-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fase3 .first-column {
+        margin-right: 0;
+    }
+
+    .fase3 input {
+        margin-bottom: 30px;
+    }
+
+    .fase3 .first-column label:last-of-type {
+        margin-top: 0px;
+    }
+
+    .fase3 .second-column label:last-of-type {
+        margin-top: 0px;
+    }
+
+    .fase3 h2 {
+        margin-top: 50px;
+        margin-left: 0;
+    }
+
+}

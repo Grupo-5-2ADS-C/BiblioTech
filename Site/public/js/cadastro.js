@@ -17,6 +17,17 @@ function showSlides(n) {
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
+    if (slideIndex == 1) {
+      document.getElementById("btn-back").style.display = "none";
+    } else {
+      document.getElementById("btn-back").style.display = "block";
+    }
+
+    if(slideIndex == 3) {
+      document.getElementById("btn-go").innerHTML = "Cadastrar";
+    } else {
+      document.getElementById("btn-go").innerHTML = "Próximo";
+    }
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
