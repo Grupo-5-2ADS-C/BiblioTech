@@ -626,3 +626,24 @@ li {
         font-size: 0.8rem;
     }
 }
+
+.footer .container-footer .box3 .contact .img_house, .img_mail, .img_phone {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: flex-start;
+
+}
+
+.footer .container-footer .box3 .contact {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.footer .container-footer .box3 .contact .img_phone, .img_house{
+    margin-left: -2.5px;
+}
