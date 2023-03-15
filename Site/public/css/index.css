@@ -165,16 +165,22 @@ li {
     }
 
     .container-title {
-        width: 90%;
+        width: 100%;
     }
 
     .container-title h1 {
         font-size: 3.25rem;
+        margin-right: 50%;
     }
 
     .container-title p {
         font-size: 1rem;
         text-align: center;
+    }
+
+    .container-img{
+        display: flex;
+        margin-left: 14%;
     }
 }
 
