@@ -163,7 +163,8 @@ li {
 
     .container-title h1 {
         font-size: 3rem;
-        margin-right: 52%;
+        align-self: center;
+        justify-content: center;
     }
 
     .container-img{
