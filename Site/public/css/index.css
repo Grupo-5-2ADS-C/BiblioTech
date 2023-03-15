@@ -15,6 +15,12 @@
     justify-content: center;
 }
 
+.header .container-header img {
+    position: absolute;
+    left: 50px;
+    top: 15px;
+}
+
 .header ul {
     display: flex;
     justify-content: center;
@@ -60,10 +66,15 @@ li {
         margin-top: 6px;
         display: flex;
         flex-direction: row-reverse;
+        justify-content: space-between;
     }
 
     .btn-nav {
         margin-right: 20px;
+    }
+
+    .header-nav img {
+        margin-left: 20px;
     }
 
     .overlay {
@@ -122,31 +133,12 @@ li {
     align-items: center;
 }
 
-
-
 .container-title h1 {
     color: #57B4CE;
     margin-top: 14px;
     font-size: 3.75rem;
     display: flex;
     width: 100%;
-    justify-content: flex-start;
-}
-
-.container-img{
-    display: flex;
-    width: 10%;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.container-img .img_title {
-    width: 160px;
-    height: 120px;
-    background-image: url(../img/logo\ bibliotech\ 190px.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: flex;
     justify-content: flex-start;
 }
 
@@ -167,19 +159,8 @@ li {
         justify-content: center;
     }
 
-    .container-img{
-        width: 150px;
-        height: 90px;
-        display: flex;
-        align-self: center;
-    }
-
-    .container-img .img_title{
-        width: 100px;
-        height: 80px;
-        background-image: url(../img/logo\ bibliotech\ 67px.png);
-        background-repeat: no-repeat;
-        background-size: contain;
+    .container-title img {
+        display: none;
     }
 }
 

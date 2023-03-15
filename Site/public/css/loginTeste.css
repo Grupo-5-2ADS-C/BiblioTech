@@ -140,6 +140,10 @@ body {
         width: 90%;
     }
 
+    .header-nav img {
+        margin-top: 6px;
+    }
+
     .login-data {
         display: flex;
         flex-direction: column;

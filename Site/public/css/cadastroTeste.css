@@ -293,6 +293,10 @@ body {
         margin-top: 20px;
     }
 
+    .header-nav img {
+        margin-top: 6px;
+    }
+
     .overlay .closebtn {
         position: absolute;
         top: -4px;
