@@ -108,6 +108,13 @@ li {
     }
 }
 
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+}
+
 .container-title {
     display: flex;
     flex-direction: column;
@@ -115,18 +122,15 @@ li {
     align-items: center;
 }
 
-.container-title .img_title {
-    width: 160px;
-    height: 120px;
-    background-image: url(../img/logo\ bibliotech\ 190px.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
+
 
 .container-title h1 {
     color: #57B4CE;
     margin-top: 14px;
     font-size: 3.75rem;
+    display: flex;
+    width: 10%;
+    justify-content: flex-start;
 }
 
 .container-title p {
@@ -134,6 +138,23 @@ li {
     font-weight: 500;
     margin-top: 30px;
     padding-bottom: 10px;
+}
+
+.container-img{
+    display: flex;
+    width: 25%;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.container-img .img_title {
+    width: 160px;
+    height: 120px;
+    background-image: url(../img/logo\ bibliotech\ 190px.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: flex-start;
 }
 
 @media screen and (max-width: 600px) {
