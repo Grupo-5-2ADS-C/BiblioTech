@@ -168,16 +168,18 @@ li {
     }
 
     .container-img{
+        width: 150px;
+        height: 90px;
         display: flex;
-        position: relative;
-        align-self: flex-start;
-        float: left;
-        float: inline-start;
+        align-self: center;
     }
 
     .container-img .img_title{
-        width: 90px;
-        height: 70px;
+        width: 100px;
+        height: 80px;
+        background-image: url(../img/logo\ bibliotech\ 67px.png);
+        background-repeat: no-repeat;
+        background-size: contain;
     }
 }
 
