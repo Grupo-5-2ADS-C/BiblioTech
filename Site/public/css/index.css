@@ -129,22 +129,15 @@ li {
     margin-top: 14px;
     font-size: 3.75rem;
     display: flex;
-    width: 10%;
+    width: 100%;
     justify-content: flex-start;
-}
-
-.container-title p {
-    font-size: 1.125rem;
-    font-weight: 500;
-    margin-top: 30px;
-    padding-bottom: 10px;
 }
 
 .container-img{
     display: flex;
-    width: 25%;
+    width: 10%;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .container-img .img_title {
@@ -169,18 +162,21 @@ li {
     }
 
     .container-title h1 {
-        font-size: 3.25rem;
-        margin-right: 50%;
-    }
-
-    .container-title p {
-        font-size: 1rem;
-        text-align: center;
+        font-size: 3rem;
+        margin-right: 52%;
     }
 
     .container-img{
         display: flex;
-        margin-left: 14%;
+        position: relative;
+        align-self: flex-start;
+        float: left;
+        float: inline-start;
+    }
+
+    .container-img .img_title{
+        width: 90px;
+        height: 70px;
     }
 }
 
