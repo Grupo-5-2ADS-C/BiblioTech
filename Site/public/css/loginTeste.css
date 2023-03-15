@@ -39,10 +39,6 @@ body {
     margin-left: 32px;
 }
 
-.login-image {
-    opacity: 0.5;
-}
-
 .input-label-login {
     display: flex;
     flex-direction: column;
