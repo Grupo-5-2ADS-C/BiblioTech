@@ -35,3 +35,36 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+
+/* Function para receber os dados do endereço atraves do cep, ultilizando a "VIACEP" */
+function consultaEndereco(){
+  let cep = document.querySelector('#cep_input').value
+
+  if(cep.length != 8){
+   alert('CEP invalido!');
+   return;
+}
+   let url = `https://viacep.com.br/ws/${cep}/json/`;
+
+   fetch(url).then(function(response){
+       response.json().then(function(data){
+           console.log(data) 
+       });
+   });
+
+   fetch(url).then(function(response){
+       response.json().then(completarEndereco);
+   });
+}
+
+/* Função para completar as inputs ultilizando o json retornado pela função anterior */
+
+function completarEndereco(dados){
+  if(dados.erro){
+      alert('Não foi possivel encontrar o endereço!')
+  } else {
+  logradouro_input.value = dados.logradouro
+  cidade_input.value = dados.localidade
+  bairro_input.value = dados.bairro
+  }
+}

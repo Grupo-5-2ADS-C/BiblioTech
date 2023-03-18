@@ -69,17 +69,17 @@
                 <div class="second-form">
                     <div class="first-column">
                         <label for="">CEP</label>
-                        <input placeholder="Digite o CEP" type="text">
+                        <input placeholder="Digite o CEP" type="text" id="cep_input" onchange="consultaEndereco(),completarEndereco()">
                         <label for="">Número</label>
                         <input placeholder="Digite número do endereço" type="text">
                         <label for="">Cidade</label>
-                        <input placeholder="Digite a cidade" type="text">
+                        <input placeholder="Digite a cidade" type="text" id="cidade_input">
                     </div>
                     <div class="second-column">
                         <label for="">Logradouro</label>
-                        <input placeholder="Digite o logradouro" type="text">
+                        <input placeholder="Digite o logradouro" type="text" id="logradouro_input">
                         <label for="">Bairro</label>
-                        <input placeholder="Digite o bairro" type="text">
+                        <input placeholder="Digite o bairro" type="text" id="bairro_input">
                         <label for="">Complemento</label>
                         <input placeholder="Digite o complemento" type="text">
                     </div>
@@ -123,6 +123,5 @@
 </body>
 
 </html>
-
 <script src="js/index.js"></script>
 <script src="js/cadastro.js"></script>
