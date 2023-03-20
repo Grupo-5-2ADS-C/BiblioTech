@@ -7,7 +7,7 @@
     --sidebar-color: #fcf9f9;
     --corPrimaria: #ffffff;
     --corSecundaria: #57B4CE;
-    --toggle-color:#dedada;
+    --toggle-color: #dedada;
     --corFonte: #171717;
     --switch-color: #ffffff;
 
@@ -19,7 +19,7 @@
     --transition-4: all 0.5s ease;
 }
 
-body.dark{
+body.dark {
     /* Cores da pagina */
     --body-color: #18191a;
     --sidebar-color: #242526;
@@ -53,13 +53,39 @@ body {
     background-color: var(--sidebar-color);
     border-radius: 0px 15px 15px 0px;
     padding: 10px 15px;
+    transition: var(--transition-4);
 }
+
+.side.close {
+    width: 60px;
+}
+
+.side.close .text {
+    opacity: 0;
+}
+
 
 .side header .toggle {
     cursor: pointer;
     position: absolute;
     top: 10%;
     right: -7%;
+    transform: translateY(-80%);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--corSecundaria);
+    border-radius: 50%;
+    border: 2px solid var(--sidebar-color);
+}
+
+.side.close header .toggle {
+    cursor: pointer;
+    position: absolute;
+    top: 10%;
+    right: -25%;
     transform: translateY(-80%);
     padding: 10px;
     display: flex;
@@ -86,8 +112,7 @@ body {
 
 .side .opt a {
     display: flex;
-    flex-direction: row;
-    font-size: 25px;
+    flex-direction: row;    font-size: 25px;
     color: var(--corFonte);
     text-decoration: none;
     border-radius: 10px;
@@ -115,36 +140,55 @@ body {
     justify-content: space-between;
 }
 
+.side.close .bottom {
+    height: 8vh;
+    font-size: 20px;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.side.close .mode {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 10px;
+}
+
+.side.close .mode .icon{
+    opacity: 0;
+}
+
 
 .bottom .mode a,
-.bottom .logout a{
+.bottom .logout a {
     color: var(--corFonte);
     display: flex;
     flex-direction: row;
     text-decoration: none;
     border-radius: 10px;
     padding: 10px 0px 10px 0px;
-    transition: var(--transition-2);
+    transition: var(--transition-4);
 }
 
 
-.bottom .logout a:hover{
+.bottom .logout a:hover {
     background-color: var(--corSecundaria);
 }
 
-.mode{
+.mode {
     display: flex;
     gap: 20px;
 }
 
-.mode .toggle-switch{
+.mode .toggle-switch {
     display: flex;
     align-items: center;
     height: 100%;
     min-width: 60px;
 }
 
-.toggle-switch .switch{
+.toggle-switch .switch {
     position: relative;
     border-radius: 25px;
     height: 22px;
@@ -152,7 +196,7 @@ body {
     background-color: var(--toggle-color);
 }
 
-.switch::before{
+.switch::before {
     content: '';
     border-radius: 50%;
     top: 50%;
@@ -163,10 +207,9 @@ body {
     width: 15px;
     background-color: var(--switch-color);
     cursor: pointer;
-    transition: var(--transition-2);
+    transition: var(--transition-4);
 }
 
-body.dark .switch::before{
+body.dark .switch::before {
     left: 24px;
-
 }
