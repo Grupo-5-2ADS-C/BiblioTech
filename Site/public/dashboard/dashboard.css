@@ -13,10 +13,10 @@
 
 
     /* Transição */
-    --transition-1: all 0.2s ease;
-    --transition-2: all 0.3s ease;
-    --transition-3: all 0.4s ease;
-    --transition-4: all 0.5s ease;
+    --transition-1: all 0.2s ease-in-out;
+    --transition-2: all 0.3s ease-in-out;
+    --transition-3: all 0.4s ease-in-out;
+    --transition-4: all 0.5s ease-in-out;
 }
 
 body.dark {
@@ -53,15 +53,7 @@ body {
     background-color: var(--sidebar-color);
     border-radius: 0px 15px 15px 0px;
     padding: 10px 15px;
-    transition: var(--transition-4);
-}
-
-.side.close {
-    width: 60px;
-}
-
-.side.close .text {
-    opacity: 0;
+    transition: var(--transition-1);
 }
 
 
@@ -79,23 +71,10 @@ body {
     background-color: var(--corSecundaria);
     border-radius: 50%;
     border: 2px solid var(--sidebar-color);
+    transform: rotate(180deg);
 }
 
-.side.close header .toggle {
-    cursor: pointer;
-    position: absolute;
-    top: 10%;
-    right: -25%;
-    transform: translateY(-80%);
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--corSecundaria);
-    border-radius: 50%;
-    border: 2px solid var(--sidebar-color);
-}
+
 
 .side .textHeader {
     font-size: 25px;
@@ -110,14 +89,16 @@ body {
     list-style: none;
 }
 
+
 .side .opt a {
     display: flex;
-    flex-direction: row;    font-size: 25px;
+    flex-direction: row;
+    font-size: 25px;
     color: var(--corFonte);
     text-decoration: none;
     border-radius: 10px;
     padding: 10px 0px 10px 0px;
-    transition: var(--transition-2);
+    transition: var(--transition-);
 }
 
 .side .opt a:hover {
@@ -140,24 +121,7 @@ body {
     justify-content: space-between;
 }
 
-.side.close .bottom {
-    height: 8vh;
-    font-size: 20px;
-    margin-bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
-.side.close .mode {
-    display: flex;
-    flex-direction: column-reverse;
-    margin-top: 10px;
-}
-
-.side.close .mode .icon{
-    opacity: 0;
-}
 
 
 .bottom .mode a,
