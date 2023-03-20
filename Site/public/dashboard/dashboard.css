@@ -1,12 +1,16 @@
-@import url(../css/main.css);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 
 :root {
     /* Cores da pagina */
     --body-color: #dedada;
     --sidebar-color: #fcf9f9;
     --corPrimaria: #ffffff;
-    --corSecundaria: #f4f1c4;
+    --corSecundaria: #57B4CE;
+    --toggle-color:#dedada;
     --corFonte: #171717;
+    --switch-color: #ffffff;
+
 
     /* Transição */
     --transition-1: all 0.2s ease;
@@ -15,7 +19,19 @@
     --transition-4: all 0.5s ease;
 }
 
+body.dark{
+    /* Cores da pagina */
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --corPrimaria: #3a3b3c;
+    --corSecundaria: #57b4ce;
+    --corFonte: #ccc;
+    --toggle-color: #57b4ce;
+    --switch-color: #ccc;
+}
+
 body {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--body-color);
@@ -114,4 +130,43 @@ body {
 
 .bottom .logout a:hover{
     background-color: var(--corSecundaria);
+}
+
+.mode{
+    display: flex;
+    gap: 20px;
+}
+
+.mode .toggle-switch{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    min-width: 60px;
+}
+
+.toggle-switch .switch{
+    position: relative;
+    border-radius: 25px;
+    height: 22px;
+    width: 44px;
+    background-color: var(--toggle-color);
+}
+
+.switch::before{
+    content: '';
+    border-radius: 50%;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--switch-color);
+    cursor: pointer;
+    transition: var(--transition-2);
+}
+
+body.dark .switch::before{
+    left: 24px;
+
 }
