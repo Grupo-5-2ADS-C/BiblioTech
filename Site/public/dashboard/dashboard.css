@@ -84,7 +84,7 @@ body {
 }
 
 .side .icon {
-    min-width: 60px;
+    min-width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
