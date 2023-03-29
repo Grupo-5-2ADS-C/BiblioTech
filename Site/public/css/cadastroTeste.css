@@ -1,5 +1,12 @@
 body {
-    background-image: url(../img/Background\ Login\ e\ Cadastro.jpg);
+    background-image: url(../img/background-cadastro-empresa.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header .container-header {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .sign-up {
@@ -262,6 +269,15 @@ body {
     animation-name: fade;
     animation-duration: 0.5s;
   }
+
+.sign-up-image {
+    background-color: #F6F6F6;
+    height: 500px;
+}
+
+.sign-up-image img {
+    height: 500px;
+}
   
 @keyframes fade {
     0% {

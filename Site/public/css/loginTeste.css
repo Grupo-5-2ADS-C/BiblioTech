@@ -1,5 +1,12 @@
 body {
-    background-image: url(../img/Background\ Login\ e\ Cadastro.jpg);
+    background-image: url(../img/background-login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header .container-header {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .login {
@@ -108,6 +115,15 @@ body {
 
 .loading {
     display: none;
+}
+
+.login-image {
+    height: 500px;
+    background-color: #fff;
+}
+
+.login-image img {
+    height: 500px;
 }
 
 @media screen and (max-width: 600px) {
