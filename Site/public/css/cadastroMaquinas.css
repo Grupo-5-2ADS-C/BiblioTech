@@ -1,0 +1,91 @@
+.separation-bar{
+    width: 1px;
+    height: 100vh;
+    background-color: #000;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content .title {
+    width: 33.75rem;
+    height: 3.875rem;
+    margin-top: 5rem;
+    margin-left: 10rem;
+}
+
+.content .title .span_title {
+    font-size: 2.5rem;
+    color: #57b4ce;
+    font-weight: 500;
+}
+
+.content .underbar {
+    margin-top: 1rem;
+    margin-left: 10rem;
+    height: 2px;
+    width: 46.25rem;
+    background-color: #dfdfdf;
+}
+
+.content .subtitle {
+    width: 14.875rem;
+    height: 1.875rem;
+    margin-top: 1.625rem;
+    margin-left: 10rem;
+}
+
+.content .subtitle .span_subtitle {
+    font-size: 1.25rem;
+}
+
+.content .form {
+    display: flex;
+    flex-direction: row;
+    height: 22rem;
+    width: 44rem;
+    margin-top: 2.875rem;
+    margin-left: 10rem;
+}
+
+.content .form label {
+    font-size: 1rem;
+    width: 20.25rem;
+}
+
+.content .form input {
+    background-color: #e0e0e0;
+    border: #d1d1d1 1px solid;;
+    width: 324px;
+    height: 40px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.content .form input:focus-visible{
+    transition: 1s;
+    border: #57b4ce 1px solid;
+}
+
+.content .form input::placeholder {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.content .form .first-column {
+    margin-right: 3.375rem;
+}
+
+.content button {
+    cursor: pointer;
+    margin-left: 27.125rem;
+    width: 160px;
+    height: 34px;
+    background-color: #57b4ce;
+    color: #fff;
+    font-size: 1.125rem;
+    border-radius: 8px;
+    margin-top: -4rem;
+}
