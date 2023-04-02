@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/dashboard-especifica.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cadastrofunc.css">
+    <title>Cadastro de funcionario</title>
   </head>
 
   <body>
@@ -97,7 +98,36 @@
         </ul>
       </div>
 
-      <div class="content"></div>
+      <div class="content">
+        <section class="sign-up">
+            <div class="sign-up-data">
+                <h1>Cadastro de Funcionários</h1>
+                <p>Dados do funcionário</p>
+                <div class="separation"></div>
+                <div class="fase1 mySlides fade">
+                    <div class="first-form">
+                        <div class="first-column">
+                            <label for="">Nome do funcionário</label>
+                            <input placeholder="Digite o nome do funcionario" type="text">
+                            <label for="">Email</label>
+                            <input placeholder="Digite o Email do funcionário" type="email">
+                            <label for="">Nome do funcionário</label>
+                            <input placeholder="Digite o Login de funcionario" type="text">
+                           
+                        </div>
+                        <div class="second-column">
+                            <label for="">Cargo do funcionario</label>
+                            <input placeholder="Digite o cargo" type="text">
+                            <label for="">Celular / Telefone</label>
+                            <input placeholder="Digite o telefone do funcionario" type="">
+                            <label for="">Senha</label>
+                            <input placeholder="Digite a senha do funcionario" type="password">
+                            <button id="btn-gerarSenha" onclick="">Gerar Senha</button>
+                        </div>
+                    </div>
+                </div>           
+        </section>
+      </div>
     </main>
   </body>
 </html>

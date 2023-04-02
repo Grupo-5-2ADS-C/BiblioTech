@@ -1,0 +1,187 @@
+.dashboard-especifico {
+    display: flex;
+}
+
+.menu {
+    height: 100vh;
+    width: 300px;
+    background-color: #FFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.menu__imagem {
+    width: 100px;
+    margin-top: 3.125rem;
+}
+
+.menu__bibliotech {
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: #505050;
+    margin-bottom: 4.5rem;
+}
+
+.menu__lista {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__box-links {
+    width: 75%;
+    background-color: #ffffff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 0.875rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.logout {
+    position: absolute;
+    bottom: 24px;
+}
+
+.menu__box-links:hover {
+    background-color: #f5f5f5;
+}
+
+.full__link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.menu__link {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-left: 0.725rem;
+}
+
+.menu__open {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.open__cadastro {
+    cursor: pointer;
+}
+
+.open__cadastro img {
+    width: 12px;
+}
+
+.menu__sub-items.closed {
+    animation: 0.2s menu__close forwards;
+}
+
+.menu__sub-items.open {
+    animation: 0.2s menu__open forwards;
+}
+
+@keyframes menu__open {
+    0% {
+        display: block;
+        opacity: 0;
+        transform: translateY(-15px);
+    } 
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes menu__close {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    } 
+    99% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.menu__sub-item {
+    gap: 0.875rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.menu__sub-item:first-of-type {
+    margin-bottom: 0.5rem;
+}
+
+.menu__sub-item .menu__icon {
+    font-size: 0.5rem;
+}
+
+.menu__icon {
+    font-size: 1.375rem;
+}
+
+.menu__sub-item:hover{
+    transition: 0.5s;
+    transform: scale(0.95);
+}
+
+.content {
+    height: calc(100vh - 2rem);
+    width: calc(100% - 300px);
+    background-color: #f3f3f3;
+    margin: 1rem 1rem 1rem 0;
+}
+.sign-up {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+.sign-up-data h1{
+ font-size: 40px;
+ width: 540px;
+ height: 62px;
+ left: 459px;
+ top: 96px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 40px;
+line-height: 49px;
+color: #57B4CE;
+}
+.separation{
+width: 740px;
+height: 2px;
+left: 459px;
+top: 174px;
+background: #DFDFDF;
+}
+.sign-up-data p{
+width: 238px;
+height: 30px;
+left: 459px;
+top: 202px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+color: #000000;
+}
