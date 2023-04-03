@@ -7,18 +7,11 @@
     --sidebar-color: #ffffff;
     --cor-primaria: #ffffff;
     --cor-secundaria: #57B4CE;
-    --hover-color:#f5f5f5;
+    --hover-color: #f5f5f5;
     --toggle-color: #dedada;
     --cor-fonte: #171717;
     --cor-fonte-sec: #505050;
     --switch-color: #ffffff;
-
-
-    /* Transição */
-    --transition-1: all 0.2s ease-in-out;
-    --transition-2: all 0.3s ease-in-out;
-    --transition-3: all 0.4s ease-in-out;
-    --transition-4: all 0.5s ease-in-out;
 }
 
 body.dark {
@@ -27,7 +20,7 @@ body.dark {
     --sidebar-color: #242526;
     --cor-primaria: #242526;
     --cor-secundaria: #57b4ce;
-    --hover-color:#57c4ce;
+    --hover-color: #57c4ce;
     --cor-fonte: #ffffff;
     --cor-fonte-sec: #f1f1f1;
     --toggle-color: #57b4ce;
@@ -36,22 +29,23 @@ body.dark {
 
 }
 
-.dashboard-especifico {
+.dashboard {
     display: flex;
+    background-color: var(--body-color);
 }
 
-a{
+a {
     color: var(--cor-fonte);
 }
 
-ion-icon{
+ion-icon {
     color: var(--cor-fonte);
 }
 
 .menu {
     height: 100vh;
     width: 300px;
-    background-color:var(--sidebar-color);
+    background-color: var(--sidebar-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,9 +86,9 @@ ion-icon{
     border-radius: 10px;
 }
 
-.menu__mode-links{
+.menu__mode-links {
     background-color: var(--sidebar-color);
-    
+
 }
 
 .logout {
@@ -206,6 +200,8 @@ ion-icon{
     width: calc(100% - 300px);
     background-color: var(--body-color);
     margin: 1rem 1rem 1rem 0;
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -216,7 +212,7 @@ ion-icon{
     bottom: -20%;
 }
 
-.mode-text{
+.mode-text {
     color: var(--cor-fonte);
     font-weight: 500;
 }
@@ -247,9 +243,42 @@ ion-icon{
     height: 15px;
     width: 15px;
     background-color: var(--switch-color);
-    transition: var(--transition-2);
+    transition: all 0.3s ease-in-out;
 }
 
 body.dark .switch::before {
     left: 24px;
+}
+
+.cardclass {
+    height: 100%;
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-top: 3%;
+}
+
+.card {
+    width: 95%;
+    height: 95%;
+    background: var(--cor-primaria);
+    margin-left: 7%;
+    border-radius: 10px;
+}
+
+.quarterclass{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 3%;
+}
+
+.item{
+    width: 80%;
+    height: 10%;
+    background-color: var(--cor-primaria);
+    border-radius: 10px;
 }
