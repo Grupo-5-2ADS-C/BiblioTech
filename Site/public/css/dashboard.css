@@ -256,6 +256,7 @@ body.dark .switch::before {
     display: grid;
     grid-template-columns: auto auto;
     padding-top: 3%;
+    row-gap: 15px;
 }
 
 .card {
@@ -266,19 +267,36 @@ body.dark .switch::before {
     border-radius: 10px;
 }
 
-.quarterclass{
+.title__card {
+    color: var(--cor-fonte);
+    position: absolute;
+    font-size: 20px;
+    transform: translateY(-100%);
+}
+
+
+.quarterclass {
     width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 25px;
     padding-top: 3%;
 }
 
-.item{
+.item {
     width: 80%;
     height: 10%;
     background-color: var(--cor-primaria);
     border-radius: 10px;
+    display: flex;
+    
+}
+
+.title__quarter {
+    color: var(--cor-fonte);
+    position: absolute;
+    font-size: 15px;
+    transform: translateY(-110%);
 }
