@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+}
+
+.row {
+    width: 95%;
+    margin-left: 2%;
+}
+
+h2{
+    color:#57b4ce;
+}
+
+.btn{
+    background-color:#57b4ce;
+    color: #f1f1f1;
+}
+
+/* Funcionarios scroll-bar */
+.scroll{
+    overflow-y: scroll;
+    height: 350px;
+    }
+
+    .scroll::-webkit-scrollbar {
+        width: 10px; 
+      }
+      
+      .scroll::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      
+      .scroll::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+      }
+      
+      .scroll::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+      }
