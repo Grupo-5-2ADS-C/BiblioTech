@@ -60,13 +60,14 @@
 }
 
 .content .content-sign-up .form input:focus-visible {
-    transform: 1s;
+    transition: 1s;
     border: #57b4ce 1px solid;
 }
 
 .content .content-sign-up .form input::placeholder {
     font-size: 0.8rem;
     opacity: 0.6;
+    margin-left: 12px;
 }
 
 .content .content-sign-up button {
