@@ -29,9 +29,17 @@ body.dark {
 
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--sidebar-color);
+}
+
 .dashboard {
     display: flex;
-    background-color: var(--body-color);
+    background-color: var(--sidebar-color);
 }
 
 a {
@@ -202,6 +210,7 @@ ion-icon {
     margin: 1rem 1rem 1rem 0;
     display: flex;
     flex-direction: row;
+    border-radius: 0px 5px 5px 0px;
 }
 
 
@@ -257,13 +266,15 @@ body.dark .switch::before {
     grid-template-columns: auto auto;
     padding-top: 3%;
     row-gap: 15px;
+    overflow-y: hidden;
+    overflow-y: scroll;
 }
 
 .card {
     width: 95%;
     height: 95%;
     background: var(--cor-primaria);
-    margin-left: 7%;
+    margin-left: 3%;
     border-radius: 10px;
 }
 
@@ -272,6 +283,7 @@ body.dark .switch::before {
     position: absolute;
     font-size: 20px;
     transform: translateY(-100%);
+    font-weight: 500;
 }
 
 
@@ -285,18 +297,59 @@ body.dark .switch::before {
     padding-top: 3%;
 }
 
-.item {
-    width: 80%;
-    height: 10%;
+.indicate{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 4px solid var(--sidebar-color);
+    padding-bottom: 25px;
+}
+
+.indicate__card{
     background-color: var(--cor-primaria);
+    height: 100%;
+    width: 70%;
     border-radius: 10px;
     display: flex;
-    
+    align-items: center;
+}
+
+.indicate__card img{
+    width: 29px;
+    margin-left: 5px;
+}
+
+.card__quarter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 50%;
+    display: flex;
+    gap: 20px;
+}
+
+.item{
+    width: 90%;
+    height: 14%;
+    border-radius: 10px;
+    background-color: var(--cor-primaria);
 }
 
 .title__quarter {
+    font-weight: 500;
     color: var(--cor-fonte);
     position: absolute;
     font-size: 15px;
     transform: translateY(-110%);
+}
+
+.header{
+    color: var(--cor-fonte);
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
