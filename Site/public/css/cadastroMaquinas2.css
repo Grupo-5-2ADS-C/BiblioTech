@@ -1,0 +1,81 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .content-sign-up {
+    display: flex;
+    flex-direction: column;
+}
+
+.content .content-sign-up .title {
+    width: 33.75rem;
+    height: 3.875rem;
+}
+
+.content .content-sign-up .title .span_title {
+    font-size: 2.5rem;
+    color: #57b4ce;
+    font-weight: 500;
+}
+
+.content .content-sign-up .underbar {
+    margin-top: 1rem;
+    height: 2px;
+    width: 46.25rem;
+    background-color: #dfdfdf;
+}
+
+.content .content-sign-up .subtitle {
+    width: 14.875rem;
+    height: 1.875rem;
+    margin-top: 1.625rem;
+}
+
+.content .content-sign-up .subtitle .span_subtitle {
+    font-size: 1.25rem;
+}
+
+.content .content-sign-up .form {
+    display: flex;
+    flex-direction: row;
+    height: 18rem;
+    width: 44rem;
+    margin-top: 2.875rem;
+}
+
+.content .content-sign-up .form label {
+    font-size: 1rem;
+    width: 20.25rem;
+}
+
+.content .content-sign-up .form input {
+    background-color: #e0e0e0;
+    border: #d1d1d1 1px solid;
+    width: 324px;
+    height: 40px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.content .content-sign-up .form input:focus-visible {
+    transform: 1s;
+    border: #57b4ce 1px solid;
+}
+
+.content .content-sign-up .form input::placeholder {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.content .content-sign-up button {
+    align-self: center;
+    cursor: pointer;
+    width: 160px;
+    height: 34px;
+    background-color: #57b4ce;
+    color: #fff;
+    font-size: 1.125rem;
+    border-radius: 8px;
+}
