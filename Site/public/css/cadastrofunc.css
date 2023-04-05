@@ -68,20 +68,26 @@
     opacity: 0.6;
 }
 
-.content .form .first-column {
-    margin-right: 3.375rem;
-}
-.content .form .second-column {
-    margin-right: 3.375rem;
+.content .first-form{
+    position: relative;
+    right: 15%;
 }
 
-.content button {
+.content .first-column{
+    position: relative;
+    left: 5%;
+}
+.content .second-column{
+    position: relative;
+    left: 20%;
+}
+
+.content .bt {
     cursor: pointer;
-    margin-left: 27.125rem;
     width: 160px;
     height: 34px;
-    background-color: #57b4ce;
-    color: #fff;
+    background-color: #E6E6E6;
+    color: #000;
     font-size: 1.125rem;
-    border-radius: 8px;
+    border-radius:4px;
 }
