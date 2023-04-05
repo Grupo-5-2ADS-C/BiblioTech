@@ -67,7 +67,7 @@
 .content .content-sign-up .form input::placeholder {
     font-size: 0.8rem;
     opacity: 0.6;
-    margin-left: 12px;
+    padding-left: 8px;
 }
 
 .content .content-sign-up button {
