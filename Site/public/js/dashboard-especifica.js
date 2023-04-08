@@ -1,7 +1,7 @@
 function getId(param) {
     console.log(document.getElementById(param))
     return document.getElementById(param);
-} 
+}
 
 function close(display) {
     display.classList.add('closed');
@@ -23,4 +23,29 @@ function open__menu(param) {
     } else {
         close(display);
     }
+}
+
+var cpu = document.getElementById('status__cpu');
+var memoria = document.getElementById('status__memoria');
+var disco = document.getElementById('status__disco');
+
+function changeStatus__cpu() {
+
+    cpu.classList.add('active-graph');
+    memoria.classList.remove('active-graph');
+    disco.classList.remove('active-graph');
+}
+
+function changeStatus__memoria() {
+
+    memoria.classList.add('active-graph');
+    cpu.classList.remove('active-graph');
+    disco.classList.remove('active-graph');
+}
+
+function changeStatus__disco() {
+
+    disco.classList.add('active-graph');
+    cpu.classList.remove('active-graph');
+    memoria.classList.remove('active-graph');
 }
