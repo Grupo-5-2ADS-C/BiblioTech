@@ -16,6 +16,16 @@ h2{
     color: #f1f1f1;
 }
 
+.menu__sub-item .menu__icon{
+  position: relative;
+  left: 2em;
+}
+.btn:hover{
+  background-color: #7ab4ee;
+  color: #f1f1f1;
+}
+
+
 /* Funcionarios scroll-bar */
 .scroll{
     overflow-y: scroll;
@@ -38,3 +48,13 @@ h2{
       .scroll::-webkit-scrollbar-thumb:hover {
         background: #555; 
       }
+
+
+     .menu__icon .bttn {
+        color: black;
+        font-weight: unset;
+        text-decoration: none;
+        font-size: 0.9em;
+      }
+
+      
