@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/dashboard-especifica.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Document</title>
 </head>
 
@@ -165,7 +166,11 @@
       <div class="content__bottom">
         <div class="content__bottom-dashGeral">
           <h3>Dashboard Geral</h3>
-          <div class="content__bottom-graficoGeral"></div>
+          <div class="content__bottom-graficoGeral">
+            <div class="chartJS">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
           <div class="content__bottom-statusGeral">
             <div id="status__cpu" class="statusGeral__box active-graph">
               <button onclick="changeStatus__cpu()" id="changeStatus__cpu">
@@ -186,7 +191,11 @@
         </div>
         <div class="content__bottom-dashRede">
           <h3>Dashboard de Rede</h3>
-          <div class="content__bottom-graficoRede"></div>
+          <div class="content__bottom-graficoRede">
+            <div class="chartJS2">
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
           <div class="content__bottom-statusRede">
             <h1>Métricas de Rede</h1>
           </div>

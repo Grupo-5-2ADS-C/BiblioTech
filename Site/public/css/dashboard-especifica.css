@@ -95,7 +95,8 @@
         display: block;
         opacity: 0;
         transform: translateY(-15px);
-    } 
+    }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -106,11 +107,13 @@
     0% {
         opacity: 1;
         transform: translateY(0);
-    } 
+    }
+
     99% {
         opacity: 0;
         transform: translateY(-15px);
     }
+
     100% {
         opacity: 0;
         display: none;
@@ -137,7 +140,7 @@
     font-size: 1.375rem;
 }
 
-.menu__sub-item:hover{
+.menu__sub-item:hover {
     transition: 0.5s;
     transform: scale(0.95);
 }
@@ -153,12 +156,11 @@
 
 .content__bottom {
     display: flex;
-    flex: 1;
     height: 60%;
 }
 
 .content__bottom-dashGeral {
-    flex-grow: 1.8;
+    width: 50%;
     margin: 0 14px;
     margin-right: 7px;
     display: flex;
@@ -166,8 +168,8 @@
 }
 
 .content__bottom-dashRede {
-    flex-grow: 1;
-    margin: 0 14px;  
+    width: 50%;
+    margin: 0 14px;
     margin-left: 7px;
     display: flex;
     flex-direction: column;
@@ -185,20 +187,42 @@
     border-radius: 10px;
 }
 
+.chartJS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 1%;
+    padding: 1%;
+}
+
 .content__bottom-graficoRede {
     background-color: #fff;
     height: 90%;
     border-radius: 10px;
 }
 
-.content__bottom-statusGeral, .content__bottom-statusRede {
+.chartJS2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 1%;
+    padding: 1%;
+}
+
+.content__bottom-statusGeral,
+.content__bottom-statusRede {
     height: 10%;
     background-color: #fff;
     margin: 10px 0;
     display: flex;
 }
 
-.content__bottom-statusGeral h1, .content__bottom-statusRede h1 {
+.content__bottom-statusGeral h1,
+.content__bottom-statusRede h1 {
     font-size: 1.375rem;
     font-weight: 500;
     color: #57B4CE;
@@ -218,7 +242,9 @@
     opacity: 100%;
 }
 
-#changeStatus__disco, #changeStatus__memoria, #changeStatus__cpu {
+#changeStatus__disco,
+#changeStatus__memoria,
+#changeStatus__cpu {
     cursor: pointer;
     width: 100%;
 }
@@ -230,7 +256,8 @@
 @keyframes transitionBox {
     0% {
         opacity: 0;
-    } 
+    }
+
     100% {
         opacity: 1;
     }
@@ -252,7 +279,7 @@
     border-top-right-radius: 15px;
     display: flex;
     align-items: center;
-    
+
 }
 
 .content__top-indicadores {
@@ -283,7 +310,11 @@
     padding-right: 10px;
 }
 
-.alerta__perigo-alto, .alerta__atencao-alto, .alerta__ok, .alerta__atencao-baixo, .alerta__perigo-baixo {
+.alerta__perigo-alto,
+.alerta__atencao-alto,
+.alerta__ok,
+.alerta__atencao-baixo,
+.alerta__perigo-baixo {
     width: 100%;
     height: 40px;
     min-height: 40px;
@@ -296,6 +327,7 @@
 .alerta__perigo-alto {
     background-color: #FFAFB5;
 }
+
 .alerta__perigo-alto img {
     width: 2.5rem;
     height: 2.125rem;
@@ -305,7 +337,8 @@
 .alerta__atencao-alto {
     background-color: #FFCD82;
 }
-.alerta__atencao-alto img{
+
+.alerta__atencao-alto img {
     width: 1.875rem;
     height: 1.875rem;
     margin-left: 10px;
@@ -314,6 +347,7 @@
 .alerta__ok {
     background-color: #B2FFBB;
 }
+
 .alerta__ok img {
     width: 1.75rem;
     height: 1.75rem;
@@ -323,6 +357,7 @@
 .alerta__atencao-baixo {
     background-color: #95D9FF;
 }
+
 .alerta__atencao-baixo img {
     width: 1.875rem;
     height: 1.875rem;
@@ -332,6 +367,7 @@
 .alerta__perigo-baixo {
     background-color: #C6EDFF;
 }
+
 .alerta__perigo-baixo img {
     width: 2.5rem;
     height: 2.5rem;
@@ -347,7 +383,7 @@
 
 .content__top-alertasRecentes {
     position: relative;
-    flex-grow: 1.5;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -372,7 +408,8 @@
     overflow-y: scroll;
 }
 
-.boxAlertas__left, .boxAlertas__right {
+.boxAlertas__left,
+.boxAlertas__right {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -423,4 +460,10 @@
 ::-webkit-scrollbar-thumb {
     background-color: #E6E6E6;
     border-radius: 5px;
+}
+
+@media screen and (min-width: 1370px) {
+    .content__top-alertasRecentes {
+        flex-grow: 1.2;
+    }
 }
