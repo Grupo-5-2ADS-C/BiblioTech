@@ -58,6 +58,8 @@ sistemaOperacional VARCHAR(45),
 fabricante VARCHAR(45),
 arquitetura VARCHAR(45),
 setor VARCHAR(45),
+login VARCHAR(45),
+senha VARCHAR(256),
 fkBiblioteca INT,
 FOREIGN KEY (fkBiblioteca) REFERENCES biblioteca(idBiblioteca)
 );
@@ -67,8 +69,7 @@ CREATE TABLE componenteMaquina (
 idComponenteMaquina INT PRIMARY KEY AUTO_INCREMENT,
 tipo VARCHAR(100),
 descricao VARCHAR(100),
-fabricante VARCHAR(100),
-usoMaximo DOUBLE
+fabricante VARCHAR(100)
 );
 
 -- Entidade associativaComponenteMaquina
@@ -78,6 +79,8 @@ FOREIGN KEY (fkComponenteMaquina) REFERENCES componenteMaquina(idComponenteMaqui
 fkMaquina INT,
 FOREIGN KEY (fkMaquina) REFERENCES maquina(idMaquina),
 numeroSerial VARCHAR(100),
+usoMaximo DOUBLE,
+freqMaxima DOUBLE,
 PRIMARY KEY (fkComponenteMaquina, fkMaquina)
 );
 
@@ -85,7 +88,7 @@ PRIMARY KEY (fkComponenteMaquina, fkMaquina)
 CREATE TABLE metrica (
 idMetrica INT AUTO_INCREMENT,
 uso DOUBLE,
-velocidade DOUBLE,
+frequencia DOUBLE,
 fkComponenteMaquina INT,
 FOREIGN KEY (fkComponenteMaquina) REFERENCES componenteMaquina(idComponenteMaquina),
 fkMaquina INT,
