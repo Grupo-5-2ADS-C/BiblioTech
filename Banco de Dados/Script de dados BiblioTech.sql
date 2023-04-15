@@ -8,7 +8,7 @@ USE bibliotech;
 
 -- Entidade biblioteca
 CREATE TABLE biblioteca (
-idBiblioteca INT PRIMARY KEY AUTO_INCREMENT,
+id_biblioteca INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 CNPJ CHAR(14),
 responsavel VARCHAR(45),
@@ -20,93 +20,93 @@ senha VARCHAR(256));
 
 -- Entidade endereco
 CREATE TABLE endereco (
-idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+id_endereco INT PRIMARY KEY AUTO_INCREMENT,
 CEP CHAR(8),
 logradouro VARCHAR(100),
 bairro VARCHAR(100),
 cidade VARCHAR(45));
 
 -- Entidade associativa entre biblioteca e endereco
-CREATE TABLE dadosUnicosEndereco (
-fkBiblioteca INT,
-FOREIGN KEY (fkBiblioteca) REFERENCES biblioteca(idBiblioteca),
-fkEndereco INT,
-FOREIGN KEY (fkEndereco) REFERENCES endereco(idEndereco),
-PRIMARY KEY (fkBiblioteca, fkEndereco),
+CREATE TABLE dados_unicos_endereco (
+fk_biblioteca INT,
+FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
+fk_endereco INT,
+FOREIGN KEY (fk_endereco) REFERENCES endereco(id_endereco),
+PRIMARY KEY (fk_biblioteca, fk_endereco),
 numero CHAR(5),
 complemento VARCHAR(45)
 );
 
 -- Entidade usuario
 CREATE TABLE usuario (
-idUsuario INT AUTO_INCREMENT,
+id_usuario INT AUTO_INCREMENT,
 nome VARCHAR(45),
 cargo VARCHAR(45),
 email VARCHAR(100),
 CONSTRAINT chkEmailUsuario CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.'), 
 login VARCHAR(45),
 senha VARCHAR(256),
-fkBiblioteca INT,
-FOREIGN KEY (fkBiblioteca) REFERENCES biblioteca(idBiblioteca),
-PRIMARY KEY (idUsuario, fkBiblioteca)
+fk_biblioteca INT,
+FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
+PRIMARY KEY (id_usuario, fk_biblioteca)
 );
 
 -- Entidade maquina
 CREATE TABLE maquina (
-idMaquina INT PRIMARY KEY AUTO_INCREMENT,
-sistemaOperacional VARCHAR(45),
+id_maquina INT PRIMARY KEY AUTO_INCREMENT,
+sistema_operacional VARCHAR(45),
 fabricante VARCHAR(45),
 arquitetura VARCHAR(45),
 setor VARCHAR(45),
 login VARCHAR(45),
 senha VARCHAR(256),
-fkBiblioteca INT,
-FOREIGN KEY (fkBiblioteca) REFERENCES biblioteca(idBiblioteca)
+fk_biblioteca INT,
+FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca)
 );
 
 -- Entidade componenteMaquina
-CREATE TABLE componenteMaquina (
-idComponenteMaquina INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE componente_maquina (
+id_componente_maquina INT PRIMARY KEY AUTO_INCREMENT,
 tipo VARCHAR(100),
 descricao VARCHAR(100),
 fabricante VARCHAR(100)
 );
 
 -- Entidade associativaComponenteMaquina
-CREATE TABLE associativaComponenteMaquina (
-fkComponenteMaquina INT,
-FOREIGN KEY (fkComponenteMaquina) REFERENCES componenteMaquina(idComponenteMaquina),
-fkMaquina INT,
-FOREIGN KEY (fkMaquina) REFERENCES maquina(idMaquina),
-numeroSerial VARCHAR(100),
-usoMaximo DOUBLE,
-freqMaxima DOUBLE,
-PRIMARY KEY (fkComponenteMaquina, fkMaquina)
+CREATE TABLE associativa_componente_maquina (
+fk_componente_maquina INT,
+FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
+fk_maquina INT,
+FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+numero_serial VARCHAR(100),
+uso_maximo DOUBLE,
+freq_maxima DOUBLE,
+PRIMARY KEY (fk_componente_maquina, fk_maquina)
 );
 
 -- Entidade metricas
 CREATE TABLE metrica (
-idMetrica INT AUTO_INCREMENT,
+id_metrica INT AUTO_INCREMENT,
 uso DOUBLE,
 frequencia DOUBLE,
-fkComponenteMaquina INT,
-FOREIGN KEY (fkComponenteMaquina) REFERENCES componenteMaquina(idComponenteMaquina),
-fkMaquina INT,
-FOREIGN KEY (fkMaquina) REFERENCES maquina(idMaquina),
-PRIMARY KEY (idMetrica, fkComponenteMaquina, fkMaquina)
+fk_componente_maquina INT,
+FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
+fk_maquina INT,
+FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+PRIMARY KEY (id_metrica, fk_componente_maquina, fk_maquina)
 );
 
 -- Entidade alerta
 CREATE TABLE alerta (
-idAlerta INT AUTO_INCREMENT,
-dtAlerta DATETIME,
-textoAviso VARCHAR(100),
-fkMetrica INT,
-FOREIGN KEY (fkMetrica) REFERENCES metrica(idMetrica),
-fkComponenteMaquina INT,
-FOREIGN KEY (fkComponenteMaquina) REFERENCES componenteMaquina(idComponenteMaquina),
-fkMaquina INT,
-FOREIGN KEY (fkMaquina) REFERENCES maquina(idMaquina),
-PRIMARY KEY (idAlerta, fkMetrica, fkComponenteMaquina, fkMaquina)
+id_alerta INT AUTO_INCREMENT,
+dt_alerta DATETIME,
+texto_aviso VARCHAR(100),
+fk_metrica INT,
+FOREIGN KEY (fk_metrica) REFERENCES metrica(id_metrica),
+fk_componente_maquina INT,
+FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
+fk_maquina INT,
+FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+PRIMARY KEY (id_alerta, fk_metrica, fk_componente_maquina, fk_maquina)
 );
 
