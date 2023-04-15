@@ -6,86 +6,88 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/dashboard-especifica.css" />
+  <link rel="stylesheet" href="./css/dashboard-especifica.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Document</title>
 </head>
 
 <body>
-  <main class="dashboard-especifico">
-    <div class="menu">
-      <img src="img/logo bibliotech 190px.png" alt="Logo BiblioTech" class="menu__imagem" />
-      <h1 class="menu__bibliotech">BiblioTech</h1>
+    <main class="dashboard-especifico">
+      <div class="menu">
+        <img
+          src="img/logo bibliotech 190px.png"
+          alt="Logo BiblioTech"
+          class="menu__imagem"
+        />
+        <h1 class="menu__bibliotech">BiblioTech</h1>
 
-      <ul class="menu__lista">
-        <li class="menu__box-links">
-          <a href="#" class="full__link"></a>
-          <div class="menu__links">
-            <span class="menu__icon">
-              <ion-icon name="person"></ion-icon>
-            </span>
-            <span class="menu__link">Usuário</span>
-          </div>
-        </li>
-        <li class="menu__box-links">
-          <a href="" class="full__link"></a>
-          <div class="menu__links">
-            <span class="menu__icon">
-              <ion-icon name="stats-chart"></ion-icon>
-            </span>
-            <span class="menu__link">Dashboard</span>
-          </div>
-        </li>
-        <li class="menu__box-links">
-          <a href="" class="full__link"></a>
-          <div class="menu__links">
-            <span class="menu__icon">
-              <ion-icon name="newspaper-outline"></ion-icon>
-            </span>
-            <span class="menu__link">Log de recursos</span>
-          </div>
-        </li>
-        <li class="menu__box-links">
-          <a href="" class="full__link"></a>
-          <div class="menu__links">
-            <span class="menu__icon">
-              <ion-icon name="download-outline"></ion-icon>
-            </span>
-            <span class="menu__link">Baixar aplicação</span>
-          </div>
-        </li>
-        <li class="menu__box-links">
-          <div class="menu__links">
-            <span class="menu__icon">
-              <ion-icon name="person-add"></ion-icon>
-            </span>
-            <button onclick="open__menu('menu__subitems')" class="open__cadastro">
-              <span class="menu__link">Cadastros</span>
-              <img class="menu__open" id="menu__state" src="img/up-arrow.png" alt="" />
-            </button>
-          </div>
-        </li>
-        <ul id="menu__subitems" class="menu__sub-items closed">
-          <li class="menu__sub-item">
-            <ion-icon name="square" class="menu__icon"></ion-icon>
-            <a href="#"> Funcionários </a>
+        <ul class="menu__lista">
+          <li class="menu__box-links">
+            <a href="#" class="full__link"></a>
+            <div class="menu__links">
+              <span class="menu__icon">
+                <ion-icon name="person"></ion-icon>
+              </span>
+              <span class="menu__link">Usuário</span>
+            </div>
           </li>
-          <li class="menu__sub-item">
-            <ion-icon name="square" class="menu__icon"></ion-icon>
-            <a href="#"> Máquinas </a>
+          <li class="menu__box-links">
+            <a href="" class="full__link"></a>
+            <div class="menu__links">
+              <span class="menu__icon">
+                <ion-icon name="stats-chart"></ion-icon>
+              </span>
+              <div class="dropdown">
+                  <span class="menu__link">Dashboard</span>
+                  <div class="dropdown-content">
+                    <a href="dashboard-geral.html" >Dashboard</a><br>
+                    <a href="dashboard.html">Dashboard-especifica</a>
+                  </div>
+                </div>
+            </div>
+          </li>
+          <li class="menu__box-links">
+            <a href="" class="full__link"></a>
+            <div class="menu__links">
+              <span class="menu__icon">
+                <ion-icon name="newspaper-outline"></ion-icon>
+              </span>
+              <span class="menu__link">Log de recursos</span>
+            </div>
+          </li>
+          <li class="menu__box-links">
+            <a href="" class="full__link"></a>
+            <div class="menu__links">
+              <span class="menu__icon">
+                <ion-icon name="download-outline"></ion-icon>
+              </span>
+              <span class="menu__link">Baixar aplicação</span>
+            </div>
+          </li>
+          <li class="menu__box-links">
+            <div class="menu__links">
+              <span class="menu__icon">
+                <ion-icon name="person-add"></ion-icon>
+              </span>
+              <div class="dropdown">
+                  <span class="menu__link">Funcionarios</span>
+                  <div class="dropdown-content">
+                    <a href="Funcionarios.html" >Funcionarios</a><br>
+                    <a href="cadastrofuncionario.html">Cadastrar funcionario</a>
+                  </div>
+                </div>
+              
+          <li class="menu__box-links logout">
+            <a href="" class="full__link"></a>
+            <div class="menu__links">
+              <span class="menu__icon">
+                <ion-icon name="log-out"></ion-icon>
+              </span>
+              <span class="menu__link">Sair</span>
+            </div>
           </li>
         </ul>
-        <li class="menu__box-links logout">
-          <a href="" class="full__link"></a>
-          <div class="menu__links">
-            <span class="menu__icon">
-              <ion-icon name="log-out"></ion-icon>
-            </span>
-            <span class="menu__link">Sair</span>
-          </div>
-        </li>
-      </ul>
-    </div>
+      </div>
 
     <div class="content">
       <div class="content__top">
