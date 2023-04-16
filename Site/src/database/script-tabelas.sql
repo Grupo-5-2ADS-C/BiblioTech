@@ -16,23 +16,28 @@ senha VARCHAR(256)
 
 -- Entidade endereco
 CREATE TABLE endereco (
-id_endereco INT PRIMARY KEY IDENTITY(1,1),
+id_endereco INT IDENTITY(1,1),
 CEP CHAR(8),
 logradouro VARCHAR(100),
 bairro VARCHAR(100),
-cidade VARCHAR(45)
+cidade VARCHAR(45),
+numero CHAR(5),
+complemento VARCHAR(45),
+fk_biblioteca INT,
+FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
+PRIMARY KEY (id_endereco, fk_biblioteca)
 );
 
 -- Entidade associativa entre biblioteca e endereco
-CREATE TABLE dados_unicos_endereco (
-fk_biblioteca INT,
-FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
-fk_endereco INT,
-FOREIGN KEY (fk_endereco) REFERENCES endereco(id_endereco),
-PRIMARY KEY (fk_biblioteca, fk_endereco),
-numero CHAR(5),
-complemento VARCHAR(45)
-);
+-- CREATE TABLE dados_unicos_endereco (
+-- fk_biblioteca INT,
+-- FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
+-- fk_endereco INT,
+-- FOREIGN KEY (fk_endereco) REFERENCES endereco(id_endereco),
+-- PRIMARY KEY (fk_biblioteca, fk_endereco),
+-- numero CHAR(5),
+-- complemento VARCHAR(45)
+-- );
 
 -- Entidade usuario
 CREATE TABLE usuario (
