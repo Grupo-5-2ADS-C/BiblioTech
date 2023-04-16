@@ -1,4 +1,40 @@
 
+:root {
+    /* Cores da pagina */
+    --body-color: #f3f3f3;
+    --sidebar-color: #ffffff;
+    --cor-primaria: #ffffff;
+    --cor-secundaria: #57B4CE;
+    --hover-color: #f5f5f5;
+    --toggle-color: #dedada;
+    --cor-fonte: #171717;
+    --cor-fonte-sec: #505050;
+    --switch-color: #ffffff;
+}
+
+body.dark {
+    /* Cores da pagina */
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --cor-primaria: #242526;
+    --cor-secundaria: #57b4ce;
+    --hover-color: #57c4ce;
+    --cor-fonte: #ffffff;
+    --cor-fonte-sec: #f1f1f1;
+    --toggle-color: #57b4ce;
+    --switch-color: #ffffff;
+
+
+}
+
+
+.mode{
+    white-space: nowrap;
+}
+
+.h5,hr{
+    color: var(--cor-fonte);
+}
 
 .content .title {
     width: 80%;
@@ -9,7 +45,7 @@
 
 .content .title .span_title {
     font-size: 2.5rem;
-    color: #57b4ce;
+    color: var(--cor-secundaria);
     font-weight: 500;
 }
 .content .separation{
@@ -23,7 +59,7 @@
     margin-left: 10rem;
     height: 2px;
     width: 46.25rem;
-    background-color: #dfdfdf;
+    background-color: var(--body-color);
 }
 
 .content .subtitle {
@@ -49,25 +85,28 @@
 .content .form label {
     font-size: 1rem;
     width: 20.25rem;
+    color: var(--cor-fonte);
 }
 
 .content .form input {
-    background-color: #e0e0e0;
-    border: #d1d1d1 1px solid;;
+    background-color: var(--cor-primaria);
+    border: var(--cor-secundaria) 1px solid;;
     width: 324px;
     height: 40px;
     margin-top: 6px;
     margin-bottom: 20px;
+    border-radius: .3rem;
 }
 
 .content .form input:focus-visible{
     transition: 1s;
-    border: #57b4ce 1px solid;
+    border: var(--cor-secundaria) 1px solid;
 }
 
 .content .form input::placeholder {
     font-size: 0.8rem;
     opacity: 0.6;
+    color: var(--cor-fonte-sec);
 }
 
 .content .first-form{
@@ -88,8 +127,23 @@
     cursor: pointer;
     width: 160px;
     height: 34px;
-    background-color: #E6E6E6;
-    color: #000;
+    background-color: var(--cor-primaria);
+    color: var(--cor-fonte);
     font-size: 1.125rem;
+    font-weight: 500;
     border-radius:4px;
+}
+
+.bt:hover{
+    background-color: var(--cor-secundaria);
+}
+
+.btn{
+    background-color: var(--cor-secundaria);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.btn:hover{
+    background-color: var(--cor-secundaria);
 }
