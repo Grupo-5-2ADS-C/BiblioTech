@@ -1,99 +1,107 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
+-- Criação das tabelas para azure conforme o script LOCAL baseado no DER.
 
-CREATE DATABASE aquatech;
+-- Entidade biblioteca
+CREATE TABLE biblioteca (
+id_biblioteca INT PRIMARY KEY IDENTITY(1,1),
+nome VARCHAR(45),
+CNPJ CHAR(14),
+responsavel VARCHAR(45),
+telefone CHAR(12),
+email VARCHAR(100),
+CONSTRAINT chkEmail CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.'),
+login VARCHAR(45),
+senha VARCHAR(256)
+);
 
-USE aquatech;
+-- Entidade endereco
+CREATE TABLE endereco (
+id_endereco INT PRIMARY KEY IDENTITY(1,1),
+CEP CHAR(8),
+logradouro VARCHAR(100),
+bairro VARCHAR(100),
+cidade VARCHAR(45)
+);
 
+-- Entidade associativa entre biblioteca e endereco
+CREATE TABLE dados_unicos_endereco (
+fk_biblioteca INT,
+FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
+fk_endereco INT,
+FOREIGN KEY (fk_endereco) REFERENCES endereco(id_endereco),
+PRIMARY KEY (fk_biblioteca, fk_endereco),
+numero CHAR(5),
+complemento VARCHAR(45)
+);
+
+-- Entidade usuario
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50)
+id_usuario INT IDENTITY(1,1),
+nome VARCHAR(45),
+cargo VARCHAR(45),
+email VARCHAR(100),
+CONSTRAINT chkEmailUsuario CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.'),
+login VARCHAR(45),
+senha VARCHAR(256),
+fk_biblioteca INT,
+FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
+PRIMARY KEY (id_usuario, fk_biblioteca)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+-- Entidade maquina
+CREATE TABLE maquina (
+id_maquina INT PRIMARY KEY IDENTITY(1,1),
+sistema_operacional VARCHAR(45),
+fabricante VARCHAR(45),
+arquitetura VARCHAR(45),
+setor VARCHAR(45),
+login VARCHAR(45),
+senha VARCHAR(256),
+fk_biblioteca INT,
+FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300)
+-- Entidade componenteMaquina
+CREATE TABLE componente_maquina (
+id_componente_maquina INT PRIMARY KEY IDENTITY(1,1),
+tipo VARCHAR(100),
+descricao VARCHAR(100),
+fabricante VARCHAR(100)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+-- Entidade associativaComponenteMaquina
+CREATE TABLE associativa_componente_maquina (
+fk_componente_maquina INT,
+FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
+fk_maquina INT,
+FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+numero_serial VARCHAR(100),
+uso_maximo FLOAT,
+freq_maxima FLOAT,
+PRIMARY KEY (fk_componente_maquina, fk_maquina)
 );
 
-
-/*
-comando para sql server - banco remoto - ambiente de produção
-*/
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
+-- Entidade metricas
+CREATE TABLE metrica (
+id_metrica INT IDENTITY(1,1),
+uso FLOAT,
+frequencia FLOAT,
+fk_componente_maquina INT,
+FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
+fk_maquina INT,
+FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+PRIMARY KEY (id_metrica, fk_componente_maquina, fk_maquina)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-);
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY IDENTITY(1,1),
-	descricao VARCHAR(300)
-);
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT FOREIGN KEY REFERENCES aquario(id)
-);
-
-/*
-comandos para criar usuário em banco de dados azure, sqlserver,
-com permissão de insert + update + delete + select
-*/
-
-CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
-WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
-DEFAULT_SCHEMA = dbo;
-
-EXEC sys.sp_addrolemember @rolename = N'db_datawriter',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
-
-EXEC sys.sp_addrolemember @rolename = N'db_datareader',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
+-- Entidade alerta
+CREATE TABLE alerta (
+id_alerta INT IDENTITY(1,1),
+dt_alerta DATETIME,
+texto_aviso VARCHAR(100),
+fk_metrica INT,
+FOREIGN KEY (fk_metrica) REFERENCES metrica(id_metrica),
+fk_componente_maquina INT,
+FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
+fk_maquina INT,
+FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+PRIMARY KEY (id_alerta, fk_metrica, fk_componente_maquina));
