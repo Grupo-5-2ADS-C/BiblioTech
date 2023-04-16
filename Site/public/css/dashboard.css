@@ -353,7 +353,7 @@ body.dark .switch::before {
     align-items: center;
     gap: .4rem;
     border-bottom: 4px solid var(--sidebar-color);
-    padding-bottom: 25px;
+    padding-bottom: 1rem;
 }
 
 .indicate__card {
@@ -377,14 +377,14 @@ body.dark .switch::before {
     width: 80%;
     height: 50%;
     display: flex;
-    gap: 20px;
+    gap: 1.1rem;
     overflow-y: scroll;
 }
 
 .item {
     width: 90%;
     height: 10rem;
-    border-radius: 10px;
+    border-radius: 0px 15px 0px 15px;
     background-color: var(--cor-primaria);
 }
 
