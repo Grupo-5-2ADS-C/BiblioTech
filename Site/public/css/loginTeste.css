@@ -208,3 +208,92 @@ body {
         width: 90%;
     }
 }
+
+/* Animação de carregamento */
+.background_loader {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.scanner span {
+    color: transparent;
+    font-size: 1.5rem;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .scanner span::before {
+    content: "Entrando...";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-right: 4px solid #57B4CE;
+    overflow: hidden;
+    color: #57B4CE;
+    animation: load91371 2s linear infinite;
+  }
+  
+  @keyframes load91371 {
+    0%, 10%, 100% {
+      width: 0;
+    }
+  
+    10%,20%,30%,40%,50%,60%,70%,80%,90%,100% {
+      border-right-color: transparent;
+    }
+  
+    11%,21%,31%,41%,51%,61%,71%,81%,91% {
+      border-right-color: #57B4CE;
+    }
+  
+    60%, 80% {
+      width: 100%;
+    }
+  }
+
+#cardErro, #cardErroLogin {
+    display: none;
+    margin-top: 5%;
+    font-size: 1.2rem;
+    opacity: 0;
+    color: #57B4CE;
+    font-weight: 500;
+  }
+
+.aparecerErro {
+    display: block;
+    animation: aparecerErro 0.5s forwards;
+}
+
+.desaparecerErro {
+    animation: desaparecerErro 0.5s forwards;
+}
+
+  @keyframes aparecerErro {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+  }
+
+  @keyframes desaparecerErro {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+  }
+

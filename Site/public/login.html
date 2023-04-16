@@ -13,6 +13,8 @@
 
 <body>
 
+
+
     <header>
         <div class="header">
             <div class="container-header">
@@ -33,13 +35,13 @@
         <div id="myNav" class="overlay">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div class="overlay-content">
-              <a href="index.html">Início</a>
-              <a href="cadastro.html">Cadastre-se</a>
+                <a href="index.html">Início</a>
+                <a href="cadastro.html">Cadastre-se</a>
             </div>
-          </div>
+        </div>
 
-          <span class="btn-nav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-          <img src="img/logo bibliotech 67px.png" width="50px" alt="">
+        <span class="btn-nav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <img src="img/logo bibliotech 67px.png" width="50px" alt="">
     </header>
 
     <section class="login">
@@ -50,19 +52,32 @@
 
             <div class="input-label-login">
                 <label for="">Nome de usuário</label>
-                <input placeholder="Digite seu nome de usuário" type="text">
+                <input placeholder="Digite seu nome de usuário" type="text" id="in_nomeUsuario">
                 <label for="">Senha</label>
-                <input placeholder="Digite sua senha" type="password">
-                <button class="btn-login">Entrar</button>
+                <input placeholder="Digite sua senha" type="password" id="in_senha">
+                <button class="btn-login" onclick="entrar()">Entrar</button>
+
+                <div class="background_loader" id="div_loader">
+                    <div class="loader">
+                        <div class="scanner">
+                          <span>Entrando...</span>
+                        </div>
+                      </div>
+                </div>
+
+                <div id="cardErro">Campos vazios!</div>
+                <div id="cardErroLogin">Login e/ou senha inválidos!</div>
             </div>
         </div>
         <div class="login-image">
             <img src="img/Imagem-Login.png" alt="">
         </div>
     </section>
-    
+
 </body>
 
 </html>
 
 <script src="js/index.js"></script>
+<script src="js/login.js"></script>
+<script src="js/funcoes.js"></script>

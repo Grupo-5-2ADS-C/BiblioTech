@@ -52,15 +52,15 @@
                 <div class="first-form">
                     <div class="first-column">
                         <label for="">Nome da Empresa</label>
-                        <input placeholder="Digite o nome da empresa" type="text">
+                        <input placeholder="Digite o nome da empresa" type="text" id="in_nomeEmpresa">
                         <label for="">CNPJ</label>
-                        <input placeholder="Digite o CNPJ da empresa" type="text">
+                        <input placeholder="Digite o CNPJ da empresa" type="text" id="in_CNPJ">
                     </div>
                     <div class="second-column">
                         <label for="">Responsável da Empresa</label>
-                        <input placeholder="Digite o responsável" type="text">
+                        <input placeholder="Digite o responsável" type="text" id="in_responsavel">
                         <label for="">Celular / Telefone</label>
-                        <input placeholder="Digite o email da empresa" type="text">
+                        <input placeholder="Digite o email da empresa" type="text" id="in_telefone">
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                         <input placeholder="Digite o CEP" type="text" id="cep_input"
                             onchange="consultaEndereco(),completarEndereco()">
                         <label for="">Número</label>
-                        <input placeholder="Digite número do endereço" type="text">
+                        <input placeholder="Digite número do endereço" type="text" id="in_numero">
                         <label for="">Cidade</label>
                         <input placeholder="Digite a cidade" type="text" id="cidade_input">
                     </div>
@@ -82,7 +82,7 @@
                         <label for="">Bairro</label>
                         <input placeholder="Digite o bairro" type="text" id="bairro_input">
                         <label for="">Complemento</label>
-                        <input placeholder="Digite o complemento" type="text">
+                        <input placeholder="Digite o complemento" type="text" id="in_complemento">
                     </div>
                     <div class="second-column"></div>
                 </div>
@@ -92,15 +92,15 @@
                 <div class="third-form">
                     <div class="first-column">
                         <label for="">Nome de Usuário</label>
-                        <input placeholder="Digite seu nome de usuário" type="text">
+                        <input placeholder="Digite seu nome de usuário" type="text" id="in_nomeUsuario">
                         <label for="">Senha</label>
-                        <input placeholder="Digite sua senha" type="text">
+                        <input placeholder="Digite sua senha" type="password" id="in_senha">
                     </div>
                     <div class="second-column">
                         <label for="">Email</label>
-                        <input placeholder="Digite seu email" type="text">
+                        <input placeholder="Digite seu email" type="text" id="in_email">
                         <label for="">Confirmação de Senha</label>
-                        <input placeholder="Confirme sua senha" type="text">
+                        <input placeholder="Confirme sua senha" type="password" id="in_confirmacaoSenha">
                     </div>
                 </div>
             </div>
@@ -108,12 +108,24 @@
                 <div class="btn-go-back">
                     <button id="btn-back" onclick="plusSlides(-1)">Voltar</button>
                     <button id="btn-go" onclick="plusSlides(1)">Próximo</button>
+                    <button id="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
                 </div>
                 <div class="dots">
                     <span class="dot" onclick="currentSlide(1)"></span>
                     <span class="dot" onclick="currentSlide(2)"></span>
                     <span class="dot" onclick="currentSlide(3)"></span>
                 </div>
+
+                
+                <div class="background_loader" id="div_loader">
+                    <div class="loader">
+                        <div class="scanner">
+                          <span>Cadastrando...</span>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="cardErro" id="cardErro"></div>
             </div>
         </div>
         <div class="sign-up-image">
@@ -121,8 +133,10 @@
         </div>
     </section>
 
+
 </body>
 
 </html>
+<script src="./js/funcoes.js"></script>
 <script src="js/index.js"></script>
 <script src="js/cadastro.js"></script>
