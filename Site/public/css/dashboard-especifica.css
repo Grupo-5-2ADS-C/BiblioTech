@@ -607,7 +607,7 @@ h1,h3{
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--body-color);
+    background-color: var(--cor-secundaria);
     border-radius: 5px;
 }
 

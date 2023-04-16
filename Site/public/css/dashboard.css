@@ -29,13 +29,17 @@ body.dark {
 
 }
 
+
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
+    background-color: var(--toggle-color);
 }
 
-::-webkit-scrollbar-track {
-    background-color: var(--sidebar-color);
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-secundaria);
+    border-radius: 5px;
 }
+
 
 .dashboard {
     display: flex;
