@@ -1,0 +1,9 @@
+{
+    "name": "Site",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node ./Site/app.js",
+        "postinstall": "cd Site && npm install"
+    }
+}
