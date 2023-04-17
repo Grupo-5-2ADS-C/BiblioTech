@@ -75,7 +75,8 @@ fabricante VARCHAR(100)
 );
 
 -- Entidade associativaComponenteMaquina
-CREATE TABLE associativa_componente_maquina (
+CREATE TABLE especificacao_componente_maquina (
+id_especificacao INT IDENTITY(1,1),
 fk_componente_maquina INT,
 FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
 fk_maquina INT,
@@ -83,7 +84,7 @@ FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
 numero_serial VARCHAR(100),
 uso_maximo FLOAT,
 freq_maxima FLOAT,
-PRIMARY KEY (fk_componente_maquina, fk_maquina)
+PRIMARY KEY (id_especificacao, fk_componente_maquina, fk_maquina)
 );
 
 -- Entidade metricas
@@ -91,11 +92,13 @@ CREATE TABLE metrica (
 id_metrica INT IDENTITY(1,1),
 uso FLOAT,
 frequencia FLOAT,
+fk_especificacao INT,
+FOREIGN KEY (fk_especificacao) REFERENCES especificacao_componente_maquina(id_especificacao),
 fk_componente_maquina INT,
 FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
 fk_maquina INT,
 FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
-PRIMARY KEY (id_metrica, fk_componente_maquina, fk_maquina)
+PRIMARY KEY (id_metrica, fk_especificacao, fk_componente_maquina, fk_maquina)
 );
 
 -- Entidade alerta
