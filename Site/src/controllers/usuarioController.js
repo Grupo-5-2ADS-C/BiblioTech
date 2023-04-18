@@ -60,8 +60,6 @@ function entrar(req, res) {
 
 }
 
-var id_biblioteca = 0;
-
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
@@ -112,7 +110,6 @@ function cadastrar(req, res) {
 
 function cadastrarEndereco(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var fkBiblioteca = id_biblioteca;
     var CEP = req.body.CEPServer;
     var logradouro = req.body.logradouroServer;
     var bairro = req.body.bairroServer;
