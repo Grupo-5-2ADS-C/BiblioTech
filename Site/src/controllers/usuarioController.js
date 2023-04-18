@@ -92,8 +92,6 @@ function cadastrar(req, res) {
             .then(
                 function (resultado) {
                     res.json(resultado);
-                    id_biblioteca = resultado.insertId;
-                    console.log(resultado.insertId);
                 }
             ).catch(
                 function (erro) {
@@ -133,7 +131,7 @@ function cadastrarEndereco(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarEndereco(CEP, logradouro, bairro, cidade, numero, complemento, fkBiblioteca)
+        usuarioModel.cadastrarEndereco(CEP, logradouro, bairro, cidade, numero, complemento)
             .then(
                 function (resultado) {
                     res.json(resultado);
