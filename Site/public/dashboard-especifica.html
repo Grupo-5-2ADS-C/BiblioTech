@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Document</title>
 </head>
 
@@ -41,7 +42,7 @@
                 </div>
                 <div class="dropdown-text">
                   <a href="dashboard.html">Dashboard-especifica</a>
-                </div>               
+                </div>
               </div>
             </div>
           </div>
@@ -111,24 +112,55 @@
     </div>
 
     <div class="content">
-      <div class="cardclass">
+      <div class="card__section">
         <div class="card__row">
-          <div class="card">
+          <div class="card__box">
             <span class="title__card">Máquina 1</span>
+            <div class="card">
+              <canvas id="myChart" class="myChart"></canvas>
+
+            </div>
           </div>
-          <div class="card">
+          <div class="card__box">
             <span class="title__card">Máquina 2</span>
+            <div class="card">
+              <canvas id="myChart2" class="myChart"></canvas>
+            </div>
           </div>
         </div>
 
-        <div class="card__row">
-          <div class="card">
+        <div class="card__row">          
+          <div class="card__box">
             <span class="title__card">Máquina 3</span>
+            <div class="card">
+              <canvas id="myChart3" class="myChart"></canvas>
+            </div>
           </div>
-          <div class="card">
+          <div class="card__box">
             <span class="title__card">Máquina 4</span>
+            <div class="card">
+              <canvas id="myChart4" class="myChart"></canvas>
+            </div>
           </div>
         </div>
+
+        <div class="card__row">          
+          <div class="card__box">
+            <span class="title__card">Máquina 5</span>
+            <div class="card">
+              <canvas id="myChart5" class="myChart"></canvas>
+            </div>
+          </div>
+          <div class="card__box">
+            <span class="title__card">Máquina 6</span>
+            <div class="card">
+              <div class="chartJS">
+                <canvas id="myChart6" class="myChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
 
       <div class="quarterclass">
@@ -191,6 +223,6 @@
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="js/dashboard-especifica.js"></script>
+<script src="js/dashboard-geral.js"></script>
 <script src="js/mode.js"></script>
 <script src="js/funcoes.js"></script>
