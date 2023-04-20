@@ -1,4 +1,6 @@
-const body2 = document.querySelector("body")
+// const body2 = document.querySelector("body")
+
+
 
 const ctx = document.getElementById('myChart');
 
