@@ -116,19 +116,19 @@
         <div class="card__kpi">
           <div class="card__header-top">
             <div class="cardt">
-              <span>testeteste</span>
+              <span>KPI 1</span>
             </div>
             <div class="cardt">
-              <span>testeteste</span>
+              <span>KPI 2</span>
             </div>
           </div>
 
           <div class="card__header-bot">
             <div class="cardt">
-              <span>testeteste</span>
+              <span>KPI 3</span>
             </div>
             <div class="cardt">
-              <span>testeteste</span>
+              <span>KPI 4</span>
             </div>
           </div>
         </div>
@@ -140,18 +140,53 @@
             </div>
             <div class="trace"></div>
             <div class="spec__content">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span>Fabricante: </span>
+              <span>CPU: </span>
+              <span>Memória: </span>
+              <span>Disco: </span>
+              <span>S.O: </span>
             </div>
           </div>
         </div>
       </div>
 
 
-      <div class="chart__content">
-        <div class="hardware__metric">
+      <div class="content__bottom">
+        <div class="content__bottom-dashGeral">
+          <h3>Uso da máquina</h3>
+          <div class="content__bottom-graficoGeral">
+            <div class="chartJS">
+              <canvas id="myChart" class="myChart"></canvas>
+            </div>
+          </div>
+          <div class="content__bottom-statusGeral">
+            <div id="status__cpu" class="statusGeral__box active-graph">
+              <button onclick="changeStatus__cpu()" id="changeStatus__cpu">
+                <h1>CPU</h1>
+              </button>
+            </div>
+            <div id="status__memoria" class="statusGeral__box">
+              <button onclick="changeStatus__memoria()" id="changeStatus__memoria">
+                <h1>Memória</h1>
+              </button>
+            </div>
+            <div id="status__disco" class="statusGeral__box">
+              <button onclick="changeStatus__disco()" id="changeStatus__disco">
+                <h1>Disco</h1>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="content__bottom-dashRede">
+          <h3>Uso de rede</h3>
+          <div class="content__bottom-graficoRede">
+            <div class="chartJS2">
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
+          <div class="content__bottom-statusRede">
+            <h1>Métricas de Rede</h1>
+          </div>
         </div>
       </div>
     </div>
@@ -165,6 +200,6 @@
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="js/dashboard-geral.js"></script>
+<script src="js/dashboard-especifica.js"></script>
 <script src="js/mode.js"></script>
 <script src="js/funcoes.js"></script>

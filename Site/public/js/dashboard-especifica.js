@@ -61,7 +61,10 @@ const ctx = document.getElementById('myChart');
       datasets: [{
         label: 'Métricas de Componente',
         data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: '#57b4ce',
+        borderColor: '#57b4ce',
+
       }]
     },
     options: {
@@ -82,7 +85,9 @@ const ctx = document.getElementById('myChart');
       datasets: [{
         label: 'Métricas de Rede',
         data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: '#57b4ce',
+        borderColor: '#57b4ce'
       }]
     },
     options: {
