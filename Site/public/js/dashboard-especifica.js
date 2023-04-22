@@ -25,76 +25,199 @@ function open__menu(param) {
     }
 }
 
-var cpu = document.getElementById('status__cpu');
-var memoria = document.getElementById('status__memoria');
-var disco = document.getElementById('status__disco');
 
-function changeStatus__cpu() {
 
-    cpu.classList.add('active-graph');
-    memoria.classList.remove('active-graph');
-    disco.classList.remove('active-graph');
-}
+// let config_geral = {
+//     type: 'bar',
+//     data: {
+//         labels: ['Ociosas', 'Mau uso de hardware', 'Ok'],
+//         datasets: [{
+//             label: ['Ociosas', 'Mau uso de hardware', 'Ok'],
+//             data: [30, 40, 30],
+//             backgroundColor: ['#FFB257', '#FF6060', '#83F470'],
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 ticks: {
+//                     color: '#FFF'
+//                 },
+//                 beginAtZero: true,
+//                 type: 'linear',
+//                 grid: {
+//                     color: '#FFF'
+//                 }
+//             },
+//             x: {
+//                 ticks: {
+//                     color: '#FFF'
+//                 },
+//             }
+//         },
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         plugins: {
+//             autocolors: false,
+//             annotation: {
+//                 annotations: {
+//                     box1: {
+//                         type: 'box',
+//                         yMin: 23,
+//                         yMax: 26,
+//                         xMin: 0,
+//                         xMax: 18,
+//                         backgroundColor: 'rgba(112, 255, 99, 0.25)',
+//                     }
+//                 }
+//             },
+//             title: {
+//                 display: true,
+//                 text: `Temperatura média do data center no dia`,
+//                 align: 'center',
+//                 fullSize: false,
+//                 color: '#FFF',
+//                 font: {
+//                     size: 20,
+//                     weight: 600,
+//                     lineHeight: 1.0,
+//                 }
+//             }
+//         },
+//     }
+// };
 
-function changeStatus__memoria() {
+// let myChart_geral = new Chart(
+//     document.getElementById("myChart"),
+//     config_geral
+// );
 
-    memoria.classList.add('active-graph');
-    cpu.classList.remove('active-graph');
-    disco.classList.remove('active-graph');
-}
-
-function changeStatus__disco() {
-
-    disco.classList.add('active-graph');
-    cpu.classList.remove('active-graph');
-    memoria.classList.remove('active-graph');
-}
-
-// ChartJS
-
-const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'line',
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: 'Métricas de Componente',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1,
-        backgroundColor: '#57b4ce',
-        borderColor: '#57b4ce',
-
-      }]
+        labels: [''],
+        datasets: [{
+            label: ['Ociosas'],
+            data: [30],
+            backgroundColor: ['#FFB257'],
+        },
+        {
+            label: ['Mau uso de hardware'],
+            data: [40],
+            backgroundColor: ['#FF6060'],
+        },
+        {
+            label: ['Ok'],
+            data: [30],
+            backgroundColor: ['#83F470'],
+        },]
     },
     options: {
-      scales: {
-        y: {
-          beginAtZero: true
+        legend: {
+            position: 'right'
         }
-      }
     }
-  });
+});
 
-  const ctx2 = document.getElementById('myChart2');
-
-  new Chart(ctx2, {
-    type: 'line',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: 'Métricas de Rede',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1,
-        backgroundColor: '#57b4ce',
-        borderColor: '#57b4ce'
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
+for (let i = 0; i < 10; i++) {
+    if (i % 2 == 0) {
+        data__table2.innerHTML +=
+            `<tr>
+    <th align="left">Máquina XX</th>
+    <th align="center">80%</th>
+    <th align="center">80%</th>
+    <th align="center">80%</th>
+    <th align="center">80%</th>
+    <th align="center">
+        <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+    </th>
+</tr>`
+    } else {
+        data__table2.innerHTML +=
+            `<tr style="background-color: #F3F3F3">
+    <th align="left">Máquina XX</th>
+    <th align="center">80%</th>
+    <th align="center">80%</th>
+    <th align="center">80%</th>
+    <th align="center">80%</th>
+    <th align="center">
+        <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+    </th>
+</tr>`
     }
-  });
+}
+
+// var cpu = document.getElementById('status__cpu');
+// var memoria = document.getElementById('status__memoria');
+// var disco = document.getElementById('status__disco');
+
+// function changeStatus__cpu() {
+
+//     cpu.classList.add('active-graph');
+//     memoria.classList.remove('active-graph');
+//     disco.classList.remove('active-graph');
+// }
+
+// function changeStatus__memoria() {
+
+//     memoria.classList.add('active-graph');
+//     cpu.classList.remove('active-graph');
+//     disco.classList.remove('active-graph');
+// }
+
+// function changeStatus__disco() {
+
+//     disco.classList.add('active-graph');
+//     cpu.classList.remove('active-graph');
+//     memoria.classList.remove('active-graph');
+// }
+
+// // ChartJS
+
+// const ctx = document.getElementById('myChart');
+
+//   new Chart(ctx, {
+//     type: 'line',
+//     data: {
+//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//       datasets: [{
+//         label: 'Métricas de Componente',
+//         data: [12, 19, 3, 5, 2, 3],
+//         borderWidth: 1,
+//         backgroundColor: '#57b4ce',
+//         borderColor: '#57b4ce',
+
+//       }]
+//     },
+//     options: {
+//       scales: {
+//         y: {
+//           beginAtZero: true
+//         }
+//       }
+//     }
+//   });
+
+//   const ctx2 = document.getElementById('myChart2');
+
+//   new Chart(ctx2, {
+//     type: 'line',
+//     data: {
+//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//       datasets: [{
+//         label: 'Métricas de Rede',
+//         data: [12, 19, 3, 5, 2, 3],
+//         borderWidth: 1,
+//         backgroundColor: '#57b4ce',
+//         borderColor: '#57b4ce'
+//       }]
+//     },
+//     options: {
+//       scales: {
+//         y: {
+//           beginAtZero: true
+//         }
+//       }
+//     }
+//   });
