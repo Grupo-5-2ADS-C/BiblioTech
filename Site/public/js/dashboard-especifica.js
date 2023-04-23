@@ -92,6 +92,12 @@ function open__menu(param) {
 //     config_geral
 // );
 
+
+
+    Chart.defaults.color = "#a1a1a1";
+
+
+
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -116,8 +122,24 @@ var myChart = new Chart(ctx, {
     options: {
         legend: {
             position: 'right'
-        }
+        },
+        scales: {
+            x: {
+                grid: {
+                    color: ['#f7f5f5'],
+                }
+            },
+            y:{
+                border: {
+                },
+                grid: {
+                color: ['#f7f5f5']
+                }
+                
+            }
+        },
     }
+
 });
 
 for (let i = 0; i < 10; i++) {
