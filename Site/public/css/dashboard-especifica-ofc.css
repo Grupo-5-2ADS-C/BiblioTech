@@ -31,6 +31,36 @@ main {
     background-color: var(--cor-primaria);
 }
 
+@media only screen and (max-height: 686px) {
+    
+    .bottom__links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        transform: translateY(6.3rem);
+    }
+    
+    .bottom__links .menu__box-links {
+        width: 8.7rem;
+    }
+    
+    .mode{
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+    
+    .text span {
+        display: none;
+    }
+    
+    .menu__lista {
+        transform: translateY(-13%);
+    }
+    
+    
+}
+
 .content {
     background-color: var(--body-color);
     width: calc(100% - 300px);

@@ -264,13 +264,13 @@ body.dark .switch::before {
     left: 24px;
 }
 
-@media only screen and (max-height: 696px) {
+@media only screen and (max-height: 686px) {
     
     .bottom__links {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        transform: translateY(5.7rem);
+        transform: translateY(6.3rem);
     }
     
     .bottom__links .menu__box-links {
@@ -401,6 +401,7 @@ body.dark .switch::before {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-top: .3rem;
 
 }
 
