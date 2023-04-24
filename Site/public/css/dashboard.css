@@ -264,7 +264,7 @@ body.dark .switch::before {
     left: 24px;
 }
 
-@media only screen and (max-height: 656px) {
+@media only screen and (max-height: 696px) {
     
     .bottom__links {
         display: flex;

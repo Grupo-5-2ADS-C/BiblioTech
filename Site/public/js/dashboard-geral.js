@@ -142,7 +142,7 @@ var myChart = new Chart(ctx, {
 
 });
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 30; i++) {
     if (i % 2 == 0) {
         data__table2.innerHTML +=
             `<tr>

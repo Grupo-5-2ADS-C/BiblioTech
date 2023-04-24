@@ -227,7 +227,7 @@ main {
 
 .content__table {
     width: 100%;
-    height: 66%;
+    height: 55vh;
     margin-top: 15px;
     background-color: var(--cor-primaria);
     margin-bottom: 15px;
@@ -306,7 +306,7 @@ main {
 }
 
 .content__table-table {
-    max-height: 80%;
+    min-height: 100px;
     overflow-y: scroll;
     padding-right: 6px;
 }
