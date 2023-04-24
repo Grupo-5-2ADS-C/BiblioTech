@@ -43,11 +43,10 @@ body.dark {
     margin-left: 10rem;
 }
 
-.content .title .span_title {
-    font-size: 2.5rem;
+.span_title h1{
     color: var(--cor-secundaria);
-    font-weight: 500;
 }
+
 .content .separation{
     padding: 0;
     margin-left: 0;
@@ -89,6 +88,8 @@ body.dark {
 }
 
 .content .form input {
+    padding: 5px;
+    text-align: left;
     background-color: var(--cor-primaria);
     border: var(--cor-secundaria) 1px solid;;
     width: 324px;
@@ -96,6 +97,7 @@ body.dark {
     margin-top: 6px;
     margin-bottom: 20px;
     border-radius: .3rem;
+    color: var(--cor-fonte);
 }
 
 .content .form input:focus-visible{
@@ -142,6 +144,7 @@ body.dark {
     background-color: var(--cor-secundaria);
     font-weight: 500;
     font-size: 20px;
+    border: 0;
 }
 
 .btn:hover{

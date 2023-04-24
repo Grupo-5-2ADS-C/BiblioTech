@@ -157,7 +157,7 @@ for (let i = 0; i < 10; i++) {
 </tr>`
     } else {
         data__table2.innerHTML +=
-            `<tr style="background-color: #F3F3F3">
+            `<tr class="table__sec">
     <th align="left">Máquina XX</th>
     <th align="center">80%</th>
     <th align="center">80%</th>

@@ -1,9 +1,38 @@
+:root {
+    /* Cores da pagina */
+    --body-color: #f3f3f3;
+    --sidebar-color: #ffffff;
+    --cor-primaria: #ffffff;
+    --cor-secundaria: #57B4CE;
+    --hover-color: #f5f5f5;
+    --toggle-color: #dedada;
+    --cor-fonte: #171717;
+    --cor-fonte-sec: #505050;
+    --switch-color: #ffffff;
+}
+
+body.dark {
+    /* Cores da pagina */
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --cor-primaria: #242526;
+    --cor-secundaria: #57b4ce;
+    --hover-color: #57c4ce;
+    --cor-fonte: #ffffff;
+    --cor-fonte-sec: #f1f1f1;
+    --toggle-color: #57b4ce;
+    --switch-color: #ffffff;
+
+
+}
+
 main {
     display: flex;
+    background-color: var(--cor-primaria);
 }
 
 .content {
-    background-color: #F3f3f3;
+    background-color: var(--body-color);
     width: calc(100% - 300px);
     height: calc(100vh - 2rem);
 }
@@ -14,7 +43,7 @@ main {
     margin-top: 4px;
     margin-bottom: 6px;
     font-weight: 500;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
 }
 
 .content__percent {
@@ -49,13 +78,13 @@ main {
 
 .first__kpi-top {
     width: 50%;
-    background-color: #FFFFFF;
+    background-color: var(--cor-primaria);
     height: 100%;
 }
 
 .second__kpi-top {
     width: 50%;
-    background-color: #FFFFFF;
+    background-color: var(--cor-primaria);
     height: 100%;
 }
 
@@ -69,13 +98,13 @@ main {
 
 .first__kpi-bottom {
     width: 50%;
-    background-color: #FFFFFF;
+    background-color: var(--cor-primaria);
     height: 100%;
 }
 
 .second__kpi-bottom {
     width: 50%;
-    background-color: #FFFFFF;
+    background-color: var(--cor-primaria);
     height: 100%;
 }
 
@@ -88,14 +117,14 @@ main {
 
 .percent40__kpi-top .first__kpi-top {
     width: 50%;
-    background-color: #FFFFFF;
+    background-color: var(--cor-primaria);
     height: 100%;
 }
 
 .percent10__graph {
     width: 100%;
     height: 50%;
-    background-color: #FFFFFF;
+    background-color: var(--cor-primaria);
     margin-top: 15px;
     margin-bottom: 15px;
     display: flex;
@@ -113,7 +142,7 @@ main {
 .percent40 .percent40__kpi-internet {
     height: 30%;
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: var(--cor-primaria);
     margin-top: 15px;
     display: flex;
     flex-direction: column;
@@ -144,7 +173,7 @@ main {
 
 .percent40__kpi-internet .internet__separation {
     width: 2px;
-    background-color: #00000023;
+    background-color: var(--cor-fonte-sec);
     height: calc(100% - 18px);
     margin-top: 18px;
 }
@@ -158,19 +187,20 @@ main {
     font-size: 2.5rem;
     font-weight: 700;
     margin-top: 18px;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
 }
 
 .percent40__kpi-internet .download__value {
     font-size: 2.5rem;
     font-weight: 700;
     margin-top: 18px;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
 }
 
 .percent40__kpi-internet h4 {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--cor-fonte);
 }
 
 .percent40__kpi-internet .ip__rede {
@@ -187,7 +217,8 @@ main {
 
 .percent40__kpi-internet .ip__rede .id__ip {
     font-weight: 500;
-    font-size: 1rem;   
+    font-size: 1rem;
+    color: var(--cor-fonte);   
 }
 
 .percent10__graph #myChart {
@@ -198,7 +229,7 @@ main {
     width: 100%;
     height: 66%;
     margin-top: 15px;
-    background-color: #FFFFFF;
+    background-color: var(--cor-primaria);
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
@@ -226,6 +257,8 @@ main {
 .content__top-right h3 {
     font-size: 0.875rem;
     font-weight: 500;
+    color: var(--cor-fonte);
+
 }
 
 .content__top-right .maquinas__value {
@@ -238,32 +271,36 @@ main {
 .content__top-right .maquinas__value .maquinas__atual {
     font-size: 1.25rem;
     font-weight: 500;
+    color: var(--cor-fonte);
 }
 
 .content__top-right .maquinas__value .maquinas__total {
     font-size: 0.75rem;
     font-weight: 500;
     opacity: 50%;
+    color: var(--cor-fonte);
 }
 
 .content__top-separation {
     width: 1px;
-    background-color: #00000023;
+    background-color: var(--cor-fonte-sec);
 }
 
 .content__table h1 {
     font-size: 1.25rem;
     margin: 0;
+    color: var(--cor-secundaria);
 }
 
 .content__table p {
     font-size: 0.75rem;
     margin: 0;
+    color: var(--cor-fonte);
 }
 
 .content__table-separation {
     height: 1px;
-    background-color: #00000023;
+    background-color: var(--cor-fonte-sec);
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -285,7 +322,7 @@ main {
 .table__header .header__th {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #00000080;
+    color: var(--cor-secundaria);
     padding: 10px 0px;
 }
 
@@ -300,7 +337,7 @@ main {
 .data__table th {
     font-size: 1rem;
     font-weight: 500;
-    color: #000000;
+    color: var(--cor-fonte);
     width: 15%;
 }
 
@@ -315,4 +352,8 @@ main {
 
 .content__table-table th {
     padding: 10px 0;
+}
+
+.table__sec{
+    background-color: var(--body-color)
 }
