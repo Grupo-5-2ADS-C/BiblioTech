@@ -48,7 +48,7 @@ function entrar() {
                 // }, 0100)
 
                 setTimeout(function () {
-                    window.location = "./dashboard-geral.html";
+                    window.location = "./dashboard-geral-ofc.html";
                 }, 2000); // apenas para exibir o loading
 
             });
