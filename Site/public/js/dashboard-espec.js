@@ -30,7 +30,7 @@ const ctx = document.getElementById('myChart');
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['15:34:50', '15:35:50', '15:36:50', '15:37:50', '15:38:50', '15:39:50'],
       datasets: [{
         label: 'Métricas de Componente',
         data: [12, 19, 3, 5, 2, 3],
@@ -65,7 +65,7 @@ const ctx = document.getElementById('myChart');
   new Chart(ctx2, {
     type: 'line',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['15:34:50', '15:35:50', '15:36:50', '15:37:50', '15:38:50', '15:39:50'],
       datasets: [{
         label: 'Métricas de Componente',
         data: [12, 19, 3, 5, 2, 3],

@@ -306,11 +306,11 @@ body.dark .switch::before {
 .header__top{
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 100%;
     background-color: var(--body-color);
     height: 60%;
     margin-bottom: 0;
-    padding: 0.5rem;
     border-radius: 10px;
 }
 
@@ -329,7 +329,6 @@ body.dark .switch::before {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--cor-primaria);
     width: 100%;
     height: 100%;
 }
@@ -345,20 +344,35 @@ body.dark .switch::before {
 
 .cardt{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-primaria);
     height: 90%;
     width: 48%;
     border-radius: 10px;
+    gap: 1rem;
+}
+
+.cardt .card__title{
+    color: var(--cor-fonte);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cardt .card__sub{
+    color: var(--cor-secundaria);
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .spec{
+    display: flex;
+    align-items: center;
     background-color: var(--cor-primaria);
-    width: 40%;
-    height: 100%;
-    padding: .5rem;
-    border-radius: 0px 10px 10px 0px;
+    width: 39.5%;
+    height: 95%;
+    border-radius:10px;
 
 }
 
@@ -369,7 +383,6 @@ body.dark .switch::before {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--cor-fonte);
 }
 
 .title__spec{
@@ -379,12 +392,14 @@ body.dark .switch::before {
     align-items: center;
 }
 
+
 .title__spec span{
     color: var(--cor-secundaria);
     text-align: center;
     font-size: 1.3rem;
     font-weight: 500;
 }
+
 
 .trace{
     background-color: var(--cor-fonte);
@@ -395,19 +410,28 @@ body.dark .switch::before {
 
 .spec__content{
     color: var(--cor-fonte);
-    margin-left: 1.2rem;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin-top: .3rem;
-
+    padding: .5rem;
 }
 
-span{
+.spec__content span{
+    margin-left: 1.3rem;
     color: var(--cor-fonte);
 }
+
+.alt{
+    width: 100%;
+    height:2rem;
+    display: flex;
+    align-items: center;
+    background-color: var(--body-color);
+}
+
 
 
 .content__bottom {

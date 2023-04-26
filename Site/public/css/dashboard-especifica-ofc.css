@@ -121,13 +121,14 @@ main {
 .first__kpi-top h4 {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--cor-fonte);
 }
 
 .first__kpi-top p {
     margin-top: 0px;
     font-size: 2rem;
     font-weight: 700;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
 }
 
 .second__kpi-top {
@@ -145,6 +146,7 @@ main {
 .second__kpi-top h4 {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--cor-fonte);
 }
 
 .second__kpi-top p {
@@ -177,6 +179,7 @@ main {
 .first__kpi-bottom h4 {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--cor-fonte);
 }
 
 .first__kpi-bottom p {
@@ -200,6 +203,7 @@ main {
 .second__kpi-bottom h4 {
     font-size: 1rem;
     font-weight: 500;
+    color: var(--cor-fonte);
 }
 
 .second__kpi-bottom p {
