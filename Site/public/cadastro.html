@@ -54,13 +54,15 @@
                         <label for="">Nome da Empresa</label>
                         <input placeholder="Digite o nome da empresa" type="text" id="in_nomeEmpresa">
                         <label for="">CNPJ</label>
-                        <input placeholder="Digite o CNPJ da empresa" type="text" id="in_CNPJ">
+                        <input placeholder="Digite o CNPJ da empresa" type="text" id="in_CNPJ" maxlength="18"
+                            onkeyup="maskCPF_CNPJ()">
                     </div>
                     <div class="second-column">
                         <label for="">Responsável da Empresa</label>
                         <input placeholder="Digite o responsável" type="text" id="in_responsavel">
                         <label for="">Celular / Telefone</label>
-                        <input placeholder="Digite o email da empresa" type="text" id="in_telefone">
+                        <input placeholder="Digite o email da empresa" type="text" id="in_telefone" maxlength="15"
+                            onkeyup="maskPhone()">
                     </div>
                 </div>
             </div>
@@ -70,7 +72,7 @@
                     <div class="first-column">
                         <label for="">CEP</label>
                         <input placeholder="Digite o CEP" type="text" id="cep_input"
-                            onchange="consultaEndereco(),completarEndereco()">
+                            onchange="consultaEndereco(),completarEndereco()" maxlength="9" onkeyup="maskCEP()">
                         <label for="">Número</label>
                         <input placeholder="Digite número do endereço" type="text" id="in_numero">
                         <label for="">Cidade</label>
@@ -116,13 +118,13 @@
                     <span class="dot" onclick="currentSlide(3)"></span>
                 </div>
 
-                
+
                 <div class="background_loader" id="div_loader">
                     <div class="loader">
                         <div class="scanner">
-                          <span>Cadastrando...</span>
+                            <span>Cadastrando...</span>
                         </div>
-                      </div>
+                    </div>
                 </div>
 
                 <div class="cardErro" id="cardErro"></div>

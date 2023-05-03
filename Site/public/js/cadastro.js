@@ -43,7 +43,7 @@ function showSlides(n) {
 function consultaEndereco() {
   let cep = document.querySelector('#cep_input').value
 
-  if (cep.length != 8) {
+  if (cep.length != 9) {
     alert('CEP invalido!');
     return;
   }
@@ -73,6 +73,71 @@ function completarEndereco(dados) {
 }
 
 // Web-data-viz
+
+const patterns = {
+  CNPJ: /^(\d{2})(\d{3})(\d{3})(\d{0,4})(\d{2})/,
+  CNPJ_8: /^(\d{2})(\d{3})(\d{3})(\d{0,4})/,
+  CNPJ_5: /^(\d{2})(\d{3})/,
+  CNPJ_2: /^(\d{2})/,
+
+  PHONE_11: /^(\d{2})(\d{5})(\d{4})/,
+  PHONE_6: /^(\d{2})(\d{4})/,
+  PHONE_2: /^(\d{2})/,
+
+  CEP: /^(\d{5})/
+}
+
+function maskCPF_CNPJ() {
+  let document = in_CNPJ.value.replace(/\D+/g, "").trim()
+
+  if (document.length > 14) {
+      return false
+  }
+
+  if (document.length >= 12) {
+      document = document.replace(patterns.CNPJ, "$1.$2.$3/$4-$5")
+  } else if (document.length > 8) {
+      document = document.replace(patterns.CNPJ_8, "$1.$2.$3/$4")
+  } else if (document.length >= 5) {
+      document = document.replace(patterns.CNPJ_5, "$1.$2.")
+  } else if (document.length >= 2) {
+      document = document.replace(patterns.CNPJ_2, "$1.")
+  }
+
+  in_CNPJ.value = document
+}
+
+function maskPhone() {
+  let phone = in_telefone.value.replace(/\D+/g, "").trim()
+
+  if (phone.length > 11) {
+      return false
+  }
+
+  if (phone.length > 10) {
+      phone = phone.replace(patterns.PHONE_11, "($1) $2-$3")
+  }  else if (phone.length > 6) {
+      phone = phone.replace(patterns.PHONE_6, "($1) $2-")
+  } else if (phone.length > 1) {
+      phone = phone.replace(patterns.PHONE_2, "($1) ")
+  }
+
+  in_telefone.value = phone
+}
+
+function maskCEP() {
+  let cep = cep_input.value.replace(/\D+/g, "")
+
+  if (cep.length > 8) {
+      return false
+  }
+
+  if(cep.length > 5){
+      cep = cep.replace(patterns.CEP, "$1-")
+  }
+
+  cep_input.value = cep
+}
 
 const cardErro = document.getElementById("cardErro");
 
