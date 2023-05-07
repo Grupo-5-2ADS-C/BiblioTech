@@ -149,10 +149,101 @@ function cadastrarEndereco(req, res) {
     }
 }
 
+function cadastrarMaquina(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var sistemaOperacional = req.body.soServer;
+    var fabricante = req.body.fabricanteServer;
+    var arquitetura = req.body.arquiteturaServer;
+    var setor = req.body.setorServer;
+    var login = req.body.loginServer;
+    var senha = req.body.senhaServer;
+    var fkBiblioteca = req.body.fkBibliotecaServer;
+
+    // Faça as validações dos valores
+    if (sistemaOperacional == undefined) {
+        res.status(400).send("Seu sistema operacional está undefined!");
+    } else if (fabricante == undefined) {
+        res.status(400).send("Seu fabricante está undefined!");
+    } else if (arquitetura == undefined) {
+        res.status(400).send("Sua arquitetura está undefined!");
+    } else if (setor == undefined) {
+        res.status(400).send("Seu setor está undefined!");
+    } else if (login == undefined) {
+        res.status(400).send("Seu login está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else if (fkBiblioteca == undefined) {
+        res.status(400).send("Sua FK está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarMaquina(sistemaOperacional, fabricante, arquitetura, setor, login, senha, fkBiblioteca)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function cadastrarFuncionario(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var responsavel = req.body.responsavelServer;
+    var telefone = req.body.telefoneServer;
+    var email = req.body.emailServer;
+    var login = req.body.loginServer;
+    var senha = req.body.senhaServer;
+    var cargo = req.body.cargoServer;
+
+    // Faça as validações dos valores
+    if (responsavel == undefined) {
+        res.status(400).send("Seu responsável está undefined!");
+    } else if (telefone == undefined) {
+        res.status(400).send("Seu telefone está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (login == undefined) {
+        res.status(400).send("Seu login está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else if (cargo == undefined) {
+        res.status(400).send("Seu cargo está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarFuncionario(responsavel, telefone, email, login, senha, cargo)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
     cadastrarEndereco,
+    cadastrarMaquina,
+    cadastrarFuncionario,
     listar,
     testar
 }

@@ -141,16 +141,21 @@ function maskCEP() {
 
 const cardErro = document.getElementById("cardErro");
 
+const regexPattern = /[.\-/()]/g;
+
 function cadastrar() {
   var nomeEmpresa = in_nomeEmpresa.value;
-  var cnpj = in_CNPJ.value;
+  // var cnpj = in_CNPJ.value;
+  var cnpj = in_CNPJ.value.replace(regexPattern, "");
   var responsavel = in_responsavel.value;
-  var telefone = in_telefone.value;
+  // var telefone = in_telefone.value;
+  var telefone = in_telefone.value.replace(regexPattern, "");
   var email = in_email.value;
   var login = in_nomeUsuario.value;
   var senha = in_senha.value;
   var senhaConfirmacao = in_confirmacaoSenha.value;
-  var cep = cep_input.value;
+  // var cep = cep_input.value;
+  var cep = cep_input.value.replace(regexPattern, "");
   var logradouro = logradouro_input.value;
   var bairro = bairro_input.value;
   var cidade = cidade_input.value;
@@ -181,7 +186,7 @@ function cadastrar() {
     cardErro.style.display = 'block';
     cardErro.classList.add('aparecerErro');
     sumirMensagem();
-  } else if (cep.length > 8 || cep.length < 8) {
+  } else if (cep.length > 8 || cep.length < 9) {
     cardErro.innerHTML = "Seu CEP está errado!"
     cardErro.style.display = 'block';
     cardErro.classList.add('aparecerErro');
@@ -257,7 +262,7 @@ function sumirCarregamento() {
 
 function cadastrarEndereco() {
 
-  var cepVar = cep_input.value;
+  var cep = cep_input.value.replace(regexPattern, "");
   var logradouroVar = logradouro_input.value;
   var bairroVar = bairro_input.value;
   var cidadeVar = cidade_input.value;
