@@ -19,13 +19,25 @@ function entrar(login, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nome, CNPJ, responsavel, telefone, email, login, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, CNPJ, responsavel, telefone, email, login, senha);
+function cadastrar(nome, CNPJ, responsavel, telefone, email) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, CNPJ, responsavel, telefone, email);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO biblioteca (nome, CNPJ, responsavel, telefone, email, login, senha, fk_cargo) VALUES ('${nome}', '${CNPJ}', '${responsavel}', '${telefone}', '${email}', '${login}', '${senha}', 1);
+        INSERT INTO biblioteca (nome, CNPJ, responsavel, telefone, email) VALUES ('${nome}', '${CNPJ}', '${responsavel}', '${telefone}', '${email}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function cadastrarLogin(login, senha, fk_biblioteca, fk_funcionario, fk_funcionario_biblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", login, senha, fk_biblioteca, fk_funcionario, fk_funcionario_biblioteca);
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO login (login, senha, fk_biblioteca, fk_funcionario, fk_biblioteca_funcionario) VALUES ('${login}', '${senha}', '${fk_biblioteca}', ${fk_funcionario}, ${fk_funcionario_biblioteca});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -55,13 +67,13 @@ function cadastrarMaquina(sistemaOperacional, fabricante, arquitetura, setor, lo
     return database.executar(instrucao);
 }
 
-function cadastrarFuncionario(responsavel, telefone, email, login, senha, fkCargo) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", responsavel, telefone, email, login, senha, fkCargo);
+function cadastrarFuncionario(nome, email, celular, fkCargo, fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, celular, fkCargo, fkBiblioteca);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO biblioteca (responsavel, telefone, email, login, senha, fk_cargo) VALUES (${responsavel}, ${telefone}, ${email}, ${login}, ${senha}, ${fkCargo})
+        INSERT INTO funcionario (nome, celular, email, fk_cargo, fk_biblioteca) VALUES (${nome}, ${celular}, ${email}, ${fkCargo}, ${fkBiblioteca})
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -70,6 +82,7 @@ function cadastrarFuncionario(responsavel, telefone, email, login, senha, fkCarg
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarLogin,
     cadastrarEndereco,
     cadastrarMaquina,
     cadastrarFuncionario,

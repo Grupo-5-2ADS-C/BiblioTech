@@ -215,8 +215,6 @@ function cadastrar() {
         responsavelServer: responsavel,
         telefoneServer: telefone,
         emailServer: email,
-        loginServer: login,
-        senhaServer: senha
       })
     }).then(function (resposta) {
 
@@ -225,6 +223,7 @@ function cadastrar() {
       if (resposta.ok) {
         div_loader.style.display = 'block';
 
+        cadastrarLogin();
         cadastrarEndereco();
 
         setTimeout(() => {

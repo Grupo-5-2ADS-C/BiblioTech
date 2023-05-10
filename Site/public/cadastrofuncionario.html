@@ -119,20 +119,23 @@
                     <div class=" row row-cols-3 first-form">
                         <div class="first-column m-0">
                             <label for="">Nome do funcionário</label>
-                            <input placeholder="Digite o nome do funcionario" type="text" class="input-body">
-                            <label for="">Email</label>
-                            <input placeholder="Digite o Email do funcionário" type="email" class="input-body">
-                            <label for="">Nome do funcionário</label>
-                            <input placeholder="Digite o Login de funcionario" type="text" class="input-body">
+                            <input placeholder="Digite o nome do funcionario" type="text" class="input-body" id="in_nome">
+                            <label for="">Celular</label>
+                            <input placeholder="Digite o Email do funcionário" type="email" class="input-body"
+                            id="in_celular">
                            
                         </div>
                         <div class="second-column">
-                            <label for="">Cargo do funcionario</label>
-                            <input placeholder="Digite o cargo" type="text" class="input-body">
-                            <label for="">Celular / Telefone</label>
-                            <input placeholder="Digite o telefone do funcionario" type="" class="input-body">
-                            <label for="">Senha</label>
-                            <input placeholder="Digite a senha do funcionario" type="password" class="input-body">
+                            <label for="">Email</label>
+                            <input placeholder="Digite o cargo" type="text" class="input-body"
+                            class="in_email">
+                            <label for="">Cargo</label>
+                            <select name="" id="in_cargo">
+                              <option value="">Insira um Cargo</option>
+                              <option value="1">NOC</option>
+                              <option value="2">Analista</option>
+                              <option value="3">Supervisor</option>
+                            </select>
                             <button id="btn-gerarSenha" class="bt"onclick="">Gerar Senha</button>
                             <button class="btn btn-primary" style="position:relative;right:8em;top:2em">Cadastrar</button>
                         </div>
@@ -154,3 +157,5 @@
 ></script>
 <script src="js/dashboard-especifica.js"></script>
 <script src="js/mode.js"></script>
+<script src="./js/cadastroFuncionario.js"></script>
+<script src="js/funcoes.js"></script>

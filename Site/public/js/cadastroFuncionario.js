@@ -1,16 +1,14 @@
 function cadastrarFuncionario() {
 
-    var responsavel = in_responsavel.value;
-    var telefone = in_telefone.value;
+    var nome = in_nome.value;
+    var celular = in_celular.value;
     var email = in_email.value;
-    var login = in_login.value;
-    var senha = in_senha.value;
     var cargo = ''
 
     if (in_cargo.value == 'NOC') {
-        cargo = 2;
+        cargo = 1;
     } else if (in_cargo.value == 'Analista') {
-        cargo = 3;
+        cargo = 2;
     }
   
       //Recupere o valor da nova input pelo nome do id
@@ -25,12 +23,11 @@ function cadastrarFuncionario() {
         body: JSON.stringify({
           // crie um atributo que recebe o valor recuperado aqui
           // Agora vá para o arquivo routes/usuario.js
-            responsavelServer: responsavel,
-            telefoneServer: telefone,
+            nomeServer: nome,
+            celularServer: celular,
             emailServer: email,
-            loginServer: login,
-            senhaServer: senha,
-            cargoServer: cargo
+            cargoServer: cargo,
+            fkBibliotecaServer: sessionStorage.ID_USUARIO,
         })
       }).then(function (resposta) {
   

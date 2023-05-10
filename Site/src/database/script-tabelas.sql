@@ -39,18 +39,18 @@ PRIMARY KEY (id_endereco, fk_biblioteca)
 -- complemento VARCHAR(45)
 -- );
 
--- Entidade usuario
-CREATE TABLE usuario (
-id_usuario INT IDENTITY(1,1),
+-- Entidade funcionario
+CREATE TABLE funcionario (
+id_funcionario INT IDENTITY(1,1),
 nome VARCHAR(45),
-cargo VARCHAR(45),
 email VARCHAR(100),
-CONSTRAINT chkEmailUsuario CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.'),
+CONSTRAINT chkEmailFuncionario CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.'),
+celular CHAR(12),
 login VARCHAR(45),
 senha VARCHAR(256),
 fk_biblioteca INT,
 FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
-PRIMARY KEY (id_usuario, fk_biblioteca)
+PRIMARY KEY (id_funcionario, fk_biblioteca)
 );
 
 -- Entidade maquina
@@ -93,11 +93,9 @@ id_metrica INT IDENTITY(1,1),
 uso FLOAT,
 frequencia FLOAT,
 fk_especificacao INT,
-FOREIGN KEY (fk_especificacao) REFERENCES especificacao_componente_maquina(id_especificacao),
 fk_componente_maquina INT,
-FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
 fk_maquina INT,
-FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+FOREIGN KEY (fk_especificacao, fk_componente_maquina, fk_maquina) REFERENCES [dbo].[especificacao_componente_maquina](id_especificacao, fk_componente_maquina, fk_maquina),
 PRIMARY KEY (id_metrica, fk_especificacao, fk_componente_maquina, fk_maquina)
 );
 
@@ -107,9 +105,14 @@ id_alerta INT IDENTITY(1,1),
 dt_alerta DATETIME,
 texto_aviso VARCHAR(100),
 fk_metrica INT,
-FOREIGN KEY (fk_metrica) REFERENCES metrica(id_metrica),
 fk_componente_maquina INT,
-FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
 fk_maquina INT,
-FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
-PRIMARY KEY (id_alerta, fk_metrica, fk_componente_maquina));
+fk_especificacao INT,
+FOREIGN KEY (fk_metrica, fk_especificacao, fk_componente_maquina, fk_maquina) REFERENCES [dbo].[metrica](id_metrica, fk_especificacao, fk_componente_maquina, fk_maquina),
+PRIMARY KEY (id_alerta, fk_metrica, fk_componente_maquina, fk_maquina, fk_especificacao),
+fk_tipo_alerta INT,
+FOREIGN KEY (fk_tipo_alerta) REFERENCES tipo_alerta (id_tipo_alerta),
+fk_situacao_alerta INT,
+FOREIGN KEY (fk_situacao_alerta) REFERENCES situacao_alerta (id_situacao_alerta)
+); 
+
