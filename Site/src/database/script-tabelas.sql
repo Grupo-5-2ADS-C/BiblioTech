@@ -9,9 +9,7 @@ CNPJ CHAR(14),
 responsavel VARCHAR(45),
 telefone CHAR(12),
 email VARCHAR(100),
-CONSTRAINT chkEmail CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.'),
-login VARCHAR(45),
-senha VARCHAR(256)
+CONSTRAINT chkEmail CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.')
 );
 
 -- Entidade endereco
@@ -28,16 +26,11 @@ FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
 PRIMARY KEY (id_endereco, fk_biblioteca)
 );
 
--- Entidade associativa entre biblioteca e endereco
--- CREATE TABLE dados_unicos_endereco (
--- fk_biblioteca INT,
--- FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
--- fk_endereco INT,
--- FOREIGN KEY (fk_endereco) REFERENCES endereco(id_endereco),
--- PRIMARY KEY (fk_biblioteca, fk_endereco),
--- numero CHAR(5),
--- complemento VARCHAR(45)
--- );
+-- Entidade Cargo
+CREATE TABLE cargo (
+id_cargo INT PRIMARY KEY IDENTITY(1,1),
+cargo VARCHAR(45)
+);
 
 -- Entidade funcionario
 CREATE TABLE funcionario (
@@ -46,19 +39,29 @@ nome VARCHAR(45),
 email VARCHAR(100),
 CONSTRAINT chkEmailFuncionario CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' and email NOT LIKE '%.'),
 celular CHAR(12),
+fk_biblioteca INT,
+FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
+PRIMARY KEY (id_funcionario, fk_biblioteca),
+fk_cargo INT,
+FOREIGN KEY (fk_cargo) REFERENCES [dbo].[cargo](id_cargo)
+);
+
+-- Entidade login
+CREATE TABLE login (
+id_login INT PRIMARY KEY IDENTITY(1,1),
 login VARCHAR(45),
 senha VARCHAR(256),
 fk_biblioteca INT,
-FOREIGN KEY (fk_biblioteca) REFERENCES biblioteca(id_biblioteca),
-PRIMARY KEY (id_funcionario, fk_biblioteca)
+fk_funcionario INT,
+fk_biblioteca_funcionario INT,
+FOREIGN KEY (fk_funcionario, fk_biblioteca_funcionario) REFERENCES [dbo].[funcionario](id_funcionario, fk_biblioteca),
+FOREIGN KEY (fk_biblioteca) REFERENCES [dbo].[biblioteca](id_biblioteca)
 );
 
 -- Entidade maquina
 CREATE TABLE maquina (
 id_maquina INT PRIMARY KEY IDENTITY(1,1),
 sistema_operacional VARCHAR(45),
-fabricante VARCHAR(45),
-arquitetura VARCHAR(45),
 setor VARCHAR(45),
 login VARCHAR(45),
 senha VARCHAR(256),
@@ -89,30 +92,37 @@ PRIMARY KEY (id_especificacao, fk_componente_maquina, fk_maquina)
 
 -- Entidade metricas
 CREATE TABLE metrica (
-id_metrica INT IDENTITY(1,1),
+id_metrica INT IDENTITY(1,1) PRIMARY KEY,
 uso FLOAT,
 frequencia FLOAT,
 fk_especificacao INT,
 fk_componente_maquina INT,
 fk_maquina INT,
-FOREIGN KEY (fk_especificacao, fk_componente_maquina, fk_maquina) REFERENCES [dbo].[especificacao_componente_maquina](id_especificacao, fk_componente_maquina, fk_maquina),
-PRIMARY KEY (id_metrica, fk_especificacao, fk_componente_maquina, fk_maquina)
+FOREIGN KEY (fk_especificacao, fk_componente_maquina, fk_maquina) REFERENCES [dbo].[especificacao_componente_maquina](id_especificacao, fk_componente_maquina, fk_maquina)
+);
+
+-- Entidade tipo_alerta
+CREATE TABLE tipo_alerta (
+id_tipo_alerta INT PRIMARY KEY IDENTITY(1,1),
+tipo_alerta VARCHAR(45)
+);
+
+-- Entidade situacao_alerta
+CREATE TABLE situacao_alerta (
+id_situacao_alerta INT PRIMARY KEY IDENTITY(1,1),
+situacao_alerta VARCHAR(45)
 );
 
 -- Entidade alerta
 CREATE TABLE alerta (
-id_alerta INT IDENTITY(1,1),
+id_alerta INT PRIMARY KEY IDENTITY(1,1),
 dt_alerta DATETIME,
-texto_aviso VARCHAR(100),
+texto_aviso VARCHAR(256),
 fk_metrica INT,
-fk_componente_maquina INT,
-fk_maquina INT,
-fk_especificacao INT,
-FOREIGN KEY (fk_metrica, fk_especificacao, fk_componente_maquina, fk_maquina) REFERENCES [dbo].[metrica](id_metrica, fk_especificacao, fk_componente_maquina, fk_maquina),
-PRIMARY KEY (id_alerta, fk_metrica, fk_componente_maquina, fk_maquina, fk_especificacao),
+FOREIGN KEY (fk_metrica) REFERENCES [dbo].[metrica](id_metrica),
 fk_tipo_alerta INT,
-FOREIGN KEY (fk_tipo_alerta) REFERENCES tipo_alerta (id_tipo_alerta),
+FOREIGN KEY (fk_tipo_alerta) REFERENCES [dbo].[tipo_alerta](id_tipo_alerta),
 fk_situacao_alerta INT,
-FOREIGN KEY (fk_situacao_alerta) REFERENCES situacao_alerta (id_situacao_alerta)
-); 
+FOREIGN KEY (fk_situacao_alerta) REFERENCES [dbo].[situacao_alerta](id_situacao_alerta)
+);
 
