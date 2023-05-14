@@ -93,11 +93,12 @@ function publicar(req, res) {
     }
 }
 
-function editar(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idAviso = req.params.idAviso;
+function editarSenhaFuncionario(req, res) {
+    var senha = req.body.senha;
+    var fkFuncionario = req.params.fkFuncionario;
+    var fkBibliotecaFuncionario = req.params.fkBibliotecaFuncionario;
 
-    avisoModel.editar(novaDescricao, idAviso)
+    avisoModel.editarSenhaFuncionario(senha, fkFuncionario, fkBibliotecaFuncionario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -137,6 +138,6 @@ module.exports = {
     listarPorUsuario,
     pesquisarDescricao,
     publicar,
-    editar,
+    editarSenhaFuncionario,
     deletar
 }

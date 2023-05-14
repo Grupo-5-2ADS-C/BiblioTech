@@ -62,12 +62,9 @@ button2.addEventListener("click", function () {
 function cadastrarMaquina() {
 
   var sistemaOperacional = in_so.value;
-  var fabricante = in_fabricante.value;
-  var arquitetura = in_arquitetura.value;
   var setor = in_setor.value;
   var login = in_login.value;
   var senha = in_senha.value;
-  var fkBiblioteca = sessionStorage.ID_USUARIO;
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -82,24 +79,19 @@ function cadastrarMaquina() {
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         soServer: sistemaOperacional,
-        fabricanteServer: fabricante,
-        arquiteturaServer: arquitetura,
         setorServer: setor,
         loginServer: login,
         senhaServer: senha, 
-        fkBibliotecaServer: fkBiblioteca,
+        fkBibliotecaServer: sessionStorage.ID_USUARIO,
       })
     }).then(function (resposta) {
 
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
-        div_loader.style.display = 'block';
-
-        cadastrarEndereco();
 
         setTimeout(() => {
-          window.location = "maquinas.html";
+          window.location = "./maquinas.html";
         }, "1000")
 
         limparFormulario();

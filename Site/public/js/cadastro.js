@@ -91,17 +91,17 @@ function maskCPF_CNPJ() {
   let document = in_CNPJ.value.replace(/\D+/g, "").trim()
 
   if (document.length > 14) {
-      return false
+    return false
   }
 
   if (document.length >= 12) {
-      document = document.replace(patterns.CNPJ, "$1.$2.$3/$4-$5")
+    document = document.replace(patterns.CNPJ, "$1.$2.$3/$4-$5")
   } else if (document.length > 8) {
-      document = document.replace(patterns.CNPJ_8, "$1.$2.$3/$4")
+    document = document.replace(patterns.CNPJ_8, "$1.$2.$3/$4")
   } else if (document.length >= 5) {
-      document = document.replace(patterns.CNPJ_5, "$1.$2.")
+    document = document.replace(patterns.CNPJ_5, "$1.$2.")
   } else if (document.length >= 2) {
-      document = document.replace(patterns.CNPJ_2, "$1.")
+    document = document.replace(patterns.CNPJ_2, "$1.")
   }
 
   in_CNPJ.value = document
@@ -111,15 +111,15 @@ function maskPhone() {
   let phone = in_telefone.value.replace(/\D+/g, "").trim()
 
   if (phone.length > 11) {
-      return false
+    return false
   }
 
   if (phone.length > 10) {
-      phone = phone.replace(patterns.PHONE_11, "($1) $2-$3")
-  }  else if (phone.length > 6) {
-      phone = phone.replace(patterns.PHONE_6, "($1) $2-")
+    phone = phone.replace(patterns.PHONE_11, "($1) $2-$3")
+  } else if (phone.length > 6) {
+    phone = phone.replace(patterns.PHONE_6, "($1) $2-")
   } else if (phone.length > 1) {
-      phone = phone.replace(patterns.PHONE_2, "($1) ")
+    phone = phone.replace(patterns.PHONE_2, "($1) ")
   }
 
   in_telefone.value = phone
@@ -129,11 +129,11 @@ function maskCEP() {
   let cep = cep_input.value.replace(/\D+/g, "")
 
   if (cep.length > 8) {
-      return false
+    return false
   }
 
-  if(cep.length > 5){
-      cep = cep.replace(patterns.CEP, "$1-")
+  if (cep.length > 5) {
+    cep = cep.replace(patterns.CEP, "$1-")
   }
 
   cep_input.value = cep
@@ -155,7 +155,7 @@ function cadastrar() {
   var senha = in_senha.value;
   var senhaConfirmacao = in_confirmacaoSenha.value;
   // var cep = cep_input.value;
-  var cep = cep_input.value.replace(regexPattern, "");
+  var cep = cep_input.value
   var logradouro = logradouro_input.value;
   var bairro = bairro_input.value;
   var cidade = cidade_input.value;
@@ -186,7 +186,7 @@ function cadastrar() {
     cardErro.style.display = 'block';
     cardErro.classList.add('aparecerErro');
     sumirMensagem();
-  } else if (cep.length > 8 || cep.length < 9) {
+  } else if (cep.length != 9) {
     cardErro.innerHTML = "Seu CEP está errado!"
     cardErro.style.display = 'block';
     cardErro.classList.add('aparecerErro');
@@ -259,6 +259,39 @@ function sumirCarregamento() {
   }, 2000);
 }
 
+function cadastrarLogin() {
+
+  var login = in_nomeUsuario.value;
+  var senha = in_senha.value;
+
+  // Enviando o valor da nova input
+  fetch("/usuarios/cadastrarLogin", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      // crie um atributo que recebe o valor recuperado aqui
+      // Agora vá para o arquivo routes/usuario.js
+      loginServer: login,
+      senhaServer: senha
+    })
+  }).then(function (resposta) {
+
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+      limparFormulario();
+    } else {
+      throw ("Houve um erro ao tentar realizar o cadastro!");
+    }
+  }).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+  });
+
+  return false;
+}
+
 function cadastrarEndereco() {
 
   var cep = cep_input.value.replace(regexPattern, "");
@@ -277,7 +310,7 @@ function cadastrarEndereco() {
     body: JSON.stringify({
       // crie um atributo que recebe o valor recuperado aqui
       // Agora vá para o arquivo routes/usuario.js
-      CEPServer: cepVar,
+      CEPServer: cep,
       logradouroServer: logradouroVar,
       bairroServer: bairroVar,
       cidadeServer: cidadeVar,
@@ -299,6 +332,8 @@ function cadastrarEndereco() {
 
   return false;
 }
+
+
 
 
 
