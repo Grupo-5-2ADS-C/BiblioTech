@@ -73,8 +73,7 @@
                 <span class="menu__link">Cadastros</span>
                 <div class="dropdown-content">
                   <a href="Funcionarios.html">Funcionários</a><br>
-                  <a href="#">Máquinas</a><br>
-
+                  <a href="maquinas.html">Máquinas</a><br>
                 </div>
               </div>
   
@@ -110,43 +109,38 @@
       </div>
 
       <div class="content">
-        <section class=" container content-sign-up">
-            <div class="title">
-                <span class="span_title text-center"><h1>Cadastro de Funcionários</h1></span>
-                <hr>
-                    <span class=" h5 mt-5 p-0">Dados do Funcionário</span>
-                <div class="form">
-                    <div class=" row row-cols-3 first-form">
-                        <div class="first-column m-0">
-                            <label for="">Nome do funcionário</label>
-                            <input placeholder="Digite o nome do funcionario" type="text" class="input-body" id="in_nomeFuncionario">
-                            <label for="">Celular</label>
-                            <input placeholder="Digite o Celular" class="input-body"
-                            id="in_celular">
-                            <input placeholder="Digite o usuario" type="text" class="input-body"
-                            id="in_nomeUsuario">
-                           
-                        </div>
-                        <div class="second-column">
-                            <label for="">Email</label>
-                            <input placeholder="Digite o email" type="email" class="input-body"
-                            id="in_email">
-                            <input placeholder="Digite a senha" type="text" class="input-body"
-                            id="in_senha">
-                            <label for="">Cargo</label>
-                            <select name="" id="in_cargo">
-                              <option value="">Insira um Cargo</option>
-                              <option value="NOC">NOC</option>
-                              <option value="Analista">Analista</option>
-                              <option value="3">Supervisor</option>
-                            </select>
-                            <button id="btn-gerarSenha" class="bt"onclick="">Gerar Senha</button>
-                            <button onclick="cadastrarFuncionario()" class="btn btn-primary" style="position:relative;right:8em;top:2em">Cadastrar</button>
-                        </div>
-                    </div>
-                </div>           
-        </section>
+        <div class="content__first-elements">
+          <h1 class="content__title">Cadastro de Funcionários</h1>
+          <div class="content__separation"></div>
+          <h3 class="content__subtitle">Dados do Funcionário</h3>
+  
+          <div class="content__inputs">
+            <div class="content__inputs-nome">
+              <label for="content__input-nome" class="content__label-nome">Nome do Funcionário</label>
+              <input type="text" class="content__input-nome" placeholder="Digite o nome do funcionário" id="in_nomeFuncionario">
+            </div>
+            <div class="content__inputs-celular">
+              <label for="content__input-celular" class="content__label-celular">Celular</label>
+              <input type="text" class="content__input-celular" placeholder="Digite o celular do funcionário" id="in_celularFuncionario">
+            </div>
+          </div>
+          <div class="content__inputs2">
+            <div class="content__inputs-email">
+              <label for="content__input-email" class="content__label-email">E-mail</label>
+              <input type="text" class="content__input-email" placeholder="Digite o E-mail" id="in_loginMaquina">
+            </div>
+            <div class="content__inputs-senha">
+              <label for="content__input-senha" class="content__label-senha">Cargo do Funcionário</label>
+              <input type="text" class="content__input-cargo" placeholder="Digite a senha da máquina" id="in_senhaMaquina">
+            </div>
+          </div>
+          <div class="content__button">
+            <button class="content__button-button" onclick="cadastrarMaquina()">Cadastrar Máquina</button>
+            <h4 class="content__aviso">*Dados específicos serão coletados após o primeiro login em nossa aplicação*</h4>
+          </div>
+        </div>
       </div>
+
     </main>
   </body>
 </html>
