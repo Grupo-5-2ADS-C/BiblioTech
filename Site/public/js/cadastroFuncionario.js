@@ -12,13 +12,13 @@ function gerarChaveDeSeguranca() {
 function cadastrarFuncionario() {
 
     var nomeFuncionario = in_nomeFuncionario.value;
-    var emailFuncionario = in_email.value;
-    var celularFuncionario = in_celular.value;
+    var emailFuncionario = in_emailFuncionario.value;
+    var celularFuncionario = in_celularFuncionario.value;
     var cargoFuncionario = ''
 
-    if (in_cargo.value == 'NOC') {
+    if (in_cargoFuncionario.value == 'NOC') {
         cargoFuncionario = 1;
-    } else if (in_cargo.value == 'Analista') {
+    } else if (in_cargoFuncionario.value == 'Analista') {
         cargoFuncionario = 2;
     }
   
@@ -77,8 +77,8 @@ function cadastrarFuncionario() {
 
   function cadastrarLoginFuncionario() {
 
-    var login = in_nomeUsuario.value;
-    var senha = in_senha.value;
+    var login = in_nomeFuncionario.value;
+    var senha = in_senhaFuncionario.value;
     
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrarLoginFuncionario", {

@@ -195,6 +195,25 @@ body.dark {
     width: 100%;
 }
 
+.div__gerar-senha {
+    display: flex;
+    justify-content: end;
+}
+
+.content__button-senha {
+    width: 50%;
+    height: 40px;
+    background-color: #ececec;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    font-size: 1rem;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #d6d6d6;
+    
+}
+
 .content__button {
     width: 100%;
     display: flex;
@@ -212,21 +231,18 @@ body.dark {
     cursor: pointer;
     text-align: center;
     margin-top: 50px;
+    transition: 0.3s;
 }
 
 .content__button-button:hover {
     transition: 0.3s;
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .content__button-button:active {
     transition: 0.3s;
-    transform: scale(0.97);
+    transform: scale(0.98);
 }
 
-.content__aviso {
-    margin-top: 50px;
-    color: red;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
+
+
