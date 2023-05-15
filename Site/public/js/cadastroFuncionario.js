@@ -1,3 +1,14 @@
+function gerarChaveDeSeguranca() {
+  let serialKey = ``;
+  const caracteres = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`;
+
+  for (let i = 0; serialKey.length < 10; i++) {
+      serialKey += caracteres.charAt(parseInt(Math.random() * caracteres.length + 1));
+  }
+
+  in_senhaFuncionario.innerHTML = serialKey;
+}
+
 function cadastrarFuncionario() {
 
     var nomeFuncionario = in_nomeFuncionario.value;
