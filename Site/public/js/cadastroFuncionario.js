@@ -6,7 +6,7 @@ function gerarChaveDeSeguranca() {
       serialKey += caracteres.charAt(parseInt(Math.random() * caracteres.length + 1));
   }
 
-  in_senhaFuncionario.innerHTML = serialKey;
+  in_senhaFuncionario.value = serialKey;
 }
 
 function cadastrarFuncionario() {
