@@ -94,124 +94,86 @@ body.dark {
     font-weight: 500;
 }
 
-.content__inputs {
-    display: flex;
+.content__maquinasCadastradas {
+    margin-top: 30px;
+    border: 1px solid rgb(187, 187, 187);
+    background-color: #eeeeee;
     width: 100%;
-    margin-top: 45px;
-    justify-content: space-between;
-    gap: 50px;
+    height: 50vh;
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    overflow-y: scroll;
 }
 
-.content label {
+.content__maquinas-direita, .content__maquinas-esquerda {
+    width: 100%;
+}
+
+.content__maquinaCriada {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border: 1px solid rgb(139, 139, 139);
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.maquinaCriada__title {
+    display: flex;
+    justify-content: center;
+}
+
+.maquinaCriada__title h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #57B4CE;
+}
+
+.maquinaCriada__title #id_maquina {
+    color: #57B4CE;
+}
+
+.maquinaCriada__especificacao {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.maquinaCriada__especificacao h4 {
     font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 3px;
+    color: #57B4CE;
 }
 
-.content input {
-    width: 100%;
-    height: 40px;
-    padding: 16px;
-    font-size: 1rem;
-    border: rgba(221, 221, 221, 0.8) 1px solid;
-    background-color: #F6F6F6;
-    box-shadow: 0px 2px 5px 0px rgba(39, 39, 39, 0.1);
+.maquinaCriada__especificacao span {
+    font-size: 0.875rem;
 }
 
-.content select {
-    width: 100%;
-    height: 40px;
-    padding: 0 16px;
-    font-size: 1rem;
-    border: rgba(221, 221, 221, 1) 1px solid;
-    background-color: #F6F6F6;
-    box-shadow: 0px 2px 5px 0px rgba(39, 39, 39, 0.1);
-    color: black;
-}
-
-.content__first-option {
-    color: #cacaca;
-}
-
-.content input:focus-visible {
-    transition: 1s;
-    border: #57B4CE 1px solid;
-}
-
-.content input::placeholder {
-    font-size: 0.8rem;
-    opacity: 0.5;
-}
-
-.content__inputs-nome {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.content__inputs-celular {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.content__inputs2 {
-    display: flex;
-    width: 100%;
-    margin-top: 20px;
-    justify-content: space-between;
-    gap: 50px;
-}
-
-.content__inputs-email {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.content__inputs-cargo {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.content__inputs3 {
-    display: flex;
-    width: 100%;
-    margin-top: 20px;
-    justify-content: space-between;
-    gap: 50px;
-}
-
-.content__inputs-login {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.content__inputs-senha {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.div__gerar-senha {
+.maquinaCriada__buttons {
     display: flex;
     justify-content: end;
+    gap: 10px;
 }
 
-.content__button-senha {
-    width: 50%;
-    height: 40px;
-    background-color: #ececec;
-    border-bottom-right-radius: 6px;
-    border-top-right-radius: 6px;
+.maquinaCriada__buttons button {
+    margin-top: 5px;
+    width: fit-content;
+    padding: 2px 4px;
+    background-color: #57B4CE;
+    border-radius: 2px;
     font-size: 1rem;
-    color: black;
+    color: white;
     cursor: pointer;
     text-align: center;
-    border: 1px solid #d6d6d6;
-    
+    transition: 0.3s;
+}
+
+.maquinaCriada__buttons button:active {
+    transition: 0.3s;
+    transform: scale(0.90);
 }
 
 .content__button {
@@ -230,7 +192,7 @@ body.dark {
     color: white;
     cursor: pointer;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
     transition: 0.3s;
 }
 
