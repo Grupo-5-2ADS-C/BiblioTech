@@ -1,3 +1,10 @@
+in_nomeFuncionario.value = ''
+in_emailFuncionario.value = ''
+in_celularFuncionario.value = ''
+in_cargoFuncionario.value = ''
+in_loginFuncionario.value = ''
+in_senhaFuncionario.value = ''
+
 function gerarChaveDeSeguranca() {
   let serialKey = ``;
   const caracteres = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`;
@@ -49,7 +56,7 @@ function cadastrarFuncionario() {
           cadastrarLoginFuncionario();
   
           setTimeout(() => {
-            window.location = "./Funcionarios.html";
+            window.location = "./funcionariosCadastrados.html";
           }, "1000")
   
           limparFormulario();
