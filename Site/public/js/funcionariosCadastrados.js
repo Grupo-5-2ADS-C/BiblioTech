@@ -19,9 +19,9 @@ function listarFuncionarios() {
 
 function mascaraCelular(celular) {
     var celularMascara = celular.replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3');
-    
+
     return celularMascara;
-  }
+}
 
 function plotarFuncionarios(resultado) {
 
@@ -32,14 +32,16 @@ function plotarFuncionarios(resultado) {
         const nome = resultadoAtual.nome;
         const email = resultadoAtual.email;
         var celular = resultadoAtual.celular;
-        var cargo = resultadoAtual.cargo;
+        const cargo = resultadoAtual.fk_cargo;
         const login = resultadoAtual.login;
         const senha = resultadoAtual.senha;
 
+        var cargoListar = '';
+
         if (cargo == 1) {
-            cargo = 'NOC'
+            cargoListar = 'NOC'
         } else {
-            cargo = 'Analista'
+            cargoListar = 'Analista'
         }
 
         if (index % 2 == 0) {
@@ -52,13 +54,13 @@ function plotarFuncionarios(resultado) {
                 <h4>Nome: <span id="nome_funcionario">${nome}</span></h4> 
                 <h4>E-mail: <span id="email_funcionario">${email}</span></h4> 
                 <h4>Celular: <span id="celular_funcionario">${mascaraCelular(celular)}</span></h4> 
-                <h4>Cargo: <span id="cargo_funcionario">${cargo}</span></h4> 
+                <h4>Cargo: <span id="cargo_funcionario">${cargoListar}</span></h4> 
                 <h4>Login: <span id="login_funcionario">${login}</span></h4> 
                 <h4>Senha: <span id="senha_funcionario">${senha}</span></h4> 
             </div>
             <div class="funcionarioCriado__buttons">
-                <button>Deletar</button>
-                <button>Editar</button>
+                <button onclick="deletarLoginFuncionario(${resultadoAtual.id_funcionario})">Deletar</button>
+                <button onclick="editar(${resultadoAtual.id_funcionario}, '${resultadoAtual.nome}', '${resultadoAtual.email}', '${resultadoAtual.celular}', ${cargo}, '${resultadoAtual.login}', '${resultadoAtual.senha}')">Editar</button>
             </div>
         </div>
         `
@@ -72,16 +74,113 @@ function plotarFuncionarios(resultado) {
                 <h4>Nome: <span id="nome_funcionario">${nome}</span></h4> 
                 <h4>E-mail: <span id="email_funcionario">${email}</span></h4> 
                 <h4>Celular: <span id="celular_funcionario">${mascaraCelular(celular)}</span></h4> 
-                <h4>Cargo: <span id="cargo_funcionario">${cargo}</span></h4> 
+                <h4>Cargo: <span id="cargo_funcionario">${cargoListar}</span></h4> 
                 <h4>Login: <span id="login_funcionario">${login}</span></h4> 
                 <h4>Senha: <span id="senha_funcionario">${senha}</span></h4> 
             </div>
             <div class="funcionarioCriado__buttons">
-                <button>Deletar</button>
-                <button>Editar</button>
+                <button onclick="deletarLoginFuncionario(${resultadoAtual.id_funcionario})">Deletar</button>
+                <button onclick="editar(${resultadoAtual.id_funcionario}, '${resultadoAtual.nome}', '${resultadoAtual.email}', '${resultadoAtual.celular}', ${cargo}, '${resultadoAtual.login}', '${resultadoAtual.senha}')">Editar</button>
             </div>
         </div>
         `
         }
     }
 }
+
+function editar(id, nome, email, celular, cargo, login, senha) {
+    sessionStorage.ID_FUNCIONARIO = id;
+    sessionStorage.NOME = nome;
+    sessionStorage.EMAIL = email;
+    sessionStorage.CELULAR = celular;
+    sessionStorage.CARGO = cargo;
+    sessionStorage.LOGIN = login;
+    sessionStorage.SENHA = senha;
+
+    setTimeout(() => {
+        window.location = "./editarFuncionario.html"
+    }, 0500);
+}
+
+function limparSession() {
+    sessionStorage.removeItem('ID_FUNCIONARIO');
+    sessionStorage.removeItem('NOME');
+    sessionStorage.removeItem('EMAIL');
+    sessionStorage.removeItem('CELULAR');
+    sessionStorage.removeItem('CARGO');
+    sessionStorage.removeItem('LOGIN');
+    sessionStorage.removeItem('SENHA');
+}
+
+function deletarFuncionario(idFuncionario) {
+
+    fetch(`/funcionarios/deletarFuncionario/${idFuncionario}/${sessionStorage.ID_USUARIO}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar deletar o funcionário! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+function deletarLoginFuncionario(idFuncionario) {
+
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá reverter esta alteração!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#57B4CE',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, deletar!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deletado!',
+                'Seu funcionário foi deletado.',
+                'Sucesso',
+
+                fetch(`/funcionarios/deletarLoginFuncionario/${idFuncionario}/${sessionStorage.ID_USUARIO}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(function (resposta) {
+            
+                    if (resposta.ok) {
+            
+                        deletarFuncionario();
+                        window.location = 'funcionariosCadastrados.html'
+            
+                    } else if (resposta.status == 404) {
+                        window.alert("Deu 404!");
+                    } else {
+                        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                }),
+
+            )
+        }
+    })
+
+
+}
+
+
+
+
+
+
+
