@@ -30,6 +30,49 @@ function listarMaquinas(req, res) {
     }
 }
 
+function editarMaquina(req, res) {
+    var sistemaOperacional = req.body.sistemaOperacional;
+    var setor = req.body.setor;
+    var login = req.body.login;
+    var senha = req.body.senha;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    maquinasModel.editarMaquina(sistemaOperacional, setor, login, senha, fkBiblioteca)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function deletarMaquina(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    maquinasModel.deletarMaquina(idMaquina, fkBiblioteca)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     listarMaquinas,
+    editarMaquina,
+    deletarMaquina,
 }

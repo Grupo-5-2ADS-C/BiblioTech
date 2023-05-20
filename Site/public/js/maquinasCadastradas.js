@@ -17,6 +17,16 @@ function listarMaquinas() {
         });
 }
 
+function limparSession() {
+    sessionStorage.removeItem('ID_FUNCIONARIO');
+    sessionStorage.removeItem('NOME');
+    sessionStorage.removeItem('EMAIL');
+    sessionStorage.removeItem('CELULAR');
+    sessionStorage.removeItem('CARGO');
+    sessionStorage.removeItem('LOGIN');
+    sessionStorage.removeItem('SENHA');
+}
+
 function plotarMaquinas(resultado) {
 
     for (let index = 0; index < resultado.length; index++) {
@@ -42,8 +52,8 @@ function plotarMaquinas(resultado) {
                 <h4>Senha: <span id="senha_maquina">${senha}</span></h4> 
             </div>
             <div class="maquinaCriada__buttons">
-                <button>Deletar</button>
-                <button>Editar</button>
+                <button onclick="deletarMaquina(${idMaquina})">Deletar</button>
+                <button onclick="editarMaquina('${sistemaOperacional}', '${setor}', '${login}', '${senha}', ${idMaquina})">Editar</button>
             </div>
         </div>
         `
@@ -60,11 +70,58 @@ function plotarMaquinas(resultado) {
                 <h4>Senha: <span id="senha_maquina">${senha}</span></h4> 
             </div>
             <div class="maquinaCriada__buttons">
-                <button>Deletar</button>
-                <button>Editar</button>
+                <button onclick="deletarMaquina(${idMaquina})">Deletar</button>
+                <button onclick="editarMaquina('${sistemaOperacional}', '${setor}', '${login}', '${senha}', ${idMaquina})">Editar</button>
             </div>
         </div>
         `
         }
     }
+}
+
+function editarMaquina(sistemaOperacional, setor, login, senha, idMaquina) {
+    sessionStorage.SISTEMA_OPERACIONAL = sistemaOperacional;
+    sessionStorage.SETOR = setor;
+    sessionStorage.LOGIN = login;
+    sessionStorage.SENHA = senha;
+    sessionStorage.ID_MAQUINA = idMaquina;
+
+    setTimeout(() => {
+        window.location = "./editarMaquina.html"
+    }, 0500);
+}
+
+function deletarMaquina(idMaquina) {
+
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá reverter esta alteração!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#57B4CE',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, deletar!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+                fetch(`/maquinas/deletarMaquina/${idMaquina}/${sessionStorage.ID_USUARIO}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(function (resposta) {
+            
+                    if (resposta.ok) {
+            
+                        window.location = 'maquinasCadastradas.html'
+            
+                    } else if (resposta.status == 404) {
+                        window.alert("Deu 404!");
+                    } else {
+                        throw ("Houve um erro ao tentar realizar o delete! Código da resposta: " + resposta.status);
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                })
+        }
+    })
 }
