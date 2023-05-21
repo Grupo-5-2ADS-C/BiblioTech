@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="css/dashboard-especifica.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/cadastrofunc.css">
-    <link rel="stylesheet" href="css/edicaoFuncionario.css">
-    <title>Editar Máquina</title>
+    <link rel="stylesheet" href="css/dashboard-especifica.css">
+    <link rel="stylesheet" href="css/cadastroMaquinas.css">
+    <link rel="stylesheet" href="css/download-app.css">
+    <title>Download da Aplicação</title>
 </head>
 
-<body onload="checkboxOnLoad(); popularInputs()">
+<body>
     <main class="dashboard-especifico">
         <div class="menu">
             <img src="img/logo bibliotech 190px.png" alt="Logo BiblioTech" class="menu__imagem" />
@@ -35,7 +34,7 @@
                         <span class="menu__icon">
                             <ion-icon name="stats-chart"></ion-icon>
                         </span>
-                            <span class="menu__link">Dashboard</span>
+                        <span class="menu__link">Dashboard</span>
                     </div>
                 </li>
                 <li class="menu__box-links">
@@ -65,7 +64,7 @@
                             <span class="menu__link">Cadastros</span>
                             <div class="dropdown-content">
                                 <a href="funcionariosCadastrados.html">Funcionários</a><br>
-                                <a href="maquinasCadastradas.html">Máquinas</a><br>
+                                <a href="maquinasCadastradas.html">Máquinas</a>
                             </div>
                         </div>
 
@@ -102,58 +101,36 @@
         </div>
 
         <div class="content">
-            <div class="content__first-elements">
-                <h1 class="content__title">Editar Máquina</h1>
-                <div class="content__separation"></div>
-                <h3 class="content__subtitle">Máquina a ser editada</h3>
-
-                <div class="content__inputs">
-                    <div class="content__inputs-nome">
-                        <label for="content__input-sistemaOperacional" class="content__label-sistemaOperacional">Sistema Operacional</label>
-                        <input type="text" class="content__input-sistemaOperacional" placeholder="Digite o sistema operacional"
-                            id="in_sistemaOperacional">
+            <div class="content__image">
+                <img src="img/Download Aplication.svg" width="450px" alt="">
+            </div>
+            <div class="content__text">
+                <h1>Baixe nossa aplicação!</h1>
+                <p>Para obter nossa aplicação na sua máquina é super fácil! Basta clicar em "Download" e executar assim
+                    que o download estiver completo.</p>
+                <div class="button">
+                    <div class="button-wrapper">
+                        <div class="download">Download</div>
+                        <span class="icon">
+                            <a href="https://github.com/Grupo-5-2ADS-C/Bibliotech-app/raw/main/app.jar" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em"
+                                height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17">
+                                </path>
+                            </svg></a>
+                        </span>
                     </div>
-                    <div class="content__inputs-celular">
-                        <label for="content__input-setor" class="content__label-setor">Setor</label>
-                        <input type="text" class="content__input-setor" placeholder="Digite o setor da máquina"
-                            id="in_setorMaquina">
-                    </div>
-                </div>
-                <div class="content__inputs3 disabled" id="content__inputs3">
-                    <div class="content__inputs-login">
-                        <label for="content__input-login" class="content__label-login">Login</label>
-                        <input type="text" class="content__input-login" placeholder="Digite login da máquina"
-                            id="in_loginMaquina">
-                    </div>
-                    <div class="content__inputs-senha">
-                        <label for="content__input-senha" class="content__label-senha">Senha</label>
-                        <div class="div__gerar-senha">
-                            <input type="text" class="content__input-senha" placeholder="Clique em gerar senha"
-                                id="in_senhaMaquina">
-                        </div>
-                    </div>
-                </div>
-                <div class="cntr">
-                    <input onclick="mudarDiv()" type="checkbox" id="cbx" class="hidden-xs-up">
-                    <label for="cbx" class="cbx"></label>
-                    <p>Editar login e senha</p>
-                </div>
-
-                <div class="content__button">
-                    <button class="content__button-button" onclick="voltarMaquina()">Voltar</button>
-                    <button class="content__button-button" onclick="editarMaquina()">Confirmar edição</button>
                 </div>
             </div>
         </div>
 
-    </main>
 </body>
 
 </html>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<!-- <script src="./js/dashboard-espec.js"></script> -->
-<script src="js/mode.js"></script>
-<script src="js/editarMaquina.js"></script>
+<script src="js/cadastroMaquinas.js"></script>
 <script src="js/funcoes.js"></script>
+<script src="js/mode.js"></script>

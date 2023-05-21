@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/cadastrofunc.css">
     <link rel="stylesheet" href="css/edicaoFuncionario.css">
-    <title>Editar Funcionário</title>
+    <title>Editar Usuário</title>
 </head>
 
 <body onload="checkboxOnLoad(); popularInputs()">
@@ -21,7 +21,7 @@
 
             <ul class="menu__lista" style="position:relative;right:1em;">
                 <li class="menu__box-links">
-                    <a href="usuario.html" class="full__link"></a>
+                    <a href="#" class="full__link"></a>
                     <div class="menu__links">
                         <span class="menu__icon">
                             <ion-icon name="person"></ion-icon>
@@ -30,12 +30,22 @@
                     </div>
                 </li>
                 <li class="menu__box-links">
-                    <a href="dashboard-geral-ofc.html" class="full__link"></a>
+                    <a href="" class="full__link"></a>
                     <div class="menu__links">
                         <span class="menu__icon">
                             <ion-icon name="stats-chart"></ion-icon>
                         </span>
-                        <span class="menu__link">Dashboard</span>
+                        <div class="dropdown">
+                            <span class="menu__link">Dashboard</span>
+                            <div class="dropdown-content">
+                                <div class="dropdown-text">
+                                    <a href="dashboard-geral-ofc.html">Dashboard</a>
+                                </div>
+                                <div class="dropdown-text">
+                                    <a href="dashboard-especifica.html">Dashboard-especifica</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </li>
                 <li class="menu__box-links">
@@ -64,8 +74,8 @@
                         <div class="dropdown">
                             <span class="menu__link">Cadastros</span>
                             <div class="dropdown-content">
-                                <a href="funcionariosCadastrados.html">Funcionários</a><br>
-                                <a href="maquinasCadastradas.html">Máquinas</a><br>
+                                <a href="Funcionarios.html">Funcionários</a><br>
+                                <a href="maquinas.html">Máquinas</a><br>
                             </div>
                         </div>
 
@@ -73,7 +83,6 @@
                 </li>
                 <div class="bottom__links ">
                     <li class="menu__box-links logout">
-                        <a href="login.html" onclick="limparSessao()" class="full__link"></a>
                         <div class="menu__links">
                             <span class="menu__icon">
                                 <ion-icon name="log-out"></ion-icon>
@@ -103,50 +112,33 @@
 
         <div class="content">
             <div class="content__first-elements">
-                <h1 class="content__title">Editar Funcionário</h1>
+                <h1 class="content__title">Editar Perfil</h1>
                 <div class="content__separation"></div>
-                <h3 class="content__subtitle">Funcionário <span id="nomeFuncionario">#</span></h3>
+                <h3 class="content__subtitle">Usuário <span id="nomeFuncionario">#</span></h3>
 
                 <div class="content__inputs">
-                    <div class="content__inputs-nome">
-                        <label for="content__input-nome" class="content__label-nome">Nome Completo</label>
-                        <input type="text" class="content__input-nome" placeholder="Digite o nome do funcionário"
+                    <div class="content__inputs-email">
+                        <label for="content__input-email" class="content__label-email">E-mail</label>
+                        <input type="text" class="content__input-email" placeholder="Digite seu e-mail"
                             id="in_nomeFuncionario">
                     </div>
                     <div class="content__inputs-celular">
                         <label for="content__input-celular" class="content__label-celular">Celular</label>
-                        <input type="text" class="content__input-celular" placeholder="Digite o celular do funcionário"
+                        <input type="text" class="content__input-celular" placeholder="Digite seu celular"
                             id="in_celularFuncionario">
-                    </div>
-                </div>
-                <div class="content__inputs2">
-                    <div class="content__inputs-email">
-                        <label for="content__input-email" class="content__label-email">E-mail</label>
-                        <input type="email" class="content__input-email" placeholder="Digite o E-mail"
-                            id="in_emailFuncionario">
-                    </div>
-                    <div class="content__inputs-cargo">
-                        <label for="content__input-cargo" class="content__label-cargo">Cargo</label>
-                        <select name="" class="content__input-cargo" id="in_cargoFuncionario">
-                            <option value="" class="content__first-option" style="opacity: 0.3;">Selecione o Cargo
-                            </option>
-                            <option value="1">NOC</option>
-                            <option value="2">Analista</option>
-                        </select>
                     </div>
                 </div>
                 <div class="content__inputs3 disabled" id="content__inputs3">
                     <div class="content__inputs-login">
-                        <label for="content__input-login" class="content__label-login">Login</label>
-                        <input type="text" class="content__input-login" placeholder="Digite login do funcionário"
+                        <label for="content__input-login" class="content__label-login">Usuário</label>
+                        <input type="text" class="content__input-login" placeholder="Digite o seu login"
                             id="in_loginFuncionario">
                     </div>
                     <div class="content__inputs-senha">
                         <label for="content__input-senha" class="content__label-senha">Senha</label>
                         <div class="div__gerar-senha">
-                            <input type="text" class="content__input-senha" placeholder="Clique em gerar senha"
+                            <input type="text" class="content__input-senha" placeholder="Digite sua senha"
                                 id="in_senhaFuncionario">
-                            <button onclick="gerarChaveDeSeguranca()" class="content__button-senha">Gerar senha</button>
                         </div>
                     </div>
                 </div>
