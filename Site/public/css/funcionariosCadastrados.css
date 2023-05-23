@@ -57,14 +57,14 @@ body.dark {
 }
 
 .menu {
-    border-right: 2px solid #D4D4D4;
+    border-right: 2px solid var(--toggle-color);
 }
 
 .content {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--cor-primaria);
 }
 
 .content__first-elements {
@@ -78,13 +78,13 @@ body.dark {
 .content__title {
     font-size: 2.5rem;
     margin-bottom: 8px;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
     font-weight: 500;
 }
 
 .content__separation {
     height: 2px;
-    background-color: #DFDFDF;
+    background-color: var(--toggle-color);
     width: 100%;
     margin-bottom: 20px;
 }
@@ -96,8 +96,8 @@ body.dark {
 
 .content__funcionariosCadastrados {
     margin-top: 30px;
-    border: 1px solid rgb(187, 187, 187);
-    background-color: #eeeeee;
+    border: 2px solid var(--toggle-color);
+    background-color: var(--body-color);
     width: 100%;
     height: 50vh;
     display: flex;
