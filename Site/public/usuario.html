@@ -12,7 +12,7 @@
     <title>Usuário</title>
 </head>
 
-<body onload="listarFuncionarios">
+<body onload="listarUsuarioAdmin()">
     <main class="dashboard-especifico">
         <div class="menu">
             <img src="img/logo bibliotech 190px.png" alt="Logo BiblioTech" class="menu__imagem" />
@@ -104,7 +104,7 @@
             <div class="content__first-elements">
                 <h1 class="content__title">Perfil de Usuário</h1>
                 <div class="content__separation"></div>
-                <h3 class="content__subtitle">Olá, <span id="usuario">%%Usuário%%</span></h3>
+                <h3 class="content__subtitle">Olá, <span id="identificacaoUsuario"></span></h3>
             </div>
 
             <div class="content__first-row">
@@ -114,7 +114,7 @@
                     </div>
                     <div class="first-row__text">
                         <h2>Nome de usuário</h2>
-                        <p id="nomeUsuario">%%Usuário%%</p>
+                        <p id="nomeUsuario"></p>
                     </div>
                 </div>
                 <div class="first-row__right">
@@ -123,7 +123,7 @@
                     </div>
                     <div class="first-row__text">
                         <h2>Celular</h2>
-                        <p id="celularUsuario">11941077107</p>
+                        <p id="celularUsuario"></p>
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                     </div>
                     <div class="second-row__text">
                         <h2>E-mail</h2>
-                        <p id="emailUsuario">leodanave@gmail.com</p>
+                        <p id="emailUsuario"></p>
                     </div>
                 </div>
                 <div class="second-row__right">
@@ -143,13 +143,13 @@
                     </div>
                     <div class="second-row__text">
                         <h2>Cargo</h2>
-                        <p id="cargoUsuario">NOC</p>
+                        <p id="cargoUsuario"></p>
                     </div>
                 </div>
             </div>
 
             <div class="button">
-                <button>Editar perfil</button>
+                <button onclick="editarUsuario()">Editar perfil</button>
             </div>
         </div>
 

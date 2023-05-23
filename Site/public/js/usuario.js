@@ -1,12 +1,28 @@
-function listarUsuarioAdmin() {
-    var fkBiblioteca = sessionStorage.ID_USUARIO;
+function mascaraCelular(celular) {
+    var celularMascara = celular.replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3');
 
-    fetch(`/usuarios/listarFuncionarios/${fkBiblioteca}`, { cache: 'no-store' }).then(function (response) {
+    return celularMascara;
+}
+
+function popularTexto(resultado) {
+
+    identificacaoUsuario.innerHTML = resultado.nome;
+    nomeUsuario.innerHTML = resultado.nome;
+    emailUsuario.innerHTML = resultado.email;
+    cargoUsuario.innerHTML = 'Admin';
+    celularUsuario.innerHTML = mascaraCelular(resultado.telefone);
+
+}
+
+function listarUsuarioAdmin() {
+    var idBiblioteca = sessionStorage.ID_USUARIO;
+
+    fetch(`/usuarios/listarUsuarioAdmin/${idBiblioteca}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resultado) {
                 console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
-
-                plotarFuncionarios(resultado);
+               
+                popularTexto(resultado[0]);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -17,25 +33,10 @@ function listarUsuarioAdmin() {
         });
 }
 
-const cargo = cargoUsuario.innerHTML
-const nome = nomeUsuario.innerHTML
-const email = emailUsuario.innerHTML
-const celular = celularUsuario.innerHTML
-const usuario = usuario.innerHTML
+function editarUsuario() {
+    sessionStorage.NOME_USUARIO = nomeUsuario.innerHTML;
+    sessionStorage.EMAIL_USUARIO = emailUsuario.innerHTML;
+    sessionStorage.CELULAR_USUARIO = celularUsuario.innerHTML;
 
-function mascaraCelular(celular) {
-    var celularMascara = celular.replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3');
-
-    return celularMascara;
-}
-
-function popularTexto(resultado) {
-
-    usuario = resultado.nome
-    nome = resultado.nome
-    email = resultado.email
-    celular = resultado.celular
-    cargo = resultado.cargo
-
-    mascaraCelular(celular);
+    window.location = './edicaoUsuario.html'
 }
