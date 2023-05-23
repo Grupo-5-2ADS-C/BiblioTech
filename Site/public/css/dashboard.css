@@ -214,7 +214,7 @@ ion-icon {
 
 .bottom__links {
     position: relative;
-    transform: translateY(5rem);
+    transform: translateY(4rem);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -486,7 +486,7 @@ h1,h3{
     border-radius: 10px;
 }
 
-.chartJS2 {
+.chartJSRede {
     display: flex;
     justify-content: center;
     align-items: center;
