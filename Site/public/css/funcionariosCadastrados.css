@@ -92,6 +92,7 @@ body.dark {
 .content__subtitle {
     font-size: 1.25rem;
     font-weight: 500;
+    color: var(--cor-fonte);
 }
 
 .content__funcionariosCadastrados {
@@ -113,8 +114,8 @@ body.dark {
 .content__funcionarioCriado {
     width: 100%;
     height: auto;
-    background-color: white;
-    border: 1px solid rgb(139, 139, 139);
+    background-color: var(--cor-primaria);
+    border: 1px solid var(--toggle-color);
     margin-bottom: 5px;
     padding: 5px;
 }
@@ -127,12 +128,12 @@ body.dark {
 .funcionarioCriado__title h2 {
     font-size: 1.25rem;
     font-weight: 500;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
     margin-bottom: 5px;
 }
 
 .funcionarioCriado__title #id_funcionario {
-    color: #57B4CE;
+    color: var(--cor-secundaria);
 }
 
 .funcionarioCriado__especificacao {
@@ -146,11 +147,12 @@ body.dark {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 3px;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
 }
 
 .funcionarioCriado__especificacao span {
     font-size: 0.875rem;
+    color: var(--cor-fonte);
 }
 
 .funcionarioCriado__buttons {
@@ -163,7 +165,7 @@ body.dark {
     margin-top: 5px;
     width: fit-content;
     padding: 2px 4px;
-    background-color: #57B4CE;
+    background-color: var(--cor-secundaria);
     border-radius: 2px;
     font-size: 1rem;
     color: white;
@@ -187,7 +189,7 @@ body.dark {
 .content__button-button {
     width: fit-content;
     padding: 8px 16px;
-    background-color: #57B4CE;
+    background-color: var(--cor-secundaria);
     border-radius: 8px;
     font-size: 1rem;
     color: white;
