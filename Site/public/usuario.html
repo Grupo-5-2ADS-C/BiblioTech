@@ -12,7 +12,7 @@
     <title>Usuário</title>
 </head>
 
-<body>
+<body onload="listarFuncionarios">
     <main class="dashboard-especifico">
         <div class="menu">
             <img src="img/logo bibliotech 190px.png" alt="Logo BiblioTech" class="menu__imagem" />
@@ -104,7 +104,7 @@
             <div class="content__first-elements">
                 <h1 class="content__title">Perfil de Usuário</h1>
                 <div class="content__separation"></div>
-                <h3 class="content__subtitle">Olá, <span>%%Usuário%%</span></h3>
+                <h3 class="content__subtitle">Olá, <span id="usuario">%%Usuário%%</span></h3>
             </div>
 
             <div class="content__first-row">
@@ -114,7 +114,7 @@
                     </div>
                     <div class="first-row__text">
                         <h2>Nome de usuário</h2>
-                        <p>%%Usuário%%</p>
+                        <p id="nomeUsuario">%%Usuário%%</p>
                     </div>
                 </div>
                 <div class="first-row__right">
@@ -123,7 +123,7 @@
                     </div>
                     <div class="first-row__text">
                         <h2>Celular</h2>
-                        <p>(11) 94107-7107</p>
+                        <p id="celularUsuario">11941077107</p>
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                     </div>
                     <div class="second-row__text">
                         <h2>E-mail</h2>
-                        <p>leodanave@gmail.com</p>
+                        <p id="emailUsuario">leodanave@gmail.com</p>
                     </div>
                 </div>
                 <div class="second-row__right">
@@ -143,7 +143,7 @@
                     </div>
                     <div class="second-row__text">
                         <h2>Cargo</h2>
-                        <p>NOC</p>
+                        <p id="cargoUsuario">NOC</p>
                     </div>
                 </div>
             </div>
@@ -160,5 +160,6 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="js/cadastroMaquinas.js"></script>
+<script src="js/usuario.js"></script>
 <script src="js/funcoes.js"></script>
 <script src="js/mode.js"></script>

@@ -36,9 +36,12 @@ router.post("/cadastrarMaquina", function (req, res) {
     usuarioController.cadastrarMaquina(req, res);
 })
 
-
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
+
+router.get("/listarUsuarioAdmin/:fkBiblioteca", function (req, res) {
+    usuarioController.listarUsuarioAdmin(req, res);
+})
 
 module.exports = router;
