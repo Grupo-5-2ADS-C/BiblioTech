@@ -114,7 +114,7 @@ function limparSession() {
 
 function deletarFuncionario(idFuncionario) {
 
-    fetch(`/funcionarios/deletarFuncionario/${idFuncionario}/${sessionStorage.ID_USUARIO}`, {
+    fetch(`/funcionarios/deletarFuncionario/${idFuncionario1}/${sessionStorage.ID_USUARIO}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
@@ -133,6 +133,8 @@ function deletarFuncionario(idFuncionario) {
     });
 }
 
+let idFuncionario1 = '';
+
 function deletarLoginFuncionario(idFuncionario) {
 
     Swal.fire({
@@ -145,6 +147,7 @@ function deletarLoginFuncionario(idFuncionario) {
         confirmButtonText: 'Sim, deletar!'
     }).then((result) => {
         if (result.isConfirmed) {
+            idFuncionario1 = idFuncionario;
             fetch(`/funcionarios/deletarLoginFuncionario/${idFuncionario}/${sessionStorage.ID_USUARIO}`, {
                 method: "DELETE",
                 headers: {

@@ -52,3 +52,8 @@ function fecharModal() {
     divModal.style.display = "none";
 }
 
+function permissao() {
+    if (sessionStorage.IS_FUNCIONARIO == 'true') {
+        menu__cadastros.style.display = 'none';
+    }
+}

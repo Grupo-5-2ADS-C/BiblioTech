@@ -36,14 +36,17 @@ function entrar() {
                 console.log(json);
                 console.log(JSON.stringify(json));
 
-                sessionStorage.ID_USUARIO = json.fk_biblioteca;
+                if (json.fk_biblioteca == null) {
+                    sessionStorage.IS_FUNCIONARIO = true;
+                    sessionStorage.ID_USUARIO = json.fk_biblioteca_funcionario;
+                } else {
+                    sessionStorage.IS_FUNCIONARIO = false;
+                    sessionStorage.ID_USUARIO = json.fk_biblioteca;
+                }
 
                 div_loader.style.display = "flex";
                 sumirCarregamento();
 
-                // setInterval(function () {
-                //     controleGif.style.display = "block"
-                // }, 0100)
 
                 setTimeout(function () {
                     window.location = "./dashboard-geral-ofc.html";
