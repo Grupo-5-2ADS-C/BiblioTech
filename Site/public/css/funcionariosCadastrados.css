@@ -57,14 +57,14 @@ body.dark {
 }
 
 .menu {
-    border-right: 2px solid #D4D4D4;
+    border-right: 2px solid var(--toggle-color);
 }
 
 .content {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--cor-primaria);
 }
 
 .content__first-elements {
@@ -78,13 +78,13 @@ body.dark {
 .content__title {
     font-size: 2.5rem;
     margin-bottom: 8px;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
     font-weight: 500;
 }
 
 .content__separation {
     height: 2px;
-    background-color: #DFDFDF;
+    background-color: var(--toggle-color);
     width: 100%;
     margin-bottom: 20px;
 }
@@ -92,12 +92,13 @@ body.dark {
 .content__subtitle {
     font-size: 1.25rem;
     font-weight: 500;
+    color: var(--cor-fonte);
 }
 
 .content__funcionariosCadastrados {
     margin-top: 30px;
-    border: 1px solid rgb(187, 187, 187);
-    background-color: #eeeeee;
+    border: 2px solid var(--toggle-color);
+    background-color: var(--body-color);
     width: 100%;
     height: 50vh;
     display: flex;
@@ -113,8 +114,8 @@ body.dark {
 .content__funcionarioCriado {
     width: 100%;
     height: auto;
-    background-color: white;
-    border: 1px solid rgb(139, 139, 139);
+    background-color: var(--cor-primaria);
+    border: 1px solid var(--toggle-color);
     margin-bottom: 5px;
     padding: 5px;
 }
@@ -127,12 +128,12 @@ body.dark {
 .funcionarioCriado__title h2 {
     font-size: 1.25rem;
     font-weight: 500;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
     margin-bottom: 5px;
 }
 
 .funcionarioCriado__title #id_funcionario {
-    color: #57B4CE;
+    color: var(--cor-secundaria);
 }
 
 .funcionarioCriado__especificacao {
@@ -146,11 +147,12 @@ body.dark {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 3px;
-    color: #57B4CE;
+    color: var(--cor-secundaria);
 }
 
 .funcionarioCriado__especificacao span {
     font-size: 0.875rem;
+    color: var(--cor-fonte);
 }
 
 .funcionarioCriado__buttons {
@@ -163,7 +165,7 @@ body.dark {
     margin-top: 5px;
     width: fit-content;
     padding: 2px 4px;
-    background-color: #57B4CE;
+    background-color: var(--cor-secundaria);
     border-radius: 2px;
     font-size: 1rem;
     color: white;
@@ -187,7 +189,7 @@ body.dark {
 .content__button-button {
     width: fit-content;
     padding: 8px 16px;
-    background-color: #57B4CE;
+    background-color: var(--cor-secundaria);
     border-radius: 8px;
     font-size: 1rem;
     color: white;
