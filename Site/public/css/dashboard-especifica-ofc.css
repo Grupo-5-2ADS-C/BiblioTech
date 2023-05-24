@@ -367,6 +367,11 @@ main {
     width: 85% !important;
 }
 
+#uso{
+    width: 100%;
+    height: 100%;
+}
+
 .content__table {
     width: 100%;
     height: 56vh;

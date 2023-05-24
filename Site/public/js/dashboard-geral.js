@@ -98,49 +98,78 @@ function open__menu(param) {
 
 
 
-var ctx = document.getElementById('myChart');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: [''],
-        datasets: [{
-            label: ['Ociosas'],
-            data: [30],
-            backgroundColor: ['#FFB257'],
-        },
-        {
-            label: ['Mau uso de hardware'],
-            data: [40],
-            backgroundColor: ['#FF6060'],
-        },
-        {
-            label: ['Ok'],
-            data: [30],
-            backgroundColor: ['#83F470'],
-        },]
-    },
-    options: {
-        legend: {
-            position: 'right'
-        },
-        scales: {
-            x: {
-                grid: {
-                    color: ['#f7f5f5'],
-                }
-            },
-            y:{
-                border: {
-                },
-                grid: {
-                color: ['#f7f5f5']
-                }
+// var ctx = document.getElementById('myChart');
+// var myChart = new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//         labels: [''],
+//         datasets: [{
+//             label: ['Ociosas'],
+//             data: [30],
+//             backgroundColor: ['#FFB257'],
+//         },
+//         {
+//             label: ['Mau uso de hardware'],
+//             data: [40],
+//             backgroundColor: ['#FF6060'],
+//         },
+//         {
+//             label: ['Ok'],
+//             data: [30],
+//             backgroundColor: ['#83F470'],
+//         },]
+//     },
+//     options: {
+//         legend: {
+//             position: 'right'
+//         },
+//         scales: {
+//             x: {
+//                 grid: {
+//                     color: ['#f7f5f5'],
+//                 }
+//             },
+//             y:{
+//                 border: {
+//                 },
+//                 grid: {
+//                 color: ['#f7f5f5']
+//                 }
                 
-            }
-        },
-    }
+//             }
+//         },
+//     }
 
-});
+// });
+
+var options = {
+    chart: {
+      type: 'bar'
+    },
+    series: [{
+      name: 'Download',
+      data: [30],
+      color: "#6d06c7"
+    },{
+      name: 'Upload',
+      data: [22],
+      color: "#57B4CE"
+    },
+    {
+        name: 'Upload',
+        data: [10],
+        color: "#57B4CE"
+      }],
+    xaxis: {
+      categories: ["Mau uso", "Ocioso", "Ok"]
+    }
+  }
+
+  var chart = new ApexCharts(document.querySelector("#uso"), options);
+
+chart.render();
+
+
 
 for (let i = 0; i < 27; i++) {
     if (i % 2 == 0) {
