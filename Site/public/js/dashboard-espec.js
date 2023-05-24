@@ -1,4 +1,4 @@
-function loadCharts(){
+function loadCharts() {
   changeStatus__cpu()
 }
 
@@ -36,10 +36,7 @@ function changeStatus__disco() {
   chartDisco.style.display = "block"
 }
 
-
-Chart.defaults.color = "#a1a1a1";
-
-
+var gray = "#828282"
 
 var options = {
   chart: {
@@ -47,16 +44,36 @@ var options = {
   },
   series: [{
     name: 'Download',
-    data: [120,110,95,40,49,60,70,91,125],
+    data: [120, 110, 95, 40, 49, 60, 70, 91, 125],
     color: "#6d06c7"
-  },{
+  }, {
     name: 'Upload',
-    data: [22,4,5,40,79,20,10,41,25],
+    data: [22, 4, 5, 40, 79, 20, 10, 41, 25],
     color: "#57B4CE"
   }],
   xaxis: {
-    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-  }
+    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+    labels:{
+      style:{
+        colors: [gray,gray,gray,gray,gray,gray,gray,gray,gray]
+      }
+    }
+  },
+  yaxis: {
+    labels:{
+      style:{
+        colors: [gray,gray,gray,gray,gray,gray,gray,gray,gray]
+      }
+    }
+  },
+  labels: {
+    enabled: true,
+    style: {
+      colors: ['#FF0000']
+    }
+  },
+  
+  
 }
 
 var chart = new ApexCharts(document.querySelector("#Rede"), options);
@@ -69,39 +86,53 @@ var options2 = {
   },
   series: [{
     name: 'Uso da Cpu',
-    data: [30,40,45,50,49,60,70,91,125],
+    data: [30, 40, 45, 50, 49, 60, 70, 91, 125],
     color: "#6d06c7"
-  },{
+  }, {
     name: 'Frequência da Cpu',
-    data: [22,4,5,40,79,20,10,41,25],
+    data: [22, 4, 5, 40, 79, 20, 10, 41, 25],
     color: "#57B4CE"
   }],
-    xaxis: {
-    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-  }
+  xaxis: {
+    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+    labels:{
+      style:{
+        colors: [gray,gray,gray,gray,gray,gray,gray,gray,gray]
+      }
+    }
+  },
+  yaxis: {
+    labels:{
+      style:{
+        colors: [gray,gray,gray,gray,gray,gray,gray,gray,gray]
+      }
+    }
+  },
 }
 
 var chart = new ApexCharts(document.querySelector("#Cpu"), options2);
 
 chart.render();
 
-var options3 = {
+var options1 = {
+  series: [70],
   chart: {
-    type: 'line'
+  height: 350,
+  type: 'radialBar',
+},
+plotOptions: {
+  radialBar: {
+    hollow: {
+      size: '70%'
+    }
   },
-  series: [{
-    name: 'Uso do Disco',
-    data: [30,40,45,50,49,60,70,91,125],
-    color: "#57B4CE"
-  }],
-    xaxis: {
-    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-  }
-}
+},
+labels: ['Disco'],
+};
 
-var chart = new ApexCharts(document.querySelector("#Disco"), options3);
-
+var chart = new ApexCharts(document.querySelector("#Disco"), options1);
 chart.render();
+
 
 var options3 = {
   chart: {
@@ -109,12 +140,24 @@ var options3 = {
   },
   series: [{
     name: 'Uso da memória',
-    data: [30,40,45,50,49,60,70,91,125],
+    data: [30, 40, 45, 50, 49, 60, 70, 91, 125],
     color: "#57B4CE"
   }],
-    xaxis: {
-    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-  }
+  xaxis: {
+    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+    labels:{
+      style:{
+        colors: [gray,gray,gray,gray,gray,gray,gray,gray,gray]
+      }
+    }
+  },
+  yaxis: {
+    labels:{
+      style:{
+        colors: [gray,gray,gray,gray,gray,gray,gray,gray,gray]
+      }
+    }
+  },
 }
 
 var chart = new ApexCharts(document.querySelector("#Memoria"), options3);
