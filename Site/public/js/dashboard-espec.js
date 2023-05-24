@@ -1,3 +1,7 @@
+function loadCharts(){
+  changeStatus__cpu()
+}
+
 var cpu = document.getElementById('status__cpu');
 var memoria = document.getElementById('status__memoria');
 var disco = document.getElementById('status__disco');
@@ -6,21 +10,30 @@ var chartMemoria = document.getElementById("Memoria");
 var chartDisco = document.getElementById("Disco");
 
 function changeStatus__cpu() {
-  chartCpu.style.display = "none";
-  chartMemoria.style.display = "block";
-  chartDisco.style.display = "block"
+  cpu.classList.add('active-graph');
+  memoria.classList.remove('active-graph');
+  disco.classList.remove('active-graph');
+  chartCpu.style.display = "block";
+  chartMemoria.style.display = "none";
+  chartDisco.style.display = "none"
 }
 
 function changeStatus__memoria() {
-  chartCpu.style.display = "block";
-  chartMemoria.style.display = "none";
-  chartDisco.style.display = "block"
+  cpu.classList.remove('active-graph');
+  memoria.classList.add('active-graph');
+  disco.classList.remove('active-graph');
+  chartCpu.style.display = "none";
+  chartMemoria.style.display = "block";
+  chartDisco.style.display = "none"
 }
 
 function changeStatus__disco() {
-  chartCpu.style.display = "block";
-  chartMemoria.style.display = "block";
-  chartDisco.style.display = "none"
+  cpu.classList.remove('active-graph');
+  memoria.classList.remove('active-graph');
+  disco.classList.add('active-graph');
+  chartCpu.style.display = "none";
+  chartMemoria.style.display = "none";
+  chartDisco.style.display = "block"
 }
 
 
@@ -34,7 +47,7 @@ var options = {
   },
   series: [{
     name: 'Download',
-    data: [30,40,45,50,49,60,70,91,125],
+    data: [120,110,95,40,49,60,70,91,125],
     color: "#6d06c7"
   },{
     name: 'Upload',
@@ -87,8 +100,6 @@ var options3 = {
 }
 
 var chart = new ApexCharts(document.querySelector("#Disco"), options3);
-
-chart.render();
 
 chart.render();
 

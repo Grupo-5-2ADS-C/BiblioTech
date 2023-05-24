@@ -265,34 +265,35 @@ body.dark .switch::before {
 }
 
 @media only screen and (max-height: 686px) {
-    
+
     .bottom__links {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         transform: translateY(6.3rem);
     }
-    
+
     .bottom__links .menu__box-links {
         width: 8.7rem;
     }
-    
-    .mode{
+
+    .mode {
         display: flex;
         justify-content: center;
         gap: 2rem;
     }
-    
+
     .text span {
         display: none;
     }
-    
+
     .menu__lista {
         transform: translateY(-13%);
     }
-    
-    
+
+
 }
+
 .content {
     height: calc(100vh - 2rem);
     width: calc(100% - 300px);
@@ -303,7 +304,7 @@ body.dark .switch::before {
     border-radius: 0px 5px 5px 0px;
 }
 
-.header__top{
+.header__top {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -314,7 +315,7 @@ body.dark .switch::before {
     border-radius: 10px;
 }
 
-.card__kpi{
+.card__kpi {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -324,7 +325,7 @@ body.dark .switch::before {
 
 
 .card__header-top,
-.card__header-bot{
+.card__header-bot {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -333,16 +334,16 @@ body.dark .switch::before {
     height: 100%;
 }
 
-.card__header-top{
+.card__header-top {
     border-radius: 10px 0px 0px 0px;
 }
 
-.card__header-bot{
+.card__header-bot {
     border-radius: 0px 0px 0px 10px;
 }
 
 
-.cardt{
+.cardt {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -354,29 +355,29 @@ body.dark .switch::before {
     gap: 1rem;
 }
 
-.cardt .card__title{
+.cardt .card__title {
     color: var(--cor-fonte);
     font-size: 1rem;
     font-weight: 500;
 }
 
-.cardt .card__sub{
+.cardt .card__sub {
     color: var(--cor-secundaria);
     font-size: 2rem;
     font-weight: 700;
 }
 
-.spec{
+.spec {
     display: flex;
     align-items: center;
     background-color: var(--cor-primaria);
     width: 39.5%;
     height: 95%;
-    border-radius:10px;
+    border-radius: 10px;
 
 }
 
-.card__spec{
+.card__spec {
     width: 100%;
     height: 100%;
     background-color: var(--cor-primaria);
@@ -385,7 +386,7 @@ body.dark .switch::before {
     flex-direction: column;
 }
 
-.title__spec{
+.title__spec {
     height: 25%;
     display: flex;
     justify-content: center;
@@ -393,7 +394,7 @@ body.dark .switch::before {
 }
 
 
-.title__spec span{
+.title__spec span {
     color: var(--cor-secundaria);
     text-align: center;
     font-size: 1.3rem;
@@ -401,14 +402,14 @@ body.dark .switch::before {
 }
 
 
-.trace{
+.trace {
     background-color: var(--cor-fonte);
     width: 90%;
     height: .01rem;
     margin-left: 5%;
 }
 
-.spec__content{
+.spec__content {
     color: var(--cor-fonte);
     width: 100%;
     height: 100%;
@@ -419,14 +420,14 @@ body.dark .switch::before {
     padding: .5rem;
 }
 
-.spec__content span{
+.spec__content span {
     margin-left: 1.3rem;
     color: var(--cor-fonte);
 }
 
-.alt{
+.alt {
     width: 100%;
-    height:2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     background-color: var(--body-color);
@@ -455,9 +456,11 @@ body.dark .switch::before {
     flex-direction: column;
 }
 
-h1,h3{
+h1,
+h3 {
     color: var(--cor-fonte);
 }
+
 .content__bottom h3 {
     font-size: 1rem;
     font-weight: 500;
@@ -471,14 +474,9 @@ h1,h3{
 }
 
 .chartJS {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    min-height: 100%;
     margin-top: 1%;
     padding: 1%;
-    
+
 }
 
 .content__bottom-graficoRede {
@@ -571,7 +569,7 @@ h1,h3{
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 15px 16px;
     z-index: 1;
-    border-radius: 10px;  
+    border-radius: 10px;
 }
 
 
@@ -586,26 +584,29 @@ h1,h3{
 
 
 body {
-  font-family: Roboto, sans-serif;
+    font-family: Roboto, sans-serif;
 }
 
 #Rede {
-  width: 100%;
-  height: 100%;
-}
-
-
-#Cpu{
     width: 100%;
     height: 100%;
 }
 
-#Disco{
+
+#Cpu {
+    position: relative;
     width: 100%;
     height: 100%;
 }
 
-#Memoria{
+#Disco {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#Memoria {
+    position: relative;
     width: 100%;
     height: 100%;
 }

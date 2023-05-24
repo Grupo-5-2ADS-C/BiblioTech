@@ -13,7 +13,7 @@
   <title>Dashboard Específica</title>
 </head>
 
-<body id="bodyid">
+<body id="bodyid" onload="loadCharts()">
 
   <main class="dashboard">
     <div class="menu">
@@ -167,8 +167,8 @@
           <div class="content__bottom-graficoGeral">
             <div class="chartJS">
               <div id="Cpu"></div>
-              <!-- <div id="Memoria"></div>
-              <div id="Disco"></div> -->
+              <div id="Memoria"></div>
+              <div id="Disco"></div>
             </div>
           </div>
           <div class="content__bottom-statusGeral">
@@ -192,8 +192,8 @@
         <div class="content__bottom-dashRede">
           <h3>Uso de rede</h3>
           <div class="content__bottom-graficoRede">
-            <div class="chartJSRede">
-              <div id="Rede"></div>
+            <div class="chartJSRede ">
+              <div id="Rede" style="display: block;"></div>
             </div>
           </div>
           <div class="content__bottom-statusRede">
