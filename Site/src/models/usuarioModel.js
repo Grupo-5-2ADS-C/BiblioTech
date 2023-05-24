@@ -91,10 +91,28 @@ function cadastrarMaquina(sistemaOperacional, setor, login, senha, fkBiblioteca)
     return database.executar(instrucao);
 }
 
-function listarUsuarioAdmin(idBiblioteca) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idBiblioteca);
+function listarUsuarioAdmin(idBiblioteca, fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idBiblioteca, fkBiblioteca);
     var instrucao = `
-        SELECT nome, email, telefone FROM biblioteca WHERE id_biblioteca = ${idBiblioteca};
+        SELECT * FROM biblioteca JOIN login ON ${idBiblioteca} = ${fkBiblioteca};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function editarUsuario(email, telefone, idBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", email, telefone, idBiblioteca);
+    var instrucao = `
+        UPDATE biblioteca SET email = '${email}', telefone = '${telefone}' WHERE id_biblioteca = ${idBiblioteca}
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function editarUsuarioSenha(login, senha, fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", login, senha, fkBiblioteca);
+    var instrucao = `
+        UPDATE login SET login = '${login}', senha = '${senha}' WHERE fk_biblioteca = ${fkBiblioteca}
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -110,4 +128,6 @@ module.exports = {
     cadastrarFuncionario,
     listar,
     listarUsuarioAdmin,
+    editarUsuario,
+    editarUsuarioSenha,
 };

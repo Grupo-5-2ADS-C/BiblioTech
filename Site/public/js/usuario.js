@@ -4,6 +4,9 @@ function mascaraCelular(celular) {
     return celularMascara;
 }
 
+let loginUsuario = '';
+let senhaUsuario = '';
+
 function popularTexto(resultado) {
 
     identificacaoUsuario.innerHTML = resultado.nome;
@@ -11,13 +14,16 @@ function popularTexto(resultado) {
     emailUsuario.innerHTML = resultado.email;
     cargoUsuario.innerHTML = 'Admin';
     celularUsuario.innerHTML = mascaraCelular(resultado.telefone);
-
+    loginUsuario = resultado.login;
+    senhaUsuario = resultado.senha;
 }
+
+
 
 function listarUsuarioAdmin() {
     var idBiblioteca = sessionStorage.ID_USUARIO;
 
-    fetch(`/usuarios/listarUsuarioAdmin/${idBiblioteca}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/usuarios/listarUsuarioAdmin/${idBiblioteca}/${idBiblioteca}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resultado) {
                 console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
@@ -37,6 +43,8 @@ function editarUsuario() {
     sessionStorage.NOME_USUARIO = nomeUsuario.innerHTML;
     sessionStorage.EMAIL_USUARIO = emailUsuario.innerHTML;
     sessionStorage.CELULAR_USUARIO = celularUsuario.innerHTML;
+    sessionStorage.LOGIN_USUARIO = loginUsuario;
+    sessionStorage.SENHA_USUARIO = senhaUsuario;
 
     window.location = './edicaoUsuario.html'
 }

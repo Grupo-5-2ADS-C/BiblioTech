@@ -290,8 +290,9 @@ function cadastrarMaquina(req, res) {
 
 function listarUsuarioAdmin(req, res) {
     var idBiblioteca = req.params.idBiblioteca;
+    var fkBiblioteca = req.params.fkBiblioteca;
 
-    usuarioModel.listarUsuarioAdmin(idBiblioteca)
+    usuarioModel.listarUsuarioAdmin(idBiblioteca, fkBiblioteca)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -307,6 +308,48 @@ function listarUsuarioAdmin(req, res) {
         );
 }
 
+function editarUsuario(req, res) {
+    var email = req.body.email;
+    var telefone = req.body.telefone;
+    var idBiblioteca = req.params.idBiblioteca;
+
+    usuarioModel.editarUsuario(email, telefone, idBiblioteca)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function editarUsuarioSenha(req, res) {
+    var login = req.body.login;
+    var senha = req.body.senha;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    usuarioModel.editarUsuarioSenha(login, senha, fkBiblioteca)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
+
 module.exports = {
     entrar,
     cadastrar,
@@ -318,4 +361,6 @@ module.exports = {
     listar,
     testar,
     listarUsuarioAdmin,
+    editarUsuario,
+    editarUsuarioSenha,
 }

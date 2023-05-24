@@ -55,6 +55,7 @@ function cadastrarFuncionario() {
 
           cadastrarLoginFuncionario();
   
+          window.alert("Funcionário cadastrado!")
           setTimeout(() => {
             window.location = "./funcionariosCadastrados.html";
           }, "1000")

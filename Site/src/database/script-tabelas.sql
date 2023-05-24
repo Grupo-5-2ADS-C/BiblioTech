@@ -126,3 +126,5 @@ fk_situacao_alerta INT,
 FOREIGN KEY (fk_situacao_alerta) REFERENCES [dbo].[situacao_alerta](id_situacao_alerta)
 );
 
+-- SELECT * FROM [dbo].[metrica] as metrica WHERE metrica.fk_especificacao in (SELECT cm.id_componente_maquina FROM [dbo].[componente_maquina] as cm JOIN
+-- [dbo].[especificacao_componente_maquina] as ecm ON cm.id_componente_maquina = ecm.fk_componente_maquina WHERE ecm.fk_maquina = 1 and cm.tipo = 'Processador');

@@ -40,8 +40,16 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
-router.get("/listarUsuarioAdmin/:idBiblioteca", function (req, res) {
+router.get("/listarUsuarioAdmin/:idBiblioteca/:fkBiblioteca", function (req, res) {
     usuarioController.listarUsuarioAdmin(req, res);
+});
+
+router.put("/editarUsuario/:idBiblioteca", function (req, res) {
+    usuarioController.editarUsuario(req, res)
+});
+
+router.put("/editarUsuarioSenha/:fkBiblioteca", function (req, res) {
+    usuarioController.editarUsuarioSenha(req, res)
 });
 
 module.exports = router;

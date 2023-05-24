@@ -55,7 +55,7 @@ function editarFuncionario() {
 
         if (resposta.ok) {
 
-            if (checkbox.checked) {
+            if (checkbox.checked = true) {
                 editarSenhaFuncionario();
             }
 

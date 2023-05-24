@@ -145,33 +145,26 @@ function deletarLoginFuncionario(idFuncionario) {
         confirmButtonText: 'Sim, deletar!'
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire(
-                'Deletado!',
-                'Seu funcionário foi deletado.',
-                'Sucesso',
+            fetch(`/funcionarios/deletarLoginFuncionario/${idFuncionario}/${sessionStorage.ID_USUARIO}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (resposta) {
 
-                fetch(`/funcionarios/deletarLoginFuncionario/${idFuncionario}/${sessionStorage.ID_USUARIO}`, {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }).then(function (resposta) {
-            
-                    if (resposta.ok) {
-            
-                        deletarFuncionario();
-                        window.location = 'funcionariosCadastrados.html'
-            
-                    } else if (resposta.status == 404) {
-                        window.alert("Deu 404!");
-                    } else {
-                        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-                    }
-                }).catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-                }),
+                if (resposta.ok) {
 
-            )
+                    deletarFuncionario();
+                    window.location = 'funcionariosCadastrados.html'
+
+                } else if (resposta.status == 404) {
+                    window.alert("Deu 404!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            })
         }
     })
 }
