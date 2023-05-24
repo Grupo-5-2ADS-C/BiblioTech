@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
   <title>Dashboard Específica</title>
 </head>
 
@@ -136,7 +138,8 @@
         <div class="spec">
           <div class="card__spec">
             <div class="title__spec">
-              <span class="title__spec">Especificação da máquina : <span style="font-weight: 700;font-size: 1.9rem; margin-left: .7rem;">76</span></span>
+              <span class="title__spec">Especificação da máquina : <span
+                  style="font-weight: 700;font-size: 1.9rem; margin-left: .7rem;">76</span></span>
             </div>
             <div class="trace"></div>
             <div class="spec__content">
@@ -163,7 +166,7 @@
           <h3>Uso da máquina</h3>
           <div class="content__bottom-graficoGeral">
             <div class="chartJS">
-              <canvas id="myChartMemoria"></canvas>
+              <div id="Cpu"></div>
             </div>
           </div>
           <div class="content__bottom-statusGeral">
@@ -188,7 +191,7 @@
           <h3>Uso de rede</h3>
           <div class="content__bottom-graficoRede">
             <div class="chartJSRede">
-              <canvas id="myChartCpu"></canvas>
+              <div id="Rede"></div>
             </div>
           </div>
           <div class="content__bottom-statusRede">
