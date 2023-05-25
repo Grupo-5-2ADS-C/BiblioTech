@@ -112,10 +112,75 @@ function deletarLoginFuncionario(req, res) {
         );
 }
 
+function listarUsuarioFuncionario(req, res) {
+    var fkFuncionario = req.params.fkFuncionario;
+    var fkBibliotecaFuncionario = req.params.fkBibliotecaFuncionario;
+
+    funcionariosModel.listarUsuarioFuncionario(fkFuncionario, fkBibliotecaFuncionario)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function editarUsuarioFuncionario(req, res) {
+    var email = req.body.email;
+    var celular = req.body.celular;
+    var fkFuncionario = req.params.fkFuncionario;
+    var fkBibliotecaFuncionario = req.params.fkBibliotecaFuncionario;
+
+    funcionariosModel.editarUsuario(email, celular, fkFuncionario, fkBibliotecaFuncionario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function editarUsuarioFuncionarioSenha(req, res) {
+    var login = req.body.login;
+    var senha = req.body.senha;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    funcionariosModel.editarUsuarioSenha(login, senha, fkBiblioteca)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
 module.exports = {
     listarFuncionarios,
     editarFuncionario,
     editarSenhaFuncionario,
     deletarFuncionario,
     deletarLoginFuncionario,
+    listarUsuarioFuncionario,
+    editarUsuarioFuncionario,
+    editarUsuarioFuncionarioSenha,
 }

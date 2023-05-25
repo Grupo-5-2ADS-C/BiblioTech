@@ -39,6 +39,7 @@ function entrar() {
                 if (json.fk_biblioteca == null) {
                     sessionStorage.IS_FUNCIONARIO = true;
                     sessionStorage.ID_USUARIO = json.fk_biblioteca_funcionario;
+                    sessionStorage.ID_FUNCIONARIO = json.fk_funcionario;
                 } else {
                     sessionStorage.IS_FUNCIONARIO = false;
                     sessionStorage.ID_USUARIO = json.fk_biblioteca;

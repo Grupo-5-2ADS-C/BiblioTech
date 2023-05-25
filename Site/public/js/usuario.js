@@ -7,7 +7,7 @@ function mascaraCelular(celular) {
 let loginUsuario = '';
 let senhaUsuario = '';
 
-function popularTexto(resultado) {
+function popularTextoAdmin(resultado) {
 
     identificacaoUsuario.innerHTML = resultado.nome;
     nomeUsuario.innerHTML = resultado.nome;
@@ -18,8 +18,6 @@ function popularTexto(resultado) {
     senhaUsuario = resultado.senha;
 }
 
-
-
 function listarUsuarioAdmin() {
     var idBiblioteca = sessionStorage.ID_USUARIO;
 
@@ -27,8 +25,8 @@ function listarUsuarioAdmin() {
         if (response.ok) {
             response.json().then(function (resultado) {
                 console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
-               
-                popularTexto(resultado[0]);
+
+                popularTextoAdmin(resultado[0]);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -37,6 +35,50 @@ function listarUsuarioAdmin() {
         .catch(function (error) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
+}
+
+function popularTextoFuncionario(resultado) {
+
+    identificacaoUsuario.innerHTML = resultado.nome;
+    nomeUsuario.innerHTML = resultado.nome;
+    emailUsuario.innerHTML = resultado.email;
+    celularUsuario.innerHTML = mascaraCelular(resultado.celular);
+    loginUsuario = resultado.login;
+    senhaUsuario = resultado.senha;
+
+    if (resultado.cargo == 1) {
+        cargoUsuario.innerHTML = "NOC";
+    } else {
+        cargoUsuario.innerHTML = "Analista";
+    }
+}
+
+function listarUsuarioFuncionario() {
+    var idFuncionario = sessionStorage.ID_FUNCIONARIO;
+    var idBiblioteca = sessionStorage.ID_USUARIO;
+
+    fetch(`/funcionarios/listarUsuarioFuncionario/${idFuncionario}/${idBiblioteca}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+                popularTextoFuncionario(resultado[0]);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function listarUsuario() {
+    if (sessionStorage.IS_FUNCIONARIO == 'true') {
+        listarUsuarioFuncionario();
+    } else {
+        listarUsuarioAdmin();
+    }
 }
 
 function editarUsuario() {

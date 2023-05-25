@@ -23,4 +23,16 @@ router.delete("/deletarLoginFuncionario/:fkFuncionario/:fkBibliotecaFuncionario"
     funcionariosController.deletarLoginFuncionario(req, res);
 });
 
+router.get("/listarUsuarioFuncionario/:fkFuncionario/:fkBibliotecaFuncionario", function (req, res) {
+    funcionariosController.listarUsuarioFuncionario(req, res);
+});
+
+router.put("/editarUsuarioFuncionario/:idFuncionario", function (req, res) {
+    funcionariosController.editarUsuarioFuncionario(req, res)
+});
+
+router.put("/editarUsuarioFuncionarioSenha/:fkFuncionario/:fkBibliotecaFuncionario", function (req, res) {
+    funcionariosController.editarUsuarioFuncionarioSenha(req, res)
+});
+
 module.exports = router;

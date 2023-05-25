@@ -45,10 +45,40 @@ function deletarLoginFuncionario(fkFuncionario, fkBibliotecaFuncionario) {
     return database.executar(instrucao);
 }
 
+function listarUsuarioFuncionario(fkFuncionario, fkBibliotecaFuncionario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkFuncionario, fkBibliotecaFuncionario);
+    var instrucao = `
+        SELECT * FROM funcionario JOIN login ON id_funcionario = fk_funcionario where fk_funcionario = ${fkFuncionario} and fk_biblioteca_funcionario = ${fkBibliotecaFuncionario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function editarUsuarioFuncionario(email, telefone, fkFuncionario, fkBibliotecaFuncionario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", email, telefone, idBiblioteca);
+    var instrucao = `
+        UPDATE funcionario SET email = '${email}', celular = '${telefone}' WHERE fk_funcionario = ${fkFuncionario} and fk_biblioteca_funcionario = ${fkBibliotecaFuncionario}
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function editarUsuarioFuncionarioSenha(login, senha, fkFuncionario, fkBibliotecaFuncionario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", login, senha, fkFuncionario, fkBibliotecaFuncionario);
+    var instrucao = `
+        UPDATE login SET login = '${login}', senha = '${senha}' WHERE fk_funcionario = ${fkFuncionario} and fk_biblioteca_funcionario = ${fkBibliotecaFuncionario}
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     listarFuncionarios,
     editarFuncionario,
     editarSenhaFuncionario,
     deletarFuncionario,
     deletarLoginFuncionario,
+    listarUsuarioFuncionario,
+    editarUsuarioFuncionario,
+    editarUsuarioFuncionarioSenha,
 };
