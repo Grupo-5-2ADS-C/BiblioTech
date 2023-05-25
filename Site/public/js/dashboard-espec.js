@@ -45,7 +45,7 @@ var options = {
   series: [{
     name: 'Download',
     data: [120, 110, 95, 40, 49, 60, 70, 91, 125],
-    color: "#6d06c7"
+    color: "#293450"
   }, {
     name: 'Upload',
     data: [22, 4, 5, 40, 79, 20, 10, 41, 25],
@@ -87,7 +87,7 @@ var options2 = {
   series: [{
     name: 'Uso da Cpu',
     data: [30, 40, 45, 50, 49, 60, 70, 91, 125],
-    color: "#6d06c7"
+    color: "#293450"
   }, {
     name: 'Frequência da Cpu',
     data: [22, 4, 5, 40, 79, 20, 10, 41, 25],
@@ -115,17 +115,39 @@ var chart = new ApexCharts(document.querySelector("#Cpu"), options2);
 chart.render();
 
 var options1 = {
-  series: [70],
+  series: [75],
   chart: {
-  height: 350,
+  height: 380,
   type: 'radialBar',
 },
 plotOptions: {
   radialBar: {
+    dataLabels: {
+      showOn: "always",
+      name: {
+        offsetY: 0,
+        show: true,
+        color: "#57B4CE",
+        fontSize: "15px"
+      },
+      value: {
+        color: "#FFF",
+        fontSize: "25px",
+        show: true
+      }
+    },
+    track:{
+      background: "rgba(51,51,51,0.0)"
+    },
     hollow: {
-      size: '70%'
-    }
+      margin: 0,
+      size: "70%",
+      background: "#293450"
+    },
   },
+},
+stroke: {
+  lineCap: "round",
 },
 labels: ['Disco'],
 };
