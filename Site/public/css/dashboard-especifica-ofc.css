@@ -62,6 +62,7 @@ main {
 }
 
 .content {
+    overflow: hidden;
     background-color: var(--body-color);
     width: calc(100% - 300px);
     height: calc(100vh - 2rem);

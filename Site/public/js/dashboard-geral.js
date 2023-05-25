@@ -144,7 +144,8 @@ function open__menu(param) {
 
 var options = {
     chart: {
-      type: 'bar'
+      type: 'bar',
+      height: "215rem"
     },
     series: [{
       name: 'Download',
