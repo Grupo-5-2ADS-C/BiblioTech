@@ -94,7 +94,7 @@ function open__menu(param) {
 
 
 
-    Chart.defaults.color = "#a1a1a1";
+Chart.defaults.color = "#a1a1a1";
 
 
 
@@ -135,38 +135,48 @@ function open__menu(param) {
 //                 grid: {
 //                 color: ['#f7f5f5']
 //                 }
-                
+
 //             }
 //         },
 //     }
 
 // });
 
+var gray = "#828282"
+
 var options = {
     chart: {
-      type: 'bar',
-      height: "215rem"
+        type: 'bar',
+        height: "215rem"
     },
     series: [{
-      name: 'Download',
-      data: [30],
-      color: "#6d06c7"
-    },{
-      name: 'Upload',
-      data: [22],
-      color: "#57B4CE"
+        name: 'Download',
+        data: [30],
+        color: "#6d06c7"
+    }, {
+        name: 'Upload',
+        data: [22],
+        color: "#57B4CE"
     },
     {
         name: 'Upload',
         data: [10],
         color: "#57B4CE"
-      }],
+    }],
     xaxis: {
-      categories: ["Mau uso", "Ocioso", "Ok"]
+        categories: ["Mau uso", "Ocioso", "Ok"],
+        labels: {
+            style: {
+                colors: [gray]
+            }
+        }
+    },
+    yaxis: {
+        show:false
     }
-  }
+}
 
-  var chart = new ApexCharts(document.querySelector("#uso"), options);
+var chart = new ApexCharts(document.querySelector("#uso"), options);
 
 chart.render();
 
