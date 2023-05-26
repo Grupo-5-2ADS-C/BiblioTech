@@ -85,7 +85,7 @@ function cadastrarFuncionario() {
 
   function cadastrarLoginFuncionario() {
 
-    var login = in_nomeFuncionario.value;
+    var login = in_loginFuncionario.value;
     var senha = in_senhaFuncionario.value;
     
     // Enviando o valor da nova input

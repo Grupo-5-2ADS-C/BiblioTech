@@ -42,7 +42,7 @@ function popularTextoFuncionario(resultado) {
     identificacaoUsuario.innerHTML = resultado.nome;
     nomeUsuario.innerHTML = resultado.nome;
     emailUsuario.innerHTML = resultado.email;
-    celularUsuario.innerHTML = mascaraCelular(resultado.celular);
+    celularUsuario.innerHTML = resultado.celular;
     loginUsuario = resultado.login;
     senhaUsuario = resultado.senha;
 

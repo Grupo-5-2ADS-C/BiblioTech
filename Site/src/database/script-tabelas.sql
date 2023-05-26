@@ -126,5 +126,12 @@ fk_situacao_alerta INT,
 FOREIGN KEY (fk_situacao_alerta) REFERENCES [dbo].[situacao_alerta](id_situacao_alerta)
 );
 
--- SELECT * FROM [dbo].[metrica] as metrica WHERE metrica.fk_especificacao in (SELECT cm.id_componente_maquina FROM [dbo].[componente_maquina] as cm JOIN
--- [dbo].[especificacao_componente_maquina] as ecm ON cm.id_componente_maquina = ecm.fk_componente_maquina WHERE ecm.fk_maquina = 1 and cm.tipo = 'Processador');
+SELECT * FROM [dbo].[metrica] as metrica WHERE metrica.fk_especificacao in (SELECT cm.id_componente_maquina FROM [dbo].[componente_maquina] as cm JOIN
+    [dbo].[especificacao_componente_maquina] as ecm ON cm.id_componente_maquina = ecm.fk_componente_maquina WHERE ecm.fk_maquina = 1 and cm.tipo = 'Processador');
+
+SELECT TOP 4 b.id_biblioteca, comp.tipo, maq.id_maquina, m.uso FROM biblioteca b
+    join maquina maq ON b.id_biblioteca = maq.fk_biblioteca
+    	join metrica m ON maq.id_maquina = m.fk_maquina
+     	    join especificacao_componente_maquina ecm on maq.id_maquina = ecm.fk_maquina
+     			join componente_maquina comp on comp.id_componente_maquina = ecm.fk_componente_maquina
+					WHERE b.id_biblioteca = 5 ORDER BY id_metrica DESC;

@@ -27,7 +27,7 @@ router.get("/listarUsuarioFuncionario/:fkFuncionario/:fkBibliotecaFuncionario", 
     funcionariosController.listarUsuarioFuncionario(req, res);
 });
 
-router.put("/editarUsuarioFuncionario/:idFuncionario", function (req, res) {
+router.put("/editarUsuarioFuncionario/:idFuncionario/:fkBiblioteca", function (req, res) {
     funcionariosController.editarUsuarioFuncionario(req, res)
 });
 

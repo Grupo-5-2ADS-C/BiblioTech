@@ -135,10 +135,10 @@ function listarUsuarioFuncionario(req, res) {
 function editarUsuarioFuncionario(req, res) {
     var email = req.body.email;
     var celular = req.body.celular;
-    var fkFuncionario = req.params.fkFuncionario;
-    var fkBibliotecaFuncionario = req.params.fkBibliotecaFuncionario;
+    var idFuncionario = req.params.idFuncionario;
+    var fkBiblioteca = req.params.fkBiblioteca;
 
-    funcionariosModel.editarUsuarioFuncionario(email, celular, fkFuncionario, fkBibliotecaFuncionario)
+    funcionariosModel.editarUsuarioFuncionario(email, celular, idFuncionario, fkBiblioteca)
         .then(
             function (resultado) {
                 res.json(resultado);

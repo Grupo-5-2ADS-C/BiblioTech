@@ -54,10 +54,10 @@ function listarUsuarioFuncionario(fkFuncionario, fkBibliotecaFuncionario) {
     return database.executar(instrucao);
 }
 
-function editarUsuarioFuncionario(email, telefone, fkFuncionario, fkBibliotecaFuncionario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", email, telefone, idBiblioteca);
+function editarUsuarioFuncionario(email, celular, idFuncionario, fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", email, celular, idFuncionario, fkBiblioteca);
     var instrucao = `
-        UPDATE funcionario SET email = '${email}', celular = '${telefone}' WHERE fk_funcionario = ${fkFuncionario} and fk_biblioteca_funcionario = ${fkBibliotecaFuncionario}
+        UPDATE funcionario SET email = '${email}', celular = '${celular}' WHERE id_funcionario = ${idFuncionario} and fk_biblioteca = ${fkBiblioteca}
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
