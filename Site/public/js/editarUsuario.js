@@ -94,6 +94,74 @@ function editarUsuarioSenha() {
     });
 }
 
+function editarUsuarioFuncionario() {
+
+    fetch(`/funcionarios/editarUsuarioFuncionario/${sessionStorage.ID_FUNCIONARIO}/${sessionStorage.ID_USUARIO}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email.value,
+            celular: celular.value,
+        })
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+
+            if (checkbox.checked = true) {
+                editarUsuarioFuncionarioSenha();
+            }
+
+            window.alert("Usuário atualizado com sucesso!");
+            window.location = "usuario.html"
+ 
+            limparSession();
+
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a edição! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+
+function editarUsuarioFuncionarioSenha() {
+
+    fetch(`/funcionarios/editarUsuarioFuncionarioSenha/${sessionStorage.ID_FUNCIONARIO}/${sessionStorage.ID_USUARIO}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            login: login.value,
+            senha: senha.value,
+        })
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a edição! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+function realizarEdicao() {
+    if (sessionStorage.IS_FUNCIONARIO == 'true') {
+        editarUsuarioFuncionario();
+    } else {
+        editarUsuario();
+    }
+}
+
 function limparSession() {
     sessionStorage.removeItem('NOME_USUARIO');
     sessionStorage.removeItem('EMAIL_USUARIO');

@@ -138,7 +138,7 @@ function editarUsuarioFuncionario(req, res) {
     var fkFuncionario = req.params.fkFuncionario;
     var fkBibliotecaFuncionario = req.params.fkBibliotecaFuncionario;
 
-    funcionariosModel.editarUsuario(email, celular, fkFuncionario, fkBibliotecaFuncionario)
+    funcionariosModel.editarUsuarioFuncionario(email, celular, fkFuncionario, fkBibliotecaFuncionario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -156,9 +156,10 @@ function editarUsuarioFuncionario(req, res) {
 function editarUsuarioFuncionarioSenha(req, res) {
     var login = req.body.login;
     var senha = req.body.senha;
-    var fkBiblioteca = req.params.fkBiblioteca;
+    var fkFuncionario = req.params.fkFuncionario;
+    var fkBibliotecaFuncionario = req.params.fkBibliotecaFuncionario;
 
-    funcionariosModel.editarUsuarioSenha(login, senha, fkBiblioteca)
+    funcionariosModel.editarUsuarioFuncionarioSenha(login, senha, fkFuncionario, fkBibliotecaFuncionario)
         .then(
             function (resultado) {
                 res.json(resultado);
