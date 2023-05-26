@@ -150,18 +150,18 @@ var options = {
         height: "215rem"
     },
     series: [{
-        name: 'Download',
+        name: 'Ociosas',
         data: [30],
-        color: "#6d06c7"
+        color: "#FFB257"
     }, {
-        name: 'Upload',
+        name: 'Hardware',
         data: [22],
-        color: "#57B4CE"
+        color: "#FF6060"
     },
     {
-        name: 'Upload',
+        name: 'Ok',
         data: [10],
-        color: "#57B4CE"
+        color: "#83F470"
     }],
     xaxis: {
         categories: ["Mau uso", "Ocioso", "Ok"],
