@@ -12,7 +12,7 @@
     <title>Usuário</title>
 </head>
 
-<body onload="listarUsuario()">
+<body onload="listarUsuario(); permissao()">
     <main class="dashboard-especifico">
         <div class="menu">
             <img src="img/logo bibliotech 190px.png" alt="Logo BiblioTech" class="menu__imagem" />
@@ -55,7 +55,7 @@
                         <span class="menu__link">Baixar aplicação</span>
                     </div>
                 </li>
-                <li class="menu__box-links">
+                <li class="menu__box-links" id="menu__cadastros">
                     <div class="menu__links">
                         <span class="menu__icon">
                             <ion-icon name="person-add"></ion-icon>

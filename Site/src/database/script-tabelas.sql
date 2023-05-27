@@ -81,9 +81,9 @@ fabricante VARCHAR(100)
 CREATE TABLE especificacao_componente_maquina (
 id_especificacao INT IDENTITY(1,1),
 fk_componente_maquina INT,
-FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina),
+FOREIGN KEY (fk_componente_maquina) REFERENCES componente_maquina(id_componente_maquina) ON DELETE CASCADE,
 fk_maquina INT,
-FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina),
+FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina) ON DELETE CASCADE,
 numero_serial VARCHAR(100),
 uso_maximo FLOAT,
 freq_maxima FLOAT,
@@ -98,7 +98,8 @@ frequencia FLOAT,
 fk_especificacao INT,
 fk_componente_maquina INT,
 fk_maquina INT,
-FOREIGN KEY (fk_especificacao, fk_componente_maquina, fk_maquina) REFERENCES [dbo].[especificacao_componente_maquina](id_especificacao, fk_componente_maquina, fk_maquina)
+FOREIGN KEY (fk_especificacao, fk_componente_maquina, fk_maquina) REFERENCES [dbo].[especificacao_componente_maquina](id_especificacao, fk_componente_maquina, fk_maquina) ON DELETE CASCADE,
+total_processos INT
 );
 
 -- Entidade tipo_alerta
@@ -129,9 +130,8 @@ FOREIGN KEY (fk_situacao_alerta) REFERENCES [dbo].[situacao_alerta](id_situacao_
 SELECT * FROM [dbo].[metrica] as metrica WHERE metrica.fk_especificacao in (SELECT cm.id_componente_maquina FROM [dbo].[componente_maquina] as cm JOIN
     [dbo].[especificacao_componente_maquina] as ecm ON cm.id_componente_maquina = ecm.fk_componente_maquina WHERE ecm.fk_maquina = 1 and cm.tipo = 'Processador');
 
-SELECT TOP 4 b.id_biblioteca, comp.tipo, maq.id_maquina, m.uso FROM biblioteca b
-    join maquina maq ON b.id_biblioteca = maq.fk_biblioteca
-    	join metrica m ON maq.id_maquina = m.fk_maquina
-     	    join especificacao_componente_maquina ecm on maq.id_maquina = ecm.fk_maquina
-     			join componente_maquina comp on comp.id_componente_maquina = ecm.fk_componente_maquina
-					WHERE b.id_biblioteca = 5 ORDER BY id_metrica DESC;
+SELECT TOP 3 m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia FROM [dbo].[maquina] maq 
+	JOIN [dbo].[especificacao_componente_maquina] espec ON maq.id_maquina = espec.fk_maquina 
+		JOIN [dbo].[componente_maquina] comp ON espec.fk_componente_maquina = comp.id_componente_maquina
+			JOIN [dbo].[metrica] m ON comp.id_componente_maquina = m.fk_componente_maquina WHERE fk_biblioteca = 4
+				and id_maquina = 13 ORDER BY id_metrica DESC;

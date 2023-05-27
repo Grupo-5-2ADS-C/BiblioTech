@@ -13,11 +13,9 @@ function popularInputs() {
 }
 
 function limparSession() {
-    sessionStorage.removeItem('ID_FUNCIONARIO');
-    sessionStorage.removeItem('NOME');
-    sessionStorage.removeItem('EMAIL');
-    sessionStorage.removeItem('CELULAR');
-    sessionStorage.removeItem('CARGO');
+    sessionStorage.removeItem('ID_MAQUINA');
+    sessionStorage.removeItem('SETOR');
+    sessionStorage.removeItem('SISTEMA_OPERACIONAL');
     sessionStorage.removeItem('LOGIN');
     sessionStorage.removeItem('SENHA');
 }
@@ -79,7 +77,7 @@ function editarMaquina() {
 }
 
 
-function voltar() {
+function voltarMaquina() {
     limparSession();
     window.location = "maquinasCadastradas.html"
 }
