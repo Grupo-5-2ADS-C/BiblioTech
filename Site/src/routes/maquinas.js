@@ -15,4 +15,20 @@ router.delete("/deletarMaquina/:idMaquina/:fkBiblioteca", function (req, res) {
     maquinasController.deletarMaquina(req, res);
 });
 
+router.get("/obterDadosIniciaisCpu/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.obterDadosIniciaisCpu(req, res);
+});
+
+router.get("/atualizarGraficoCpu/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.atualizarGraficoCpu(req, res);
+});
+
+router.get("/obterDadosIniciaisMemoria/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.obterDadosIniciaisMemoria(req, res);
+});
+
+router.get("/atualizarGraficoMemoria/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.atualizarGraficoMemoria(req, res);
+});
+
 module.exports = router;

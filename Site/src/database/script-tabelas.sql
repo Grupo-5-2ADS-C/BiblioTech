@@ -127,11 +127,17 @@ fk_situacao_alerta INT,
 FOREIGN KEY (fk_situacao_alerta) REFERENCES [dbo].[situacao_alerta](id_situacao_alerta)
 );
 
-SELECT * FROM [dbo].[metrica] as metrica WHERE metrica.fk_especificacao in (SELECT cm.id_componente_maquina FROM [dbo].[componente_maquina] as cm JOIN
-    [dbo].[especificacao_componente_maquina] as ecm ON cm.id_componente_maquina = ecm.fk_componente_maquina WHERE ecm.fk_maquina = 1 and cm.tipo = 'Processador');
-
-SELECT TOP 3 m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia FROM [dbo].[maquina] maq 
-	JOIN [dbo].[especificacao_componente_maquina] espec ON maq.id_maquina = espec.fk_maquina 
-		JOIN [dbo].[componente_maquina] comp ON espec.fk_componente_maquina = comp.id_componente_maquina
-			JOIN [dbo].[metrica] m ON comp.id_componente_maquina = m.fk_componente_maquina WHERE fk_biblioteca = 4
-				and id_maquina = 13 ORDER BY id_metrica DESC;
+SELECT 
+    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia
+FROM
+    maquina maq
+        JOIN
+    especificacao_componente_maquina espec ON maq.id_maquina = espec.fk_maquina
+        JOIN
+    componente_maquina comp ON espec.fk_componente_maquina = comp.id_componente_maquina
+        JOIN
+    metrica m ON comp.id_componente_maquina = m.fk_componente_maquina
+WHERE
+    fk_biblioteca = 1 AND id_maquina = 2
+        AND comp.tipo = 'Processador'
+ORDER BY id_metrica DESC;
