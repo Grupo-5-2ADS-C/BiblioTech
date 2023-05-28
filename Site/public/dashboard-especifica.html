@@ -136,13 +136,17 @@
             <div class="trace"></div>
             <div class="spec__content">
 
+              <div class="pattern">
               <span id="in_cpuEspecificacao">CPU:</span>
+              </div>
 
               <div class="alt">
                 <span id="in_memoriaEspecificacao">Memória:</span>
               </div>
 
+              <div class="pattern">
               <span id="in_discoEspecificacao">Disco:</span>
+              </div>
             </div>
           </div>
         </div>
@@ -154,9 +158,9 @@
           <h3>Uso da máquina</h3>
           <div class="content__bottom-graficoGeral">
             <div class="chartJS">
-              <div id="Cpu"></div>
-              <div id="Memoria"></div>
-              <div id="Disco"></div>
+              <canvas id="Cpu"></canvas>
+              <canvas id="Memoria"></canvas>
+              <canvas id="Disco"></canvas>
             </div>
           </div>
           <div class="content__bottom-statusGeral">
@@ -181,7 +185,7 @@
           <h3>Uso de rede</h3>
           <div class="content__bottom-graficoRede">
             <div class="chartJSRede ">
-              <div id="Rede" style="display: block;"></div>
+              <canvas id="Rede" style="display: block;"></canvas>
             </div>
           </div>
           <div class="content__bottom-statusRede">
