@@ -55,4 +55,8 @@ router.get("/obterAlertasHardware/:fkBiblioteca", function (req, res) {
     maquinasController.obterAlertasHardware(req, res);
 });
 
+router.get("/listarUsoMaquinas/:fkBiblioteca", function (req, res) {
+    maquinasController.listarUsoMaquinas(req, res);
+});
+
 module.exports = router;

@@ -231,25 +231,38 @@ function obterAlertasHardware(fkBiblioteca) {
     return database.executar(instrucao);
 }
 
-// SELECT *
-// FROM (
-//     SELECT
-//         M.id_maquina AS Maquina,
-//         CM.tipo,
-//         Met.id_metrica,
-//         Met.uso,
-//         ROW_NUMBER() OVER (PARTITION BY M.id_maquina, CM.tipo ORDER BY Met.id_metrica DESC) AS RowNum
-//     FROM
-//         maquina M
-//     JOIN
-//         metrica Met ON M.id_Maquina = Met.fk_maquina
-//     JOIN
-//         componente_maquina CM ON Met.fk_componente_maquina = CM.id_componente_maquina
-//     WHERE
-//         fk_biblioteca = 4
-// ) Subquery
-// WHERE RowNum <= 1
-// ORDER BY Maquina, tipo, id_metrica DESC;
+function listarUsoMaquinas(fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkBiblioteca);
+    var instrucao = `
+    SELECT *
+    FROM (
+        SELECT
+            M.id_maquina AS Maquina,
+            CM.tipo,
+            Met.id_metrica,
+            Met.uso,
+            MR.velocidade_download,
+            ROW_NUMBER() OVER (PARTITION BY M.id_maquina, CM.tipo ORDER BY Met.id_metrica DESC) AS RowNum
+        FROM
+            maquina M
+        JOIN
+            metrica Met ON M.id_Maquina = Met.fk_maquina
+        JOIN
+            componente_maquina CM ON Met.fk_componente_maquina = CM.id_componente_maquina
+        JOIN
+            metrica_rede MR ON M.id_maquina = MR.fk_maquina
+        WHERE
+            fk_biblioteca = ${fkBiblioteca}
+    ) Subquery
+    WHERE RowNum <= 1
+    ORDER BY Maquina, tipo, id_metrica DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
+
 
 module.exports = {
     listarMaquinas,
@@ -264,5 +277,6 @@ module.exports = {
     listarQtdProcessos,
     obterEspecificacoesMaquina,
     obterAlertasOciosidade,
-    obterAlertasHardware
+    obterAlertasHardware,
+    listarUsoMaquinas
 };

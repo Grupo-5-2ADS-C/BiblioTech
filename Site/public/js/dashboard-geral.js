@@ -177,37 +177,63 @@ var options = {
 }
 
 var chart = new ApexCharts(document.querySelector("#uso"), options);
-
 chart.render();
 
+function listarUsoMaquinas() {
+    var fkBiblioteca = sessionStorage.ID_USUARIO;
 
+    fetch(`/maquinas/listarUsoMaquinas/${fkBiblioteca}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
 
-for (let i = 0; i < 27; i++) {
-    if (i % 2 == 0) {
-        data__table2.innerHTML +=
-            `<tr>
-    <th align="left">Máquina XX</th>
-    <th align="center">80%</th>
-    <th align="center">80%</th>
-    <th align="center">80%</th>
-    <th align="center">80%</th>
-    <th align="center">
-        <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
-    </th>
-</tr>`
-    } else {
-        data__table2.innerHTML +=
-            `<tr class="table__sec">
-    <th align="left">Máquina XX</th>
-    <th align="center">80%</th>
-    <th align="center">80%</th>
-    <th align="center">80%</th>
-    <th align="center">80%</th>
-    <th align="center">
-        <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
-    </th>
-</tr>`
+                plotarMaquinas(resultado);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function plotarMaquinas(resultado) {
+    data__table2.innerHTML = ''
+    var contador = 1
+
+    for (let i = 0; i < resultado.length; i += 3) {
+
+        if (i % 2 == 0) {
+            data__table2.innerHTML +=
+                `<tr>
+            <th align="left">Máquina ${contador}</th>
+            <th align="center">${resultado[i + 2].uso}%</th>
+            <th align="center">${resultado[i + 1].uso}%</th>
+            <th align="center">${resultado[i].uso}%</th>
+            <th align="center">
+                <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado.Maquina})"></ion-icon>
+            </th>
+        </tr>`
+        } else {
+            data__table2.innerHTML +=
+                `<tr class="table__sec">
+            <th align="left">Máquina ${contador}</th>
+            <th align="center">${resultado[i + 2].uso}%</th>
+            <th align="center">${resultado[i + 1].uso}%</th>
+            <th align="center">${resultado[i].uso}%</th>
+            <th align="center">
+            <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado.Maquina})"></ion-icon>
+            </th>
+        </tr>`
+        }
+        contador++
     }
+}
+
+function maquinaEspecifica(idMaquina) {
+    sessionStorage.ID_MAQUINA = idMaquina;
+    window.location = 'dashboard-especifica.html'
 }
 
 // var cpu = document.getElementById('status__cpu');
@@ -287,10 +313,12 @@ for (let i = 0; i < 27; i++) {
 function onLoad() {
     obterAlertasOciosidade();
     obterAlertasHardware();
-    
+    listarUsoMaquinas();
+
     setInterval(() => {
         obterAlertasOciosidade();
         obterAlertasHardware();
+        listarUsoMaquinas();
     }, 5000);
 }
 
@@ -299,7 +327,7 @@ function obterAlertasOciosidade() {
     fetch(`/maquinas/obterAlertasOciosidade/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resultado) {
-                console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
 
                 alertasOciosidade.innerHTML = resultado[0].qtdAlertasOciosidade
             });
@@ -317,7 +345,7 @@ function obterAlertasHardware() {
     fetch(`/maquinas/obterAlertasHardware/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resultado) {
-                console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
 
                 alertasHardware.innerHTML = resultado[0].qtdAlertasHardware
             });
@@ -329,4 +357,6 @@ function obterAlertasHardware() {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
 }
+
+
 
