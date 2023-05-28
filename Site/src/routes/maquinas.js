@@ -59,4 +59,12 @@ router.get("/listarUsoMaquinas/:fkBiblioteca", function (req, res) {
     maquinasController.listarUsoMaquinas(req, res);
 });
 
+router.get("/listarQtdAlertas/:fkBiblioteca", function (req, res) {
+    maquinasController.listarQtdAlertas(req, res);
+});
+
+router.get("/listarQtdMaquinasAtivas/:fkBiblioteca", function (req, res) {
+    maquinasController.listarQtdMaquinasAtivas(req, res);
+});
+
 module.exports = router;

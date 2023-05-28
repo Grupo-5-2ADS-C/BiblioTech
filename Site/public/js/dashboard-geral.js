@@ -25,8 +25,6 @@ function open__menu(param) {
     }
 }
 
-
-
 // let config_geral = {
 //     type: 'bar',
 //     data: {

@@ -261,8 +261,30 @@ function listarUsoMaquinas(fkBiblioteca) {
     return database.executar(instrucao);
 }
 
+function listarQtdAlertas(fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkBiblioteca);
+    var instrucao = `
+    SELECT 
+        COUNT(DISTINCT CASE WHEN alerta.fk_tipo_alerta = 1 THEN 1 END) AS ocioso,
+        COUNT(DISTINCT CASE WHEN alerta.fk_tipo_alerta = 2 THEN 1 END) AS hardware
+    FROM alerta
+        JOIN metrica ON alerta.fk_metrica = metrica.id_metrica
+        JOIN maquina ON metrica.fk_maquina = maquina.id_maquina
+    WHERE alerta.dt_alerta >= DATEADD(SECOND, -7, GETDATE()) 
+        AND fk_biblioteca = ${fkBiblioteca};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
-
+function listarQtdMaquinasAtivas(fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkBiblioteca);
+    var instrucao = `
+    SELECT count(id_maquina) FROM maquina WHERE fk_biblioteca = ${fkBiblioteca} AND is_ativa = 'true';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     listarMaquinas,
@@ -278,5 +300,7 @@ module.exports = {
     obterEspecificacoesMaquina,
     obterAlertasOciosidade,
     obterAlertasHardware,
-    listarUsoMaquinas
+    listarUsoMaquinas,
+    listarQtdAlertas,
+    listarQtdMaquinasAtivas,
 };
