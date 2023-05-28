@@ -98,86 +98,51 @@ Chart.defaults.color = "#a1a1a1";
 
 
 
-// var ctx = document.getElementById('myChart');
-// var myChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: [''],
-//         datasets: [{
-//             label: ['Ociosas'],
-//             data: [30],
-//             backgroundColor: ['#FFB257'],
-//         },
-//         {
-//             label: ['Mau uso de hardware'],
-//             data: [40],
-//             backgroundColor: ['#FF6060'],
-//         },
-//         {
-//             label: ['Ok'],
-//             data: [30],
-//             backgroundColor: ['#83F470'],
-//         },]
-//     },
-//     options: {
-//         legend: {
-//             position: 'right'
-//         },
-//         scales: {
-//             x: {
-//                 grid: {
-//                     color: ['#f7f5f5'],
-//                 }
-//             },
-//             y:{
-//                 border: {
-//                 },
-//                 grid: {
-//                 color: ['#f7f5f5']
-//                 }
-
-//             }
-//         },
-//     }
-
-// });
-
-var gray = "#828282"
-
-var options = {
-    chart: {
-        type: 'bar',
-        height: "215rem"
+var ctx = document.getElementById('uso');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [''],
+        datasets: [{
+            label: ['Ociosas'],
+            data: [30],
+            backgroundColor: ['#FFB257'],
+        },
+        {
+            label: ['Mau uso de hardware'],
+            data: [40],
+            backgroundColor: ['#FF6060'],
+        },
+        {
+            label: ['Ok'],
+            data: [30],
+            backgroundColor: ['#83F470'],
+        },]
     },
-    series: [{
-        name: 'Ociosas',
-        data: [30],
-        color: "#FFB257"
-    }, {
-        name: 'Hardware',
-        data: [22],
-        color: "#FF6060"
-    },
-    {
-        name: 'Ok',
-        data: [10],
-        color: "#83F470"
-    }],
-    xaxis: {
-        categories: ["Mau uso", "Ocioso", "Ok"],
-        labels: {
-            style: {
-                colors: [gray]
+    options: {
+        legend: {
+            position: 'right'
+        },
+        scales: {
+            x: {
+                grid: {
+                    color: ['#f7f5f5'],
+                }
+            },
+            y:{
+                border: {
+                },
+                grid: {
+                color: ['#f7f5f5']
+                }
+
             }
-        }
-    },
-    yaxis: {
-        show: false
+        },
     }
-}
 
-var chart = new ApexCharts(document.querySelector("#uso"), options);
-chart.render();
+});
+
+
 
 function listarUsoMaquinas() {
     var fkBiblioteca = sessionStorage.ID_USUARIO;

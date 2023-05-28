@@ -36,150 +36,159 @@ function changeStatus__disco() {
   chartDisco.style.display = "block"
 }
 
-var gray = "#828282"
+Chart.defaults.color = "#a1a1a1";
 
-var options = {
-  chart: {
-    type: 'line'
-  },
-  series: [{
-    name: 'Download',
-    data: [],
-    color: "#293450"
-  }, {
-    name: 'Upload',
-    data: [],
-    color: "#57B4CE"
-  }],
-  xaxis: {
-    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
-    labels: {
-      style: {
-        colors: []
-      }
-    }
-  },
-  yaxis: {
-    labels: {
-      style: {
-        colors: []
-      }
-    }
-  },
-  labels: {
-    enabled: true,
-    style: {
-      colors: ['#FF0000']
-    }
-  },
-}
 
-var chart = new ApexCharts(document.querySelector("#Rede"), options);
-chart.render();
 
-var options2 = {
-  chart: {
-    type: 'line'
-  },
-  series: [{
-    name: 'Uso da CPU',
-    data: [],
-    color: "#293450"
-  }, {
-    name: 'Frequência da CPU',
-    data: [],
-    color: "#57B4CE"
-  }],
-  xaxis: {
-    categories: [],
-    labels: {
-      style: {
-        colors: []
-      }
-    }
-  },
-  yaxis: {
-    labels: {
-      style: {
-        colors: []
-      }
-    }
-  },
-}
-
-var chartCPU = new ApexCharts(document.querySelector("#Cpu"), options2);
-chartCPU.render();
-
-var options1 = {
-  series: [75],
-  chart: {
-    height: 380,
-    type: 'radialBar',
-  },
-  plotOptions: {
-    radialBar: {
-      dataLabels: {
-        showOn: "always",
-        name: {
-          offsetY: 0,
-          show: true,
-          color: "#57B4CE",
-          fontSize: "15px"
+var ctx = document.getElementById('Cpu');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['hora','hora','hora','hora','hora'],
+        datasets: [{
+            label: ['Uso da Cpu'],
+            data: [30,40,30,20,30],
+            borderColor:"#4c1ba1",
+            backgroundColor:"#4c1ba1"
         },
-        value: {
-          color: "#FFF",
-          fontSize: "25px",
-          show: true
-        }
-      },
-      track: {
-        background: "rgba(51,51,51,0.0)"
-      },
-      hollow: {
-        margin: 0,
-        size: "70%",
-        background: "#293450"
-      },
+        {
+            label: ['Frequência da Cpu'],
+            data: [40,20,10,30,20,15],
+            borderColor:"#57B4CE",
+            backgroundColor:"#57B4CE"
+        },
+      ]
     },
-  },
-  stroke: {
-    lineCap: "round",
-  },
-  labels: ['Disco'],
-};
+    options: {
+        legend: {
+            position: 'right'
+        },
+        scales: {
+            x: {
+                grid: {
+                    color: [''],
+                }
+            },
+            y:{
+                border: {
+                },
+                grid: {
+                color: ['#f7f5f5']
+                }
 
-var chartDisco1 = new ApexCharts(document.querySelector("#Disco"), options1);
-chartDisco1.render();
-
-
-var options3 = {
-  chart: {
-    type: 'line'
-  },
-  series: [{
-    name: 'Uso da memória',
-    data: [],
-    color: "#57B4CE"
-  }],
-  xaxis: {
-    categories: [],
-    labels: {
-      style: {
-        colors: []
-      }
+            }
+        },
     }
-  },
-  yaxis: {
-    labels: {
-      style: {
-        colors: []
-      }
-    }
-  },
-}
 
-var chartMemoriaRam = new ApexCharts(document.querySelector("#Memoria"), options3);
-chartMemoriaRam.render();
+});
+
+var ctx = document.getElementById('Memoria');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['hora','hora','hora','hora','hora'],
+        datasets: [{
+            label: ['Uso da Cpu'],
+            data: [20,10,10,30,10],
+            borderColor:"#4c1ba1",
+            backgroundColor:"#4c1ba1"
+        },
+        {
+            label: ['Frequência da Cpu'],
+            data: [40,20,10,30,20,15],
+            borderColor:"#57B4CE",
+            backgroundColor:"#57B4CE"
+        },
+      ]
+    },
+    options: {
+        legend: {
+            position: 'right'
+        },
+        scales: {
+            x: {
+                grid: {
+                    color: [''],
+                }
+            },
+            y:{
+                border: {
+                },
+                grid: {
+                color: ['#f7f5f5']
+                }
+
+            }
+        },
+    }
+
+});
+
+var ctx = document.getElementById('Disco');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: [
+      'Uso %',
+      'Livre %'
+    ],
+    datasets: [{
+      data: [65, 35],
+      backgroundColor: [
+        '#f0304a',
+        '#57b4ce'
+      ],
+      borderColor:'rgba(0,0,0,.0)',
+      hoverOffset: 4,
+    }]
+  },
+
+});
+
+
+var ctx = document.getElementById('Rede');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+      labels: ['hora','hora','hora','hora','hora'],
+      datasets: [{
+          label: ['Uso da Cpu'],
+          data: [30,40,30,20,30],
+          borderColor:"#4c1ba1",
+          backgroundColor:"#4c1ba1"
+      },
+      {
+          label: ['Frequência da Cpu'],
+          data: [40,20,10,30,20,15],
+          borderColor:"#57B4CE",
+          backgroundColor:"#57B4CE"
+      },
+    ]
+  },
+  options: {
+    responsive:true,
+      legend: {
+          position: 'right'
+      },
+      scales: {
+          x: {
+              grid: {
+                  color: [''],
+              }
+          },
+          y:{
+              border: {
+              },
+              grid: {
+              color: ['#f7f5f5']
+              }
+
+          }
+      },
+  }
+
+});
+
 
 
 // Funções web-data-viz ------------------------------------------------------------------------------------------------------------------------------
