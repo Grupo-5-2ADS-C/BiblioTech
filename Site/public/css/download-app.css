@@ -1,4 +1,31 @@
+:root {
+  /* Cores da pagina */
+  --body-color: #f3f3f3;
+  --sidebar-color: #ffffff;
+  --cor-primaria: #ffffff;
+  --cor-secundaria: #57B4CE;
+  --hover-color: #f5f5f5;
+  --toggle-color: #dedada;
+  --cor-fonte: #171717;
+  --cor-fonte-sec: #505050;
+  --switch-color: #ffffff;
+}
+
+body.dark {
+  /* Cores da pagina */
+  --body-color: #18191a;
+  --sidebar-color: #242526;
+  --cor-primaria: #242526;
+  --cor-secundaria: #57b4ce;
+  --hover-color: #57c4ce;
+  --cor-fonte: #ffffff;
+  --cor-fonte-sec: #f1f1f1;
+  --toggle-color: #57b4ce;
+  --switch-color: #ffffff;
+}
+
 .content {
+    background-color: var(--sidebar-color);
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -25,6 +52,7 @@
 
 .content__text p {
     font-size: 1.3rem;
+    color: var(--cor-fonte);
 }
 
 .button {

@@ -22,8 +22,6 @@ body.dark {
     --cor-fonte-sec: #f1f1f1;
     --toggle-color: #57b4ce;
     --switch-color: #ffffff;
-
-
 }
 
 @media only screen and (max-height: 686px) {

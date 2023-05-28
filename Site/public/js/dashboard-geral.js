@@ -172,7 +172,7 @@ var options = {
         }
     },
     yaxis: {
-        show:false
+        show: false
     }
 }
 
@@ -283,3 +283,50 @@ for (let i = 0; i < 27; i++) {
 //       }
 //     }
 //   });
+
+function onLoad() {
+    obterAlertasOciosidade();
+    obterAlertasHardware();
+    
+    setInterval(() => {
+        obterAlertasOciosidade();
+        obterAlertasHardware();
+    }, 5000);
+}
+
+function obterAlertasOciosidade() {
+
+    fetch(`/maquinas/obterAlertasOciosidade/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+                alertasOciosidade.innerHTML = resultado[0].qtdAlertasOciosidade
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function obterAlertasHardware() {
+
+    fetch(`/maquinas/obterAlertasHardware/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+                alertasHardware.innerHTML = resultado[0].qtdAlertasHardware
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+

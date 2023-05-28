@@ -13,7 +13,7 @@
     <title>Dashboard Geral</title>
 </head>
 
-<body onload="permissao()">
+<body onload="permissao(); onLoad()">
     <main>
         <div class="menu">
             <img src="img/logo bibliotech 190px.png" alt="Logo BiblioTech" class="menu__imagem" />
@@ -111,18 +111,18 @@
                             <p>20 min</p>
                         </div>
                         <div class="second__kpi-top">
-                            <h4>Média de utilizadores na última hora</h4>
+                            <h4>Quantidade de utilizadores na última hora</h4>
                             <p>23</p>
                         </div>
                     </div>
                     <div class="percent60__kpi-bottom">
                         <div class="second__kpi-bottom">
-                            <h4>Mediana de alertas de Ociosidade na última hora</h4>
-                            <p>12</p>
+                            <h4>Quantidade de alertas de Ociosidade na última hora</h4>
+                            <p id="alertasOciosidade">-</p>
                         </div>
                         <div class="first__kpi-bottom">
-                            <h4>Mediana de alertas de Hardware na última hora</h4>
-                            <p>7</p>
+                            <h4>Quantidade de alertas de Hardware na última hora</h4>
+                            <p id="alertasHardware">-</p>
                         </div>
                     </div>
 
@@ -136,8 +136,8 @@
                             <div class="content__top-right">
                                 <h3>Máquinas em uso</h3>
                                 <div class="maquinas__value">
-                                    <span class="maquinas__atual">28</span>
-                                    <span class="maquinas__total">/ 30</span>
+                                    <span class="maquinas__atual">-</span>
+                                    <span class="maquinas__total">/ -</span>
                                 </div>
                             </div>
                         </div>
