@@ -40,7 +40,8 @@ function obterDadosIniciaisCpu(idMaquina, fkBiblioteca) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
     var instrucao = `
     SELECT TOP 8
-    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia
+    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia, FORMAT(dt_hora, 'dd/MM') AS dia,
+    FORMAT(dt_hora, 'HH:mm:ss') AS horario
 FROM
     maquina maq
         JOIN
@@ -62,7 +63,8 @@ function atualizarGraficoCpu(idMaquina, fkBiblioteca) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
     var instrucao = `
     SELECT TOP 1
-    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia
+    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia, FORMAT(dt_hora, 'dd/MM') AS dia,
+    FORMAT(dt_hora, 'HH:mm:ss') AS horario
 FROM
     maquina maq
         JOIN
@@ -80,11 +82,12 @@ ORDER BY id_metrica DESC;
     return database.executar(instrucao);
 }
 
-function obterDadosIniciaisCpu(idMaquina, fkBiblioteca) {
+function obterDadosIniciaisMemoria(idMaquina, fkBiblioteca) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
     var instrucao = `
     SELECT TOP 8
-    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia
+    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia, FORMAT(dt_hora, 'dd/MM') AS dia,
+    FORMAT(dt_hora, 'HH:mm:ss') AS horario
 FROM
     maquina maq
         JOIN
@@ -106,7 +109,8 @@ function atualizarGraficoMemoria(idMaquina, fkBiblioteca) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
     var instrucao = `
     SELECT TOP 1
-    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia
+    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia, FORMAT(dt_hora, 'dd/MM') AS dia,
+    FORMAT(dt_hora, 'HH:mm:ss') AS horario
 FROM
     maquina maq
         JOIN
@@ -124,12 +128,141 @@ ORDER BY id_metrica DESC;
     return database.executar(instrucao);
 }
 
+function obterDadosIniciaisDisco(idMaquina, fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
+    var instrucao = `
+    SELECT TOP 8
+    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia, FORMAT(dt_hora, 'dd/MM') AS dia,
+    FORMAT(dt_hora, 'HH:mm:ss') AS horario
+FROM
+    maquina maq
+        JOIN
+    especificacao_componente_maquina espec ON maq.id_maquina = espec.fk_maquina
+        JOIN
+    componente_maquina comp ON espec.fk_componente_maquina = comp.id_componente_maquina
+        JOIN
+    metrica m ON comp.id_componente_maquina = m.fk_componente_maquina
+WHERE
+    fk_biblioteca = ${fkBiblioteca} AND id_maquina = ${idMaquina}
+        AND comp.tipo = 'Disco'
+ORDER BY id_metrica DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function atualizarGraficoDisco(idMaquina, fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
+    var instrucao = `
+    SELECT TOP 1
+    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia, FORMAT(dt_hora, 'dd/MM') AS dia,
+    FORMAT(dt_hora, 'HH:mm:ss') AS horario
+FROM
+    maquina maq
+        JOIN
+    especificacao_componente_maquina espec ON maq.id_maquina = espec.fk_maquina
+        JOIN
+    componente_maquina comp ON espec.fk_componente_maquina = comp.id_componente_maquina
+        JOIN
+    metrica m ON comp.id_componente_maquina = m.fk_componente_maquina
+WHERE
+    fk_biblioteca = ${fkBiblioteca} AND id_maquina = ${idMaquina}
+        AND comp.tipo = 'Disco'
+ORDER BY id_metrica DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function listarQtdProcessos(idMaquina, fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
+    var instrucao = `
+    SELECT TOP 1
+    m.id_metrica, m.total_processos
+FROM
+    maquina maq
+        JOIN
+    especificacao_componente_maquina espec ON maq.id_maquina = espec.fk_maquina
+        JOIN
+    componente_maquina comp ON espec.fk_componente_maquina = comp.id_componente_maquina
+        JOIN
+    metrica m ON comp.id_componente_maquina = m.fk_componente_maquina
+WHERE
+    fk_biblioteca = ${fkBiblioteca} AND id_maquina = ${idMaquina}
+ORDER BY id_metrica DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function obterEspecificacoesMaquina(idMaquina, fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
+    var instrucao = `
+    SELECT TOP 3 comp.tipo, comp.descricao, comp.fabricante, espec.uso_maximo, espec.freq_maxima, id_componente_maquina
+	FROM componente_maquina comp 
+		JOIN especificacao_componente_maquina espec 
+			ON id_componente_maquina = fk_componente_maquina 
+				JOIN maquina ON fk_maquina = id_maquina 
+					WHERE fk_biblioteca = ${fkBiblioteca} AND fk_maquina = ${idMaquina} ORDER BY id_componente_maquina DESC
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function obterAlertasOciosidade(fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkBiblioteca);
+    var instrucao = `
+    SELECT COUNT(id_alerta) as qtdAlertasOciosidade FROM alerta JOIN metrica
+    ON fk_metrica = id_metrica JOIN maquina
+        ON fk_maquina = id_maquina WHERE fk_tipo_alerta = 1 AND fk_biblioteca = ${fkBiblioteca} AND dt_alerta >= DATEADD(hour, -4, GETDATE());
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function obterAlertasHardware(fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkBiblioteca);
+    var instrucao = `
+    SELECT COUNT(id_alerta) as qtdAlertasHardware FROM alerta JOIN metrica
+    ON fk_metrica = id_metrica JOIN maquina
+        ON fk_maquina = id_maquina WHERE fk_tipo_alerta = 2 AND fk_biblioteca = ${fkBiblioteca} AND dt_alerta >= DATEADD(hour, -4, GETDATE());
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+// SELECT *
+// FROM (
+//     SELECT
+//         M.id_maquina AS Maquina,
+//         CM.tipo,
+//         Met.id_metrica,
+//         Met.uso,
+//         ROW_NUMBER() OVER (PARTITION BY M.id_maquina, CM.tipo ORDER BY Met.id_metrica DESC) AS RowNum
+//     FROM
+//         maquina M
+//     JOIN
+//         metrica Met ON M.id_Maquina = Met.fk_maquina
+//     JOIN
+//         componente_maquina CM ON Met.fk_componente_maquina = CM.id_componente_maquina
+//     WHERE
+//         fk_biblioteca = 4
+// ) Subquery
+// WHERE RowNum <= 1
+// ORDER BY Maquina, tipo, id_metrica DESC;
+
 module.exports = {
     listarMaquinas,
     editarMaquina,
     deletarMaquina,
     obterDadosIniciaisCpu,
     atualizarGraficoCpu,
-    obterDadosIniciais,
+    obterDadosIniciaisMemoria,
     atualizarGraficoMemoria,
+    obterDadosIniciaisDisco,
+    atualizarGraficoDisco,
+    listarQtdProcessos,
+    obterEspecificacoesMaquina,
+    obterAlertasOciosidade,
+    obterAlertasHardware
 };

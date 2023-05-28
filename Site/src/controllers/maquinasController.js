@@ -78,7 +78,7 @@ function obterDadosIniciaisCpu(req, res) {
     var idMaquina = req.params.idMaquina;
     var fkBiblioteca = req.params.fkBiblioteca;
 
-    if (fkBiblioteca != null && idMaquina != null) {
+    if (fkBiblioteca != null || idMaquina != null) {
         maquinasModel.obterDadosIniciaisCpu(idMaquina, fkBiblioteca)
             .then(function (resultado) {
                 if (resultado.length > 0) {
@@ -102,8 +102,198 @@ function atualizarGraficoCpu(req, res) {
     var idMaquina = req.params.idMaquina;
     var fkBiblioteca = req.params.fkBiblioteca;
 
-    if (fkBiblioteca != null && idMaquina != null) {
+    if (fkBiblioteca != null || idMaquina != null) {
         maquinasModel.obterDadosIniciaisCpu(idMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function obterDadosIniciaisMemoria(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null || idMaquina != null) {
+        maquinasModel.obterDadosIniciaisMemoria(idMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function atualizarGraficoMemoria(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null || idMaquina != null) {
+        maquinasModel.obterDadosIniciaisMemoria(idMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function obterDadosIniciaisDisco(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null || idMaquina != null) {
+        maquinasModel.obterDadosIniciaisDisco(idMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function atualizarGraficoDisco(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null || idMaquina != null) {
+        maquinasModel.obterDadosIniciaisDisco(idMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function listarQtdProcessos(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null || idMaquina != null) {
+        maquinasModel.listarQtdProcessos(idMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function obterEspecificacoesMaquina(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null || idMaquina != null) {
+        maquinasModel.obterEspecificacoesMaquina(idMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function obterAlertasOciosidade(req, res) {
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null) {
+        maquinasModel.obterAlertasOciosidade(fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function obterAlertasHardware(req, res) {
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null) {
+        maquinasModel.obterAlertasHardware(fkBiblioteca)
             .then(function (resultado) {
                 if (resultado.length > 0) {
                     res.status(200).json(resultado);
@@ -128,4 +318,12 @@ module.exports = {
     deletarMaquina,
     obterDadosIniciaisCpu,
     atualizarGraficoCpu,
+    obterDadosIniciaisMemoria,
+    atualizarGraficoMemoria,
+    obterDadosIniciaisDisco,
+    atualizarGraficoDisco,
+    listarQtdProcessos,
+    obterEspecificacoesMaquina,
+    obterAlertasOciosidade,
+    obterAlertasHardware,
 }

@@ -187,6 +187,8 @@ chartMemoriaRam.render();
 // Gráficos de CPU -----------------------------------------------------------------------------------------------------------------------------------
 
 function obterDadosIniciaisCpu(idMaquina) {
+  var idMaquina = 12
+
   console.log("Entrando na função obter dados iniciais");
   fetch(`/maquinas/obterDadosIniciaisCpu/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
@@ -199,8 +201,8 @@ function obterDadosIniciaisCpu(idMaquina) {
         if (options2.xaxis.categories.length == 0 && options2.series[0].data.length == 0) {
           resposta.forEach(element => {
             options2.xaxis.categories.push(element.horario);
-            options2.series[0].data.push(element.uso);
-            options2.series[1].data.push(element.frequencia)
+            options2.series[0].data.push(element.uso.toFixed(0) + "%");
+            options2.series[1].data.push(element.frequencia.toFixed(0) + "%")
           });
 
           chartCPU.render()
@@ -242,6 +244,7 @@ function atualizarGraficoCpu(idMaquina) {
           options2.series[0].data.shift();
           options2.series[0].data.push(novoRegistro[0].uso);
         }
+
         chartCPU.render()
 
         setTimeout(() => atualizarGraficoCpu(idMaquina), 5000);
@@ -330,3 +333,43 @@ function atualizarGraficoMemoria(idMaquina) {
 // ---------------------------------------------------------------------------------------------------------------------------------------
 // Gráficos de Disco ---------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------------------------
+
+function listarQtdProcessos() {
+  var idMaquina = 12
+
+  fetch(`/maquinas/listarQtdProcessos/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+          response.json().then(function (resultado) {
+              console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+              qtdProcessos.innerHTML = resultado[0].total_processos
+          });
+      } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+      }
+  })
+      .catch(function (error) {
+          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+}
+
+function obterEspecificacoesMaquina() {
+  var idMaquina = 12
+
+  fetch(`/maquinas/obterEspecificacoesMaquina/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+          response.json().then(function (resultado) {
+              console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+              in_cpuEspecificacao.innerHTML = `CPU: ${resultado[2].descricao}`;
+              in_memoriaEspecificacao.innerHTML = `Memória: ${(resultado[1].uso_maximo).toFixed(1)}gb `;
+              in_discoEspecificacao.innerHTML = `Disco: ${(resultado[0].uso_maximo).toFixed(0)}`;
+          });
+      } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+      }
+  })
+      .catch(function (error) {
+          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+}

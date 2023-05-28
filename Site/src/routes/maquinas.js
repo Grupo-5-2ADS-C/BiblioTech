@@ -31,4 +31,28 @@ router.get("/atualizarGraficoMemoria/:idMaquina/:fkBiblioteca", function (req, r
     maquinasController.atualizarGraficoMemoria(req, res);
 });
 
+router.get("/obterDadosIniciaisDisco/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.obterDadosIniciaisDisco(req, res);
+});
+
+router.get("/atualizarGraficoDisco/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.atualizarGraficoDisco(req, res);
+});
+
+router.get("/listarQtdProcessos/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.listarQtdProcessos(req, res);
+});
+
+router.get("/obterEspecificacoesMaquina/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.obterEspecificacoesMaquina(req, res);
+});
+
+router.get("/obterAlertasOciosidade/:fkBiblioteca", function (req, res) {
+    maquinasController.obterAlertasOciosidade(req, res);
+});
+
+router.get("/obterAlertasHardware/:fkBiblioteca", function (req, res) {
+    maquinasController.obterAlertasHardware(req, res);
+});
+
 module.exports = router;

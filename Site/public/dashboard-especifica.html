@@ -13,7 +13,7 @@
   <title>Dashboard Específica</title>
 </head>
 
-<body id="bodyid" onload="loadCharts(); permissao()">
+<body id="bodyid" onload="loadCharts(); permissao(); obterEspecificacoesMaquina(); obterDadosIniciaisCpu()">
   <main class="dashboard">
     <div class="menu">
       <img src="img/logo bibliotech 190px.png" alt="Logo BiblioTech" class="menu__imagem" />
@@ -136,17 +136,13 @@
             <div class="trace"></div>
             <div class="spec__content">
 
-              <span>CPU: 11th Gen Intel(R) Core(TM) i5-1135G7</span>
+              <span id="in_cpuEspecificacao">CPU:</span>
 
               <div class="alt">
-                <span>Memória: 16 Gb</span>
+                <span id="in_memoriaEspecificacao">Memória:</span>
               </div>
 
-              <span>Disco: 512 Gb</span>
-
-              <div class="alt">
-                <span>S.O: Windows</span>
-              </div>
+              <span id="in_discoEspecificacao">Disco:</span>
             </div>
           </div>
         </div>
