@@ -1,5 +1,7 @@
 function loadCharts() {
-  changeStatus__cpu()
+  chartCpu.style.display = "flex";
+  chartMemoria.style.display = "none";
+  chartDisco.style.display = "none"
 }
 
 var cpu = document.getElementById('status__cpu');
@@ -13,7 +15,7 @@ function changeStatus__cpu() {
   cpu.classList.add('active-graph');
   memoria.classList.remove('active-graph');
   disco.classList.remove('active-graph');
-  chartCpu.style.display = "block";
+  chartCpu.style.display = "flex";
   chartMemoria.style.display = "none";
   chartDisco.style.display = "none"
 }
@@ -23,7 +25,7 @@ function changeStatus__memoria() {
   memoria.classList.add('active-graph');
   disco.classList.remove('active-graph');
   chartCpu.style.display = "none";
-  chartMemoria.style.display = "block";
+  chartMemoria.style.display = "flex";
   chartDisco.style.display = "none"
 }
 
@@ -33,112 +35,108 @@ function changeStatus__disco() {
   disco.classList.add('active-graph');
   chartCpu.style.display = "none";
   chartMemoria.style.display = "none";
-  chartDisco.style.display = "block"
+  chartDisco.style.display = "flex";
 }
 
 Chart.defaults.color = "#a1a1a1";
 
-
+let labelsGeralCpu = []
 
 var ctx = document.getElementById('Cpu');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['hora','hora','hora','hora','hora'],
-        datasets: [{
-            label: ['Uso da Cpu'],
-            data: [30,40,30,20,30],
-            borderColor:"#4c1ba1",
-            backgroundColor:"#4c1ba1"
-        },
-        {
-            label: ['Frequência da Cpu'],
-            data: [40,20,10,30,20,15],
-            borderColor:"#57B4CE",
-            backgroundColor:"#57B4CE"
-        },
-      ]
+var myChartCpu = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: labelsGeralCpu,
+    datasets: [{
+      label: ['Uso da Cpu'],
+      data: [],
+      borderColor: "#4c1ba1",
+      backgroundColor: "#4c1ba1"
     },
-    options: {
-        legend: {
-            position: 'right'
+    {
+      label: ['Frequência da Cpu'],
+      data: [],
+      borderColor: "#57B4CE",
+      backgroundColor: "#57B4CE"
+    },
+    ]
+  },
+  options: {
+    legend: {
+      position: 'right'
+    },
+    scales: {
+      x: {
+        grid: {
+          color: [''],
+        }
+      },
+      y: {
+        border: {
         },
-        scales: {
-            x: {
-                grid: {
-                    color: [''],
-                }
-            },
-            y:{
-                border: {
-                },
-                grid: {
-                color: ['#f7f5f5']
-                }
+        grid: {
+          color: ['#f7f5f5']
+        }
 
-            }
-        },
-    }
+      }
+    },
+  }
 
 });
 
-var ctx = document.getElementById('Memoria');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['hora','hora','hora','hora','hora'],
-        datasets: [{
-            label: ['Uso da Cpu'],
-            data: [20,10,10,30,10],
-            borderColor:"#4c1ba1",
-            backgroundColor:"#4c1ba1"
-        },
-        {
-            label: ['Frequência da Cpu'],
-            data: [40,20,10,30,20,15],
-            borderColor:"#57B4CE",
-            backgroundColor:"#57B4CE"
-        },
-      ]
-    },
-    options: {
-        legend: {
-            position: 'right'
-        },
-        scales: {
-            x: {
-                grid: {
-                    color: [''],
-                }
-            },
-            y:{
-                border: {
-                },
-                grid: {
-                color: ['#f7f5f5']
-                }
+let labelsGeralMemoria = []
 
-            }
+var ctx = document.getElementById('Memoria');
+var myChartMemoria = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: labelsGeralMemoria,
+    datasets: [{
+      label: ['Uso da Memória'],
+      data: [],
+      borderColor: "#4c1ba1",
+      backgroundColor: "#4c1ba1"
+    },
+    ]
+  },
+  options: {
+    legend: {
+      position: 'right'
+    },
+    scales: {
+      x: {
+        grid: {
+          color: [''],
+        }
+      },
+      y: {
+        border: {
         },
-    }
+        grid: {
+          color: ['#f7f5f5']
+        }
+
+      }
+    },
+  }
 
 });
 
 var ctx = document.getElementById('Disco');
-var myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: [
+var myChartDisco = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: [
       'Uso %',
       'Livre %'
     ],
     datasets: [{
-      data: [65, 35],
+      data: [],
       backgroundColor: [
         '#f0304a',
         '#57b4ce'
       ],
-      borderColor:'rgba(0,0,0,.0)',
+      borderColor: 'rgba(0,0,0,.0)',
       hoverOffset: 4,
     }]
   },
@@ -150,41 +148,41 @@ var ctx = document.getElementById('Rede');
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
-      labels: ['hora','hora','hora','hora','hora'],
-      datasets: [{
-          label: ['Uso da Cpu'],
-          data: [30,40,30,20,30],
-          borderColor:"#4c1ba1",
-          backgroundColor:"#4c1ba1"
-      },
-      {
-          label: ['Frequência da Cpu'],
-          data: [40,20,10,30,20,15],
-          borderColor:"#57B4CE",
-          backgroundColor:"#57B4CE"
-      },
+    labels: ['hora', 'hora', 'hora', 'hora', 'hora'],
+    datasets: [{
+      label: ['Uso da Cpu'],
+      data: [30, 40, 30, 20, 30],
+      borderColor: "#4c1ba1",
+      backgroundColor: "#4c1ba1"
+    },
+    {
+      label: ['Frequência da Cpu'],
+      data: [40, 20, 10, 30, 20, 15],
+      borderColor: "#57B4CE",
+      backgroundColor: "#57B4CE"
+    },
     ]
   },
   options: {
-    responsive:true,
-      legend: {
-          position: 'right'
+    responsive: true,
+    legend: {
+      position: 'right'
+    },
+    scales: {
+      x: {
+        grid: {
+          color: [''],
+        }
       },
-      scales: {
-          x: {
-              grid: {
-                  color: [''],
-              }
-          },
-          y:{
-              border: {
-              },
-              grid: {
-              color: ['#f7f5f5']
-              }
+      y: {
+        border: {
+        },
+        grid: {
+          color: ['#f7f5f5']
+        }
 
-          }
-      },
+      }
+    },
   }
 
 });
@@ -196,25 +194,24 @@ var myChart = new Chart(ctx, {
 // Gráficos de CPU -----------------------------------------------------------------------------------------------------------------------------------
 
 function obterDadosIniciaisCpu(idMaquina) {
-  var idMaquina = 12
 
-  console.log("Entrando na função obter dados iniciais");
-  fetch(`/maquinas/obterDadosIniciaisCpu/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+  // console.log("Entrando na função obter dados iniciais");
+  fetch(`/maquinas/obterDadosIniciaisCpu/${sessionStorage.ID_MAQUINA}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
-        console.log("DADOS DO OBTER DADOS INICIAIS");
-        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        // console.log("DADOS DO OBTER DADOS INICIAIS");
+        // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
         resposta.reverse();
 
-        if (options2.xaxis.categories.length == 0 && options2.series[0].data.length == 0) {
+        if (labelsGeralCpu.length == 0 && myChartCpu.data.datasets[1].data.length == 0) {
           resposta.forEach(element => {
-            options2.xaxis.categories.push(element.horario);
-            options2.series[0].data.push(element.uso.toFixed(0) + "%");
-            options2.series[1].data.push(element.frequencia.toFixed(0) + "%")
+            labelsGeralCpu.push(element.horario);
+            myChartCpu.data.datasets[0].data.push(element.uso.toFixed(0))
+            myChartCpu.data.datasets[1].data.push(element.frequencia.toFixed(0))
           });
 
-          chartCPU.render()
+          myChartCpu.update();
 
         } else {
           console.log("Ja foi apertado");
@@ -231,30 +228,30 @@ function obterDadosIniciaisCpu(idMaquina) {
 }
 
 function atualizarGraficoCpu(idMaquina) {
-  fetch(`/maquinas/atualizarGraficoCpu/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/maquinas/atualizarGraficoCpu/${sessionStorage.ID_MAQUINA}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
-      response.json().then(function(novoRegistro) {
+      response.json().then(function (novoRegistro) {
 
-        console.log(`Dados recebidos: ${ JSON.stringify(novoRegistro) }`);
-        console.log(`Dados atuais do gráfico:`);
-        console.log(novoRegistro[0].horario);
-        console.log(options2.xaxis.categories[options2.xaxis.categories.length - 1]);
-
-        if (novoRegistro[0].horario == options2.xaxis.categories[options2.xaxis.categories.length - 1]) {
-          console.log("---------------------------------------------------------------")
-          console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-          console.log(novoRegistro[0].horario)
+        if (novoRegistro[0].horario == labelsGeralCpu[labelsGeralCpu.length - 1]) {
+          // console.log("---------------------------------------------------------------")
+          // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+          // console.log(novoRegistro[0].horario)
 
         } else {
           console.log("TEM DADO NOVO!");
-          options2.xaxis.categories.shift();
-          options2.xaxis.categories.push(novoRegistro[0].horario);
 
-          options2.series[0].data.shift();
-          options2.series[0].data.push(novoRegistro[0].uso);
+          labelsGeralCpu.shift();
+          labelsGeralCpu.push(novoRegistro[0].horario);
+
+          myChartCpu.data.datasets[0].data.shift()
+          myChartCpu.data.datasets[0].data.push(novoRegistro[0].uso)
+
+          myChartCpu.data.datasets[1].data.shift()
+          myChartCpu.data.datasets[1].data.push(novoRegistro[0].frequencia)
+
         }
 
-        chartCPU.render()
+        myChartCpu.update()
 
         setTimeout(() => atualizarGraficoCpu(idMaquina), 5000);
       });
@@ -263,7 +260,7 @@ function atualizarGraficoCpu(idMaquina) {
     }
   })
     .catch(function (error) {
-      console.error(`Erro na obtenção dos dados p / gráfico: ${ error.message }`);
+      console.error(`Erro na obtenção dos dados p / gráfico: ${error.message}`);
     });
 }
 
@@ -272,25 +269,25 @@ function atualizarGraficoCpu(idMaquina) {
 // --------------------------------------------------------------------------------------------------------------------------------------------
 
 function obterDadosIniciaisMemoria(idMaquina) {
-  console.log("Entrando na função obter dados iniciais");
-  fetch(`/maquinas/obterDadosIniciaisMemoria/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+  // console.log("Entrando na função obter dados iniciais");
+  fetch(`/maquinas/obterDadosIniciaisMemoria/${sessionStorage.ID_MAQUINA}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
-        console.log("DADOS DO OBTER DADOS INICIAIS");
-        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        // console.log("DADOS DO OBTER DADOS INICIAIS");
+        // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
         resposta.reverse();
 
-        if (options3.xaxis.categories.length == 0 && options3.series[0].data.length == 0) {
+        if (labelsGeralMemoria.length == 0 && myChartMemoria.data.datasets[0].data.length == 0) {
           resposta.forEach(element => {
-            options3.xaxis.categories.push(element.horario);
-            options3.series[0].data.push(element.uso);
+            labelsGeralMemoria.push(element.horario);
+            myChartMemoria.data.datasets[0].data.push(element.uso.toFixed(0))
           });
 
-          chartMemoria.render()
+          myChartMemoria.update();
 
         } else {
-          console.log("Ja foi apertado");
+          // console.log("Ja foi apertado");
         }
         atualizarGraficoMemoria(idMaquina);
       });
@@ -304,38 +301,35 @@ function obterDadosIniciaisMemoria(idMaquina) {
 }
 
 function atualizarGraficoMemoria(idMaquina) {
-  fetch(`/maquinas/atualizarGraficoMemoria/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/maquinas/atualizarGraficoMemoria/${sessionStorage.ID_MAQUINA}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
-      response.json().then(function(novoRegistro) {
+      response.json().then(function (novoRegistro) {
 
-        console.log(`Dados recebidos: ${ JSON.stringify(novoRegistro) }`);
-        console.log(`Dados atuais do gráfico:`);
-        console.log(novoRegistro[0].horario);
-        console.log(options3.xaxis.categories[options3.xaxis.categories.length - 1]);
-
-        if (novoRegistro[0].horario == options3.xaxis.categories[options3.xaxis.categories.length - 1]) {
-          console.log("---------------------------------------------------------------")
-          console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-          console.log(novoRegistro[0].horario)
+        if (novoRegistro[0].horario == labelsGeralMemoria[labelsGeralMemoria.length - 1]) {
+          // console.log("---------------------------------------------------------------")
+          // console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+          // console.log(novoRegistro[0].horario)
 
         } else {
           console.log("TEM DADO NOVO!");
-          options3.xaxis.categories.shift();
-          options3.xaxis.categories.push(novoRegistro[0].horario);
 
-          options3.series[0].data.shift();
-          options3.series[0].data.push(novoRegistro[0].uso);
+          labelsGeralMemoria.shift();
+          labelsGeralMemoria.push(novoRegistro[0].horario);
+
+          myChartMemoria.data.datasets[0].data.shift()
+          myChartMemoria.data.datasets[0].data.push(novoRegistro[0].uso)
         }
-        chartCPU.render()
 
-        setTimeout(() => atualizarGraficoCpu(idMaquina), 5000);
+        myChartMemoria.update()
+
+        setTimeout(() => atualizarGraficoMemoria(idMaquina), 5000);
       });
     } else {
-      setTimeout(() => atualizarGraficoCpu(idMaquina), 5000);
+      setTimeout(() => atualizarGraficoMemoria(idMaquina), 5000);
     }
   })
     .catch(function (error) {
-      console.error(`Erro na obtenção dos dados p / gráfico: ${ error.message }`);
+      console.error(`Erro na obtenção dos dados p / gráfico: ${error.message}`);
     });
 }
 
@@ -343,42 +337,106 @@ function atualizarGraficoMemoria(idMaquina) {
 // Gráficos de Disco ---------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
+function obterDadosIniciaisDisco(idMaquina) {
+  // console.log("Entrando na função obter dados iniciais");
+  fetch(`/maquinas/obterDadosIniciaisDisco/${sessionStorage.ID_MAQUINA}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (resposta) {
+        // console.log("DADOS DO OBTER DADOS INICIAIS");
+        // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+        resposta.reverse();
+
+        if (myChartDisco.data.datasets[0].data.length == 0) {
+          resposta.forEach(element => {
+            myChartDisco.data.datasets[0].data.push(element.uso.toFixed(0))
+          });
+
+          myChartDisco.update();
+
+        } else {
+          // console.log("Ja foi apertado");
+        }
+        atualizarGraficoDisco(idMaquina);
+      });
+    } else {
+      console.error('Nenhum dado encontrado ou erro na API');
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+function atualizarGraficoDisco(idMaquina) {
+  fetch(`/maquinas/atualizarGraficoDisco/${sessionStorage.ID_MAQUINA}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (novoRegistro) {
+
+          console.log("TEM DADO NOVO!");
+
+          myChartDisco.data.datasets[0].data.shift()
+          myChartDisco.data.datasets[0].data.shift()
+          myChartDisco.data.datasets[0].data.push(novoRegistro[0].uso)
+          myChartDisco.data.datasets[0].data.push(100 - novoRegistro[0].uso)
+
+        myChartDisco.update()
+
+        setTimeout(() => atualizarGraficoDisco(idMaquina), 15000);
+      });
+    } else {
+      setTimeout(() => atualizarGraficoDisco(idMaquina), 15000);
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p / gráfico: ${error.message}`);
+    });
+}
+
 function listarQtdProcessos() {
   var idMaquina = 12
 
   fetch(`/maquinas/listarQtdProcessos/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-          response.json().then(function (resultado) {
-              console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+    if (response.ok) {
+      response.json().then(function (resultado) {
+        // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
 
-              qtdProcessos.innerHTML = resultado[0].total_processos
-          });
-      } else {
-          console.error('Nenhum dado encontrado ou erro na API');
-      }
-  })
-      .catch(function (error) {
-          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        qtdProcessos.innerHTML = resultado[0].total_processos
       });
+    } else {
+      console.error('Nenhum dado encontrado ou erro na API');
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
 }
 
 function obterEspecificacoesMaquina() {
   var idMaquina = 12
 
   fetch(`/maquinas/obterEspecificacoesMaquina/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-          response.json().then(function (resultado) {
-              console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+    if (response.ok) {
+      response.json().then(function (resultado) {
+        // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
 
-              in_cpuEspecificacao.innerHTML = `CPU: ${resultado[2].descricao}`;
-              in_memoriaEspecificacao.innerHTML = `Memória: ${(resultado[1].uso_maximo).toFixed(1)}gb `;
-              in_discoEspecificacao.innerHTML = `Disco: ${(resultado[0].uso_maximo).toFixed(0)}`;
-          });
-      } else {
-          console.error('Nenhum dado encontrado ou erro na API');
-      }
-  })
-      .catch(function (error) {
-          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        in_cpuEspecificacao.innerHTML = `CPU: ${resultado[2].descricao}`;
+        in_memoriaEspecificacao.innerHTML = `Memória: ${(resultado[1].uso_maximo).toFixed(1)}gb `;
+        in_discoEspecificacao.innerHTML = `Disco: ${(resultado[0].uso_maximo).toFixed(0)}gb`;
       });
+    } else {
+      console.error('Nenhum dado encontrado ou erro na API');
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+function onLoad() {
+  loadCharts();
+  obterEspecificacoesMaquina();
+  obterDadosIniciaisCpu();
+  obterDadosIniciaisMemoria();
+  obterDadosIniciaisDisco();
 }

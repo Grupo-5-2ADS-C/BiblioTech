@@ -175,7 +175,7 @@ function plotarMaquinas(resultado) {
             <th align="center">${resultado[i + 1].uso}%</th>
             <th align="center">${resultado[i].uso}%</th>
             <th align="center">
-                <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado.Maquina})"></ion-icon>
+                <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado[i].Maquina})"></ion-icon>
             </th>
         </tr>`
         } else {
@@ -186,7 +186,7 @@ function plotarMaquinas(resultado) {
             <th align="center">${resultado[i + 1].uso}%</th>
             <th align="center">${resultado[i].uso}%</th>
             <th align="center">
-            <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado.Maquina})"></ion-icon>
+            <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado[i].Maquina})"></ion-icon>
             </th>
         </tr>`
         }

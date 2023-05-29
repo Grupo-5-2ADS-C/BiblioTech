@@ -131,7 +131,7 @@ ORDER BY id_metrica DESC;
 function obterDadosIniciaisDisco(idMaquina, fkBiblioteca) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idMaquina, fkBiblioteca);
     var instrucao = `
-    SELECT TOP 8
+    SELECT TOP 1
     m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia, FORMAT(dt_hora, 'dd/MM') AS dia,
     FORMAT(dt_hora, 'HH:mm:ss') AS horario
 FROM

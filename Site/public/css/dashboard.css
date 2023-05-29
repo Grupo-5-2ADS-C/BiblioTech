@@ -478,9 +478,13 @@ h3 {
 }
 
 .chartJS {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1%;
     padding: 1%;
-
 }
 
 .content__bottom-graficoRede {
@@ -604,9 +608,9 @@ body {
 }
 
 #Disco {
-    margin-left: 25%;
-    width: 100%;
-    height: 100%;
+    padding: 1%;
+    width: 60% !important;
+    height: auto !important;
 }
 
 #Memoria {
