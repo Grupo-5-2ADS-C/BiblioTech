@@ -470,9 +470,8 @@ function atualizarGraficoRede(idMaquina) {
 }
 
 function listarQtdProcessos() {
-  var idMaquina = 12
 
-  fetch(`/maquinas/listarQtdProcessos/${idMaquina}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/maquinas/listarQtdProcessos/${sessionStorage.ID_MAQUINA}/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resultado) {
         // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
@@ -548,8 +547,12 @@ function listarAlertaMaquina() {
     if (response.ok) {
       response.json().then(function (resultado) {
         // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
-        
+        if (resultado.length == 0) {
+          cardAlerta1.innerHTML = "Não há alertas no momento"
+          cardAlerta2.innerHTML = "Não há alertas no momento"
+        } else {
           plotarAlerta(resultado)
+        }
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
@@ -569,54 +572,55 @@ function plotarAlerta(resultado) {
   let medidas = ''
   let tipoComponente = ''
 
-  for (let i = 0; i < 4; i+=3) {
-    const element = resultado[i];
+    for (let i = 0; i < 4; i += 3) {
+      const element = resultado[i];
 
-    if (element.fk_tipo_alerta == 1) {
-      tipoAlerta = 'Ociosidade'
-    } else {
-      tipoAlerta = 'Mau uso de Hardware'
-    }
+      if (element.fk_tipo_alerta == 1) {
+        tipoAlerta = 'Ociosidade'
+      } else {
+        tipoAlerta = 'Mau uso de Hardware'
+      }
 
-    if (element.fk_situacao_alerta == 1) {
-      situacaoAlerta = '(Crítico)'
-      medidas = '>= 90%'
-      tipoComponente = element.tipo
-    } else if (element.fk_situacao_alerta == 2) {
-      situacaoAlerta = '(Risco alto)'
-      medidas = '>= 70% e < 90%'
-      tipoComponente = element.tipo
-    } else if (element.fk_situacao_alerta == 3) {
-      situacaoAlerta = '(Risco moderado)'
-      medidas = '>= 50% e < 70%'
-      tipoComponente = element.tipo
-    } else {
-      situacaoAlerta = '-'
-      medidas = '< 2%'
-      tipoComponente = ''
-    }
+      if (element.fk_situacao_alerta == 1) {
+        situacaoAlerta = '(Crítico)'
+        medidas = '>= 90%'
+        tipoComponente = element.tipo
+      } else if (element.fk_situacao_alerta == 2) {
+        situacaoAlerta = '(Risco alto)'
+        medidas = '>= 70% e < 90%'
+        tipoComponente = element.tipo
+      } else if (element.fk_situacao_alerta == 3) {
+        situacaoAlerta = '(Risco moderado)'
+        medidas = '>= 50% e < 70%'
+        tipoComponente = element.tipo
+      } else {
+        situacaoAlerta = '-'
+        medidas = '< 2%'
+        tipoComponente = ''
+      }
 
-    if (i % 2 == 0) {
-      cardAlerta1.innerHTML = `
-      <span class="card__title h1Alerta">${tipoAlerta}</span>
-      <span class="texto__alerta">${tipoComponente} ${situacaoAlerta}</span>
-      <span class="metrica__alerta">${medidas}</span>
-      <span class="horario__metrica">${element.dia} ${element.horario}</span>
-            `
-    } else {
-      cardAlerta2.innerHTML = `
+      if (i % 2 == 0) {
+        cardAlerta1.innerHTML = `
         <span class="card__title h1Alerta">${tipoAlerta}</span>
         <span class="texto__alerta">${tipoComponente} ${situacaoAlerta}</span>
         <span class="metrica__alerta">${medidas}</span>
         <span class="horario__metrica">${element.dia} ${element.horario}</span>
               `
+      } else {
+        cardAlerta2.innerHTML = `
+          <span class="card__title h1Alerta">${tipoAlerta}</span>
+          <span class="texto__alerta">${tipoComponente} ${situacaoAlerta}</span>
+          <span class="metrica__alerta">${medidas}</span>
+          <span class="horario__metrica">${element.dia} ${element.horario}</span>
+                `
+      }
     }
-  }
 }
 
 
 function onLoad() {
   loadCharts();
+  listarQtdProcessos();
   obterEspecificacoesMaquina();
   obterDadosIniciaisCpu();
   obterDadosIniciaisMemoria();
