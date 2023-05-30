@@ -108,25 +108,29 @@
                     <div class="percent60__kpi-top">
                         <div class="first__kpi-top">
                             <h4>Tempo médio de sessão dos utilizadores</h4>
-                            <p>20 min</p>
+                            <p id="tempoMedioSessao">-</p>
                         </div>
                         <div class="second__kpi-top">
-                            <h4>Quantidade de utilizadores na última hora</h4>
-                            <p>23</p>
+                            <h4>Quantidade de utilizadores dentre a última hora</h4>
+                            <p id="qtdUtilizadores">-</p>
                         </div>
                     </div>
                     <div class="percent60__kpi-bottom">
                         <div class="second__kpi-bottom">
-                            <h4>Quantidade de alertas de Ociosidade na última hora</h4>
+                            <h4>Quantidade de alertas de Ociosidade dentre a última hora</h4>
                             <p id="alertasOciosidade">-</p>
                         </div>
                         <div class="first__kpi-bottom">
-                            <h4>Quantidade de alertas de Hardware na última hora</h4>
+                            <h4>Quantidade de alertas de Hardware dentre a última hora</h4>
                             <p id="alertasHardware">-</p>
                         </div>
                     </div>
 
                     <div class="content__table">
+                        <div class="content__inativa" id="contentInativa">
+                            <h3>Não há dados no momento!</h3>
+                            <img src="img/pasta.png" class="img__inativa" alt="">
+                        </div>
                         <div class="content__table-top">
                             <div class="content__top-left">
                                 <h1>Atividade das Máquinas</h1>
@@ -136,8 +140,8 @@
                             <div class="content__top-right">
                                 <h3>Máquinas em uso</h3>
                                 <div class="maquinas__value">
-                                    <span class="maquinas__atual">-</span>
-                                    <span class="maquinas__total">/ -</span>
+                                    <span class="maquinas__atual" id="maquinasAtual">-</span>
+                                    <span class="maquinas__total" id="maquinasTotal">/ -</span>
                                 </div>
                             </div>
                         </div>
@@ -164,14 +168,14 @@
                         <div class="first__kpi-top">
                             <h4>Média de upload na última hora</h4>
                             <div class="mbps">
-                                <span class="upload__value">37</span>
+                                <span class="upload__value">-</span>
                                 <p>Mbps</p>
                             </div>
                         </div>
                         <div class="second__kpi-top">
                             <h4>Média de download na última hora</h4>
                             <div class="mbps">
-                                <span class="download__value">64</span>
+                                <span class="download__value">-</span>
                                 <p>Mbps</p>
                             </div>
                         </div>
@@ -181,13 +185,13 @@
                         <div class="upload-download">
                             <div class="upload">
                                 <h3>Velocidade de upload atual</h3>
-                                <span class="upload__value">50</span>
+                                <span class="upload__value">-</span>
                                 <h4>Mbps</h4>
                             </div>
                             <div class="internet__separation"></div>
                             <div class="download">
                                 <h3>Velocidade de download atual</h3>
-                                <span class="download__value">30</span>
+                                <span class="download__value">-</span>
                                 <h4>Mbps</h4>
                             </div>
                         </div>

@@ -13,7 +13,7 @@ function listarMaquinas(req, res) {
     if (fkBiblioteca != null) {
         maquinasModel.listarMaquinas(fkBiblioteca)
             .then(function (resultado) {
-                if (resultado.length > 0) {
+                if (resultado.length >= 0) {
                     res.status(200).json(resultado);
                 } else {
                     res.status(204).send("Nenhum resultado encontrado!")
@@ -318,7 +318,7 @@ function listarUsoMaquinas(req, res) {
     if (fkBiblioteca != null) {
         maquinasModel.listarUsoMaquinas(fkBiblioteca)
             .then(function (resultado) {
-                if (resultado.length > 0) {
+                if (resultado.length >= 0) {
                     res.status(200).json(resultado);
                 } else {
                     res.status(204).send("Nenhum resultado encontrado!")
@@ -358,11 +358,13 @@ function listarQtdAlertas(req, res) {
     }
 }
 
-function listarQtdMaquinasAtivas(req, res) {
+
+function obterDadosIniciaisRede(req, res) {
+    var idMaquina = req.params.idMaquina;
     var fkBiblioteca = req.params.fkBiblioteca;
 
-    if (fkBiblioteca != null) {
-        maquinasModel.listarQtdMaquinasAtivas(fkBiblioteca)
+    if (fkBiblioteca != null || idMaquina != null) {
+        maquinasModel.obterDadosIniciaisRede(idMaquina, fkBiblioteca)
             .then(function (resultado) {
                 if (resultado.length > 0) {
                     res.status(200).json(resultado);
@@ -381,6 +383,148 @@ function listarQtdMaquinasAtivas(req, res) {
     }
 }
 
+function atualizarGraficoRede(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null || idMaquina != null) {
+        maquinasModel.atualizarGraficoRede(idMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function listarMaquinasAtivas(req, res) {
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null) {
+        maquinasModel.listarMaquinasAtivas(fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function listarTotalMaquinas(req, res) {
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null) {
+        maquinasModel.listarTotalMaquinas(fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function listarTempoMedioUtilizador(req, res) {
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null) {
+        maquinasModel.listarTempoMedioUtilizador(fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length >= 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function listarTempoUtilizado(req, res) {
+    var fkMaquina = req.params.fkMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null && fkMaquina != null) {
+        maquinasModel.listarTempoUtilizado(fkMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length >= 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+function listarAlertaMaquina(req, res) {
+    var fkMaquina = req.params.fkMaquina;
+    var fkBiblioteca = req.params.fkBiblioteca;
+
+    if (fkBiblioteca != null && fkMaquina != null) {
+        maquinasModel.listarAlertaMaquina(fkMaquina, fkBiblioteca)
+            .then(function (resultado) {
+                if (resultado.length >= 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } else {
+        res.status(400).send("fkBiblioteca é inválida!")
+    }
+}
+
+
 module.exports = {
     listarMaquinas,
     editarMaquina,
@@ -397,5 +541,11 @@ module.exports = {
     obterAlertasHardware,
     listarUsoMaquinas,
     listarQtdAlertas,
-    listarQtdMaquinasAtivas,
+    obterDadosIniciaisRede,
+    atualizarGraficoRede,
+    listarMaquinasAtivas,
+    listarTotalMaquinas,
+    listarTempoMedioUtilizador,
+    listarTempoUtilizado,
+    listarAlertaMaquina,
 }

@@ -91,10 +91,10 @@ function cadastrarMaquina(sistemaOperacional, setor, login, senha, fkBiblioteca)
     return database.executar(instrucao);
 }
 
-function listarUsuarioAdmin(idBiblioteca, fkBiblioteca) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", idBiblioteca, fkBiblioteca);
+function listarUsuarioAdmin(fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkBiblioteca);
     var instrucao = `
-        SELECT * FROM biblioteca JOIN login ON ${idBiblioteca} = ${fkBiblioteca};
+        SELECT * FROM biblioteca JOIN login ON id_biblioteca = fk_biblioteca WHERE fk_biblioteca = ${fkBiblioteca};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

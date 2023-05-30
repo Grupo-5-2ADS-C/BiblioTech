@@ -25,122 +25,32 @@ function open__menu(param) {
     }
 }
 
-// let config_geral = {
-//     type: 'bar',
-//     data: {
-//         labels: ['Ociosas', 'Mau uso de hardware', 'Ok'],
-//         datasets: [{
-//             label: ['Ociosas', 'Mau uso de hardware', 'Ok'],
-//             data: [30, 40, 30],
-//             backgroundColor: ['#FFB257', '#FF6060', '#83F470'],
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             y: {
-//                 ticks: {
-//                     color: '#FFF'
-//                 },
-//                 beginAtZero: true,
-//                 type: 'linear',
-//                 grid: {
-//                     color: '#FFF'
-//                 }
-//             },
-//             x: {
-//                 ticks: {
-//                     color: '#FFF'
-//                 },
-//             }
-//         },
-//         responsive: true,
-//         maintainAspectRatio: false,
-//         plugins: {
-//             autocolors: false,
-//             annotation: {
-//                 annotations: {
-//                     box1: {
-//                         type: 'box',
-//                         yMin: 23,
-//                         yMax: 26,
-//                         xMin: 0,
-//                         xMax: 18,
-//                         backgroundColor: 'rgba(112, 255, 99, 0.25)',
-//                     }
-//                 }
-//             },
-//             title: {
-//                 display: true,
-//                 text: `Temperatura média do data center no dia`,
-//                 align: 'center',
-//                 fullSize: false,
-//                 color: '#FFF',
-//                 font: {
-//                     size: 20,
-//                     weight: 600,
-//                     lineHeight: 1.0,
-//                 }
-//             }
-//         },
-//     }
-// };
-
-// let myChart_geral = new Chart(
-//     document.getElementById("myChart"),
-//     config_geral
-// );
-
-
-
 Chart.defaults.color = "#a1a1a1";
 
-
-
 var ctx = document.getElementById('uso');
-var myChart = new Chart(ctx, {
+var myChartMonitoramento = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: [''],
         datasets: [{
             label: ['Ociosas'],
-            data: [30],
+            data: [],
             backgroundColor: ['#FFB257'],
         },
         {
             label: ['Mau uso de hardware'],
-            data: [40],
+            data: [],
             backgroundColor: ['#FF6060'],
         },
         {
             label: ['Ok'],
-            data: [30],
+            data: [],
             backgroundColor: ['#83F470'],
         },]
     },
-    options: {
-        legend: {
-            position: 'right'
-        },
-        scales: {
-            x: {
-                grid: {
-                    color: ['#f7f5f5'],
-                }
-            },
-            y:{
-                border: {
-                },
-                grid: {
-                color: ['#f7f5f5']
-                }
-
-            }
-        },
-    }
-
 });
 
-
+const contentInativa = document.getElementById("contentInativa")
 
 function listarUsoMaquinas() {
     var fkBiblioteca = sessionStorage.ID_USUARIO;
@@ -150,7 +60,13 @@ function listarUsoMaquinas() {
             response.json().then(function (resultado) {
                 // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
 
-                plotarMaquinas(resultado);
+                if (resultado.length == 0) {
+                    contentInativa.classList.add("inatividade")
+                } else {
+                    contentInativa.classList.remove("inatividade")
+                    plotarMaquinas(resultado);
+
+                }
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -161,7 +77,13 @@ function listarUsoMaquinas() {
         });
 }
 
+let mauUso = 0
+let ociosidade = 0
+let ok = 0
+
 function plotarMaquinas(resultado) {
+    mauUso = 0
+    ociosidade = 0
     data__table2.innerHTML = ''
     var contador = 1
 
@@ -175,9 +97,14 @@ function plotarMaquinas(resultado) {
             <th align="center">${resultado[i + 1].uso}%</th>
             <th align="center">${resultado[i].uso}%</th>
             <th align="center">
-                <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado[i].Maquina})"></ion-icon>
+                <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado[i].Maquina}, ${contador})"></ion-icon>
             </th>
         </tr>`
+            if (resultado[i + 2].uso > 70 || resultado[i + 1].uso > 70 || resultado[i].uso > 85) {
+                mauUso++
+            } else if (resultado[i + 2].uso <= 4 || resultado[i + 1].uso <= 4) {
+                ociosidade++
+            }
         } else {
             data__table2.innerHTML +=
                 `<tr class="table__sec">
@@ -186,103 +113,39 @@ function plotarMaquinas(resultado) {
             <th align="center">${resultado[i + 1].uso}%</th>
             <th align="center">${resultado[i].uso}%</th>
             <th align="center">
-            <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado[i].Maquina})"></ion-icon>
+            <ion-icon name="arrow-forward-outline" style="cursor: pointer" onclick="maquinaEspecifica(${resultado[i].Maquina}, ${contador})"></ion-icon>
             </th>
         </tr>`
+            if (resultado[i + 2].uso > 70 || resultado[i + 1].uso > 70 || resultado[i].uso > 85) {
+                mauUso++
+            } else if (resultado[i + 2].uso <= 2 || resultado[i + 1].uso <= 2) {
+                ociosidade++
+            }
         }
         contador++
     }
+    sessionStorage.OCIOSIDADE = ociosidade;
+    sessionStorage.MAU_USO = mauUso;
+    sessionStorage.OK = maquinasAtual.innerHTML - ociosidade - mauUso;
 }
 
-function maquinaEspecifica(idMaquina) {
+function maquinaEspecifica(idMaquina, contador) {
+    sessionStorage.NUMERO_MAQUINA = contador;
     sessionStorage.ID_MAQUINA = idMaquina;
     window.location = 'dashboard-especifica.html'
 }
 
-// var cpu = document.getElementById('status__cpu');
-// var memoria = document.getElementById('status__memoria');
-// var disco = document.getElementById('status__disco');
+function plotarGrafico() {
+    myChartMonitoramento.data.datasets[0].data.shift();
+    myChartMonitoramento.data.datasets[1].data.shift();
+    myChartMonitoramento.data.datasets[2].data.shift();
+    
+    
+    myChartMonitoramento.data.datasets[0].data.push(sessionStorage.OCIOSIDADE);
+    myChartMonitoramento.data.datasets[1].data.push(sessionStorage.MAU_USO);
+    myChartMonitoramento.data.datasets[2].data.push(sessionStorage.OK);
 
-// function changeStatus__cpu() {
-
-//     cpu.classList.add('active-graph');
-//     memoria.classList.remove('active-graph');
-//     disco.classList.remove('active-graph');
-// }
-
-// function changeStatus__memoria() {
-
-//     memoria.classList.add('active-graph');
-//     cpu.classList.remove('active-graph');
-//     disco.classList.remove('active-graph');
-// }
-
-// function changeStatus__disco() {
-
-//     disco.classList.add('active-graph');
-//     cpu.classList.remove('active-graph');
-//     memoria.classList.remove('active-graph');
-// }
-
-// // ChartJS
-
-// const ctx = document.getElementById('myChart');
-
-//   new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//         label: 'Métricas de Componente',
-//         data: [12, 19, 3, 5, 2, 3],
-//         borderWidth: 1,
-//         backgroundColor: '#57b4ce',
-//         borderColor: '#57b4ce',
-
-//       }]
-//     },
-//     options: {
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     }
-//   });
-
-//   const ctx2 = document.getElementById('myChart2');
-
-//   new Chart(ctx2, {
-//     type: 'line',
-//     data: {
-//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//         label: 'Métricas de Rede',
-//         data: [12, 19, 3, 5, 2, 3],
-//         borderWidth: 1,
-//         backgroundColor: '#57b4ce',
-//         borderColor: '#57b4ce'
-//       }]
-//     },
-//     options: {
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     }
-//   });
-
-function onLoad() {
-    obterAlertasOciosidade();
-    obterAlertasHardware();
-    listarUsoMaquinas();
-
-    setInterval(() => {
-        obterAlertasOciosidade();
-        obterAlertasHardware();
-        listarUsoMaquinas();
-    }, 5000);
+    myChartMonitoramento.update();
 }
 
 function obterAlertasOciosidade() {
@@ -321,5 +184,95 @@ function obterAlertasHardware() {
         });
 }
 
+function listarMaquinasAtivas() {
 
+    fetch(`/maquinas/listarMaquinasAtivas/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+                maquinasAtual.innerHTML = resultado[0].maquinas;
+                qtdUtilizadores.innerHTML = resultado[0].maquinas;
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function listarTotalMaquinas() {
+
+    fetch(`/maquinas/listarTotalMaquinas/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+                maquinasTotal.innerHTML = `/ ${resultado[0].total}`
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+let tempoMedio = 0
+
+function calcularMediaTempoSessao(resultado) {
+    for (let i = 0; i < resultado.length; i++) {
+        const element = resultado[i];
+
+        tempoMedio += element.tempoSessao;
+    }
+}
+
+function listarTempoMedioUtilizador() {
+
+    fetch(`/maquinas/listarTempoMedioUtilizador/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+                if (resultado.length == 0) {
+                    tempoMedioSessao.innerHTML = "0"
+                } else {
+                    calcularMediaTempoSessao(resultado);
+                    tempoMedio = (tempoMedio / resultado.length) / 60
+                    tempoMedioSessao.innerHTML = tempoMedio.toFixed(0) + " min"
+                }
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function onLoad() {
+    obterAlertasOciosidade();
+    obterAlertasHardware();
+    listarUsoMaquinas();
+    listarMaquinasAtivas();
+    listarTotalMaquinas();
+    listarTempoMedioUtilizador();
+    plotarGrafico();
+
+    setInterval(() => {
+        obterAlertasOciosidade();
+        obterAlertasHardware();
+        listarUsoMaquinas();
+        plotarGrafico();
+        listarMaquinasAtivas();
+        listarTempoMedioUtilizador();
+    }, 5000);
+
+}
 

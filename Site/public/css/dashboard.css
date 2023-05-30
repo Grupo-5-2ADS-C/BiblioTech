@@ -352,7 +352,38 @@ body.dark .switch::before {
     height: 90%;
     width: 48%;
     border-radius: 10px;
-    gap: 1rem;
+}
+
+.alerta {
+    border: 2px solid rgba(255, 0, 0, 0.1);
+}
+
+.h1Alerta {
+    font-size: 1.2rem !important;
+    color: red !important;
+}
+
+.texto__alerta {
+    margin-top: 0.3rem;
+    text-align: center;
+}
+
+.metrica__alerta {
+    margin-top: 0.3rem;
+    color: red !important;
+}
+
+.ultimosAlertas {
+    margin-left: 10px;
+    font-weight: 500;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.horario__metrica {
+    margin-top: 0.3rem;
 }
 
 .cardt .card__title {

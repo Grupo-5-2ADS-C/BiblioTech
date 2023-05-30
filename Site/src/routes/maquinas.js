@@ -63,8 +63,32 @@ router.get("/listarQtdAlertas/:fkBiblioteca", function (req, res) {
     maquinasController.listarQtdAlertas(req, res);
 });
 
-router.get("/listarQtdMaquinasAtivas/:fkBiblioteca", function (req, res) {
-    maquinasController.listarQtdMaquinasAtivas(req, res);
+router.get("/obterDadosIniciaisRede/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.obterDadosIniciaisRede(req, res);
+});
+
+router.get("/atualizarGraficoRede/:idMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.atualizarGraficoRede(req, res);
+});
+
+router.get("/listarMaquinasAtivas/:fkBiblioteca", function (req, res) {
+    maquinasController.listarMaquinasAtivas(req, res);
+});
+
+router.get("/listarTotalMaquinas/:fkBiblioteca", function (req, res) {
+    maquinasController.listarTotalMaquinas(req, res);
+});
+
+router.get("/listarTempoMedioUtilizador/:fkBiblioteca", function (req, res) {
+    maquinasController.listarTempoMedioUtilizador(req, res);
+});
+
+router.get("/listarTempoUtilizado/:fkMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.listarTempoUtilizado(req, res);
+});
+
+router.get("/listarAlertaMaquina/:fkMaquina/:fkBiblioteca", function (req, res) {
+    maquinasController.listarAlertaMaquina(req, res);
 });
 
 module.exports = router;

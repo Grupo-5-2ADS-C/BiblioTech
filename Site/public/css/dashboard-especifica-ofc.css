@@ -386,6 +386,52 @@ main {
     flex-direction: column;
     justify-content: start;
     padding: 1.25rem;
+    position: relative;
+}
+
+.content__inativa {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 56vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #57B4CE;
+    display: none;
+}
+
+.img__inativa {
+    margin-top: 20px;
+    width: 20%;
+    height: auto;
+}
+
+.inatividade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: inatividade 1s forwards;
+}
+
+@keyframes inatividade {
+    0% {
+        opacity: 0%
+    } 100% {
+        opacity: 100%
+    }
+}
+
+.content__inativa h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--cor-secundaria);
+    text-shadow: -2px 5px 15px rgba(122, 186, 202, 0.2);
 }
 
 .content__table-top {
@@ -438,7 +484,7 @@ main {
 }
 
 .content__table h1 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 0;
     color: var(--cor-secundaria);
 }

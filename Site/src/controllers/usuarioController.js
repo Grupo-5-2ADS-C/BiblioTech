@@ -289,10 +289,9 @@ function cadastrarMaquina(req, res) {
 }
 
 function listarUsuarioAdmin(req, res) {
-    var idBiblioteca = req.params.idBiblioteca;
     var fkBiblioteca = req.params.fkBiblioteca;
 
-    usuarioModel.listarUsuarioAdmin(idBiblioteca, fkBiblioteca)
+    usuarioModel.listarUsuarioAdmin(fkBiblioteca)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);

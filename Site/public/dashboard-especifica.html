@@ -107,22 +107,19 @@
           <div class="card__header-top">
             <div class="cardt">
               <span class="card__title">Tempo de sessão do utilizador</span>
-              <span class="card__sub">137 Minutos</span>
+              <span class="card__sub" id="tempoUtilizado">-</span>
             </div>
             <div class="cardt">
               <span class="card__title">Quantidade de processos abertos</span>
-              <span class="card__sub">76</span>
+              <span class="card__sub">-</span>
             </div>
           </div>
-
+          
+          <span class="ultimosAlertas">Últimos Alertas 🚨</span>
           <div class="card__header-bot">
-            <div class="cardt">
-              <span class="card__title">Temperatura da CPU</span>
-              <span class="card__sub">48° C</span>
+            <div class="cardt alerta" id="cardAlerta1">
             </div>
-            <div class="cardt">
-              <span class="card__title">Temperatura da Memoria</span>
-              <span class="card__sub">37° C</span>
+            <div class="cardt alerta" id="cardAlerta2">
             </div>
           </div>
         </div>
@@ -130,7 +127,7 @@
         <div class="spec">
           <div class="card__spec">
             <div class="title__spec">
-              <span class="title__spec">Especificação da máquina : <span
+              <span class="title__spec">Especificação da máquina <span id="idMaquina"
                   style="font-weight: 700;font-size: 1.9rem; margin-left: .7rem;">76</span></span>
             </div>
             <div class="trace"></div>

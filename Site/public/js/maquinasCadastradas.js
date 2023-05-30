@@ -1,3 +1,5 @@
+const contentVazia = document.getElementById("contentVazio")
+
 function listarMaquinas() {
     var fkBiblioteca = sessionStorage.ID_USUARIO;
 
@@ -6,7 +8,12 @@ function listarMaquinas() {
             response.json().then(function (resultado) {
                 console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
                 
-                plotarMaquinas(resultado);
+                if (resultado.length == 0) {
+                    contentVazia.classList.add("vazio")
+                } else {
+                    contentVazia.classList.remove("vazio")
+                    plotarMaquinas(resultado);
+                }
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');

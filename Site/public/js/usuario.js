@@ -19,9 +19,8 @@ function popularTextoAdmin(resultado) {
 }
 
 function listarUsuarioAdmin() {
-    var idBiblioteca = sessionStorage.ID_USUARIO;
 
-    fetch(`/usuarios/listarUsuarioAdmin/${idBiblioteca}/${idBiblioteca}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/usuarios/listarUsuarioAdmin/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resultado) {
                 console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
