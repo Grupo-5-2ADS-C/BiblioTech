@@ -42,7 +42,7 @@ function checkboxOnLoad() {
 
 function editarMaquina() {
 
-    fetch(`/maquinas/editarMaquina/${sessionStorage.ID_USUARIO}`, {
+    fetch(`/maquinas/editarMaquina/${sessionStorage.ID_USUARIO}/${sessionStorage.ID_MAQUINA}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -56,10 +56,6 @@ function editarMaquina() {
     }).then(function (resposta) {
 
         if (resposta.ok) {
-
-            if (checkbox.checked) {
-                editarSenhaFuncionario();
-            }
 
             window.alert("Máquina atualizada com sucesso!");
             window.location = "maquinasCadastradas.html"

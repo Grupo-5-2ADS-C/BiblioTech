@@ -36,8 +36,9 @@ function editarMaquina(req, res) {
     var login = req.body.login;
     var senha = req.body.senha;
     var fkBiblioteca = req.params.fkBiblioteca;
+    var idMaquina = req.params.idMaquina;
 
-    maquinasModel.editarMaquina(sistemaOperacional, setor, login, senha, fkBiblioteca)
+    maquinasModel.editarMaquina(sistemaOperacional, setor, login, senha, fkBiblioteca, idMaquina)
         .then(
             function (resultado) {
                 res.json(resultado);

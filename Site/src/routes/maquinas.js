@@ -7,7 +7,7 @@ router.get("/listarMaquinas/:fkBiblioteca", function (req, res) {
     maquinasController.listarMaquinas(req, res);
 });
 
-router.put("/editarMaquina/:fkBiblioteca", function (req, res) {
+router.put("/editarMaquina/:fkBiblioteca/:idMaquina", function (req, res) {
     maquinasController.editarMaquina(req, res);
 });
 

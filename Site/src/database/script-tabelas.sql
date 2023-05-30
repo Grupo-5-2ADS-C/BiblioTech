@@ -120,24 +120,36 @@ id_alerta INT PRIMARY KEY IDENTITY(1,1),
 dt_alerta DATETIME,
 texto_aviso VARCHAR(256),
 fk_metrica INT,
-FOREIGN KEY (fk_metrica) REFERENCES [dbo].[metrica](id_metrica),
+FOREIGN KEY (fk_metrica) REFERENCES [dbo].[metrica](id_metrica) ON DELETE CASCADE,
 fk_tipo_alerta INT,
 FOREIGN KEY (fk_tipo_alerta) REFERENCES [dbo].[tipo_alerta](id_tipo_alerta),
 fk_situacao_alerta INT,
 FOREIGN KEY (fk_situacao_alerta) REFERENCES [dbo].[situacao_alerta](id_situacao_alerta)
 );
 
-SELECT 
-    m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia
-FROM
-    maquina maq
-        JOIN
-    especificacao_componente_maquina espec ON maq.id_maquina = espec.fk_maquina
-        JOIN
-    componente_maquina comp ON espec.fk_componente_maquina = comp.id_componente_maquina
-        JOIN
-    metrica m ON comp.id_componente_maquina = m.fk_componente_maquina
-WHERE
-    fk_biblioteca = 1 AND id_maquina = 2
-        AND comp.tipo = 'Processador'
-ORDER BY id_metrica DESC;
+-- Entidade Métrica rede
+CREATE TABLE metrica_rede (
+    id_metrica_rede PRIMARY KEY IDENTITY(1,1),
+    velocidade_download FLOAT,
+    velocidade_upload FLOAT,
+    fk_maquina INT,
+    FOREIGN KEY (fk_maquina) REFERENCES maquina(id_maquina) ON DELETE CASCADE,
+    dt_hora DATETIME,
+)
+
+
+
+-- SELECT 
+--     m.id_metrica, comp.tipo, maq.id_maquina, m.uso, m.frequencia
+-- FROM
+--     maquina maq
+--         JOIN
+--     especificacao_componente_maquina espec ON maq.id_maquina = espec.fk_maquina
+--         JOIN
+--     componente_maquina comp ON espec.fk_componente_maquina = comp.id_componente_maquina
+--         JOIN
+--     metrica m ON comp.id_componente_maquina = m.fk_componente_maquina
+-- WHERE
+--     fk_biblioteca = 1 AND id_maquina = 2
+--         AND comp.tipo = 'Processador'
+-- ORDER BY id_metrica DESC;
