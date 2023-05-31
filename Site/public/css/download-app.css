@@ -9,6 +9,9 @@
   --cor-fonte: #171717;
   --cor-fonte-sec: #505050;
   --switch-color: #ffffff;
+  --cor-underline: #989898;
+  --box-shadow: rgba(39, 39, 39, 0.1);
+
 }
 
 body.dark {
@@ -22,6 +25,12 @@ body.dark {
   --cor-fonte-sec: #f1f1f1;
   --toggle-color: #57b4ce;
   --switch-color: #ffffff;
+  --cor-underline: #eaeaea;
+  --box-shadow: rgba(87, 180, 206, 0.8);
+}
+
+.menu{
+  border-right: 2px solid var(--toggle-color);
 }
 
 .content {

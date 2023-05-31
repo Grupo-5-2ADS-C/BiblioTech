@@ -12,9 +12,12 @@
     --cor-fonte: #171717;
     --cor-fonte-sec: #505050;
     --switch-color: #ffffff;
-}
+    --cor-underline: #989898;
+    --box-shadow: rgba(39, 39, 39, 0.1);
 
-body.dark {
+  }
+  
+  body.dark {
     /* Cores da pagina */
     --body-color: #18191a;
     --sidebar-color: #242526;
@@ -25,9 +28,9 @@ body.dark {
     --cor-fonte-sec: #f1f1f1;
     --toggle-color: #57b4ce;
     --switch-color: #ffffff;
-
-
-}
+    --cor-underline: #eaeaea;
+    --box-shadow: rgba(87, 180, 206, 0.8);
+  }
 
 
 ::-webkit-scrollbar {
@@ -62,6 +65,7 @@ ion-icon {
     flex-direction: column;
     align-items: center;
     position: relative;
+    border-right: 2px solid var(--toggle-color);
 }
 
 .menu__imagem {
