@@ -95,4 +95,8 @@ router.get("/listarMediaRede/:fkBiblioteca", function (req, res) {
     maquinasController.listarMediaRede(req, res);
 });
 
+router.get("/listarRedeAtual/:fkBiblioteca", function (req, res) {
+    maquinasController.listarRedeAtual(req, res);
+});
+
 module.exports = router;

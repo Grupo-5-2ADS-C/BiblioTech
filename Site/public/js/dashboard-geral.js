@@ -263,8 +263,13 @@ function listarMediaRede() {
             response.json().then(function (resultado) {
                 // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
 
-                mediaUpload.innerHTML = (resultado[0].upload).toFixed(2);
-                mediaDownload.innerHTML = (resultado[0].download).toFixed(2);
+                if (resultado[0].download == 0 && resultado[0].upload == 0) {
+                    mediaUpload.innerHTML = 0;
+                    mediaDownload.innerHTML = 0;
+                } else {
+                    mediaUpload.innerHTML = (resultado[0].upload).toFixed(2);
+                    mediaDownload.innerHTML = (resultado[0].download).toFixed(2);
+                }
 
             });
         } else {
@@ -276,6 +281,45 @@ function listarMediaRede() {
         });
 }
 
+function listarRedeAtual() {
+
+    fetch(`/maquinas/listarRedeAtual/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+                calcularRedeAtual(resultado);
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+let download = 0
+let upload = 0
+
+function calcularRedeAtual(resultado) {
+    download = 0
+    upload = 0
+    downloadAtual.innerHTML = ''
+    uploadAtual.innerHTML = ''
+
+    for (let i = 0; i < resultado.length; i++) {
+        const element = resultado[i];
+        
+        download += element.velocidade_download
+        upload += element.velocidade_upload
+    }
+ 
+    downloadAtual.innerHTML = download
+    uploadAtual.innerHTML = upload
+}
+
 function onLoad() {
     obterAlertasOciosidade();
     obterAlertasHardware();
@@ -284,6 +328,8 @@ function onLoad() {
     listarTotalMaquinas();
     listarTempoMedioUtilizador();
     plotarGrafico();
+    listarMediaRede();
+    listarRedeAtual();
 
     setInterval(() => {
         obterAlertasOciosidade();
@@ -292,6 +338,8 @@ function onLoad() {
         plotarGrafico();
         listarMaquinasAtivas();
         listarTempoMedioUtilizador();
+        listarMediaRede();
+        listarRedeAtual();
     }, 5000);
 
 }

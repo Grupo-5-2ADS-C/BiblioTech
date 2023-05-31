@@ -363,7 +363,24 @@ function listarMediaRede(fkBiblioteca) {
     SELECT avg(velocidade_download * 8) AS download, avg(velocidade_upload * 8) AS upload FROM [dbo].[metrica_rede] mr JOIN [dbo].[maquina] m
         ON fk_maquina = id_maquina
     WHERE mr.dt_hora >= DATEADD(HOUR, -4, GETDATE()) AND m.fk_biblioteca = ${fkBiblioteca}
-        AND velocidade_download <> 0 AND velocidade_upload <> 0
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function listarRedeAtual(fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkBiblioteca);
+    var instrucao = `
+    SELECT t.*
+        FROM [dbo].[metrica_rede] t
+    INNER JOIN [dbo].[maquina] m ON t.fk_maquina = m.id_maquina
+        INNER JOIN (
+    SELECT fk_maquina, MAX(id_metrica_rede) AS max_id_metrica_rede
+        FROM [dbo].[metrica_rede]
+    GROUP BY fk_maquina
+        ) t2 ON t.fk_maquina = t2.fk_maquina AND t.id_metrica_rede = t2.max_id_metrica_rede
+    WHERE fk_biblioteca = ${fkBiblioteca}
+        ORDER BY t.id_metrica_rede DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -393,4 +410,5 @@ module.exports = {
     listarTempoUtilizado,
     listarAlertaMaquina,
     listarMediaRede,
+    listarRedeAtual,
 };
