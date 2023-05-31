@@ -357,6 +357,18 @@ function listarAlertaMaquina(fkMaquina, fkBiblioteca) {
     return database.executar(instrucao);
 }
 
+function listarMediaRede(fkBiblioteca) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()", fkBiblioteca);
+    var instrucao = `
+    SELECT avg(velocidade_download * 8) AS download, avg(velocidade_upload * 8) AS upload FROM [dbo].[metrica_rede] mr JOIN [dbo].[maquina] m
+        ON fk_maquina = id_maquina
+    WHERE mr.dt_hora >= DATEADD(HOUR, -4, GETDATE()) AND m.fk_biblioteca = ${fkBiblioteca}
+        AND velocidade_download <> 0 AND velocidade_upload <> 0
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     listarMaquinas,
     editarMaquina,
@@ -380,4 +392,5 @@ module.exports = {
     listarTempoMedioUtilizador,
     listarTempoUtilizado,
     listarAlertaMaquina,
+    listarMediaRede,
 };
