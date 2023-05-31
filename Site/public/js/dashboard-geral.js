@@ -312,12 +312,12 @@ function calcularRedeAtual(resultado) {
     for (let i = 0; i < resultado.length; i++) {
         const element = resultado[i];
         
-        download += element.velocidade_download
-        upload += element.velocidade_upload
+        download += (element.velocidade_download)
+        upload += (element.velocidade_upload)
     }
  
-    downloadAtual.innerHTML = download
-    uploadAtual.innerHTML = upload
+    downloadAtual.innerHTML = (download / resultado.length).toFixed(2)
+    uploadAtual.innerHTML = (upload / resultado.length).toFixed(2)
 }
 
 function onLoad() {

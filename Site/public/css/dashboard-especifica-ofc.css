@@ -293,10 +293,14 @@ main {
     margin-top: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .upload-download {
     display: flex;
+    align-items: center;
+    justify-content: center;
     height: 70%;
 }
 
@@ -308,6 +312,7 @@ main {
     width: 50%;
     height: 100%;
     margin-top: 18px;
+    padding: 5px;
 }
 
 .percent40__kpi-internet .download {
@@ -315,16 +320,16 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 5;
     width: 50%;
     height: 100%;
     margin-top: 18px;
+    padding: 5px;
 }
 
 .percent40__kpi-internet .internet__separation {
     width: 2px;
     background-color: rgb(236, 236, 236);
-    height: calc(100% - 18px);
+    height: 100%;
     margin-top: 18px;
 }
 
