@@ -64,10 +64,6 @@ main {
     
 }
 
-.menu{
-    border-right: var(--toggle-color) solid 2px;
-}
-
 .content {
     overflow: hidden;
     background-color: var(--body-color);
