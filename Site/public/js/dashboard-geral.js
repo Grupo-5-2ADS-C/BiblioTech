@@ -256,6 +256,26 @@ function listarTempoMedioUtilizador() {
         });
 }
 
+function listarMediaRede() {
+
+    fetch(`/maquinas/listarMediaRede/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resultado) {
+                // console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+
+                mediaUpload.innerHTML = (resultado[0].upload).toFixed(2);
+                mediaDownload.innerHTML = (resultado[0].download).toFixed(2);
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
 function onLoad() {
     obterAlertasOciosidade();
     obterAlertasHardware();

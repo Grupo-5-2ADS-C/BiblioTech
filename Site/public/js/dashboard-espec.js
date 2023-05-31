@@ -570,7 +570,6 @@ function plotarAlerta(resultado) {
   let tipoAlerta = ''
   let situacaoAlerta = ''
   let medidas = ''
-  let tipoComponente = ''
 
     for (let i = 0; i < 4; i += 3) {
       const element = resultado[i];
@@ -584,15 +583,12 @@ function plotarAlerta(resultado) {
       if (element.fk_situacao_alerta == 1) {
         situacaoAlerta = '(Crítico)'
         medidas = '>= 90%'
-        tipoComponente = element.tipo
       } else if (element.fk_situacao_alerta == 2) {
         situacaoAlerta = '(Risco alto)'
         medidas = '>= 70% e < 90%'
-        tipoComponente = element.tipo
       } else if (element.fk_situacao_alerta == 3) {
         situacaoAlerta = '(Risco moderado)'
         medidas = '>= 50% e < 70%'
-        tipoComponente = element.tipo
       } else {
         situacaoAlerta = '-'
         medidas = '< 2%'
@@ -602,14 +598,14 @@ function plotarAlerta(resultado) {
       if (i % 2 == 0) {
         cardAlerta1.innerHTML = `
         <span class="card__title h1Alerta">${tipoAlerta}</span>
-        <span class="texto__alerta">${tipoComponente} ${situacaoAlerta}</span>
+        <span class="texto__alerta">${situacaoAlerta}</span>
         <span class="metrica__alerta">${medidas}</span>
         <span class="horario__metrica">${element.dia} ${element.horario}</span>
               `
       } else {
         cardAlerta2.innerHTML = `
           <span class="card__title h1Alerta">${tipoAlerta}</span>
-          <span class="texto__alerta">${tipoComponente} ${situacaoAlerta}</span>
+          <span class="texto__alerta">${situacaoAlerta}</span>
           <span class="metrica__alerta">${medidas}</span>
           <span class="horario__metrica">${element.dia} ${element.horario}</span>
                 `

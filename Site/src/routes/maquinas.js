@@ -91,4 +91,8 @@ router.get("/listarAlertaMaquina/:fkMaquina/:fkBiblioteca", function (req, res) 
     maquinasController.listarAlertaMaquina(req, res);
 });
 
+router.get("/listarMediaRede/:fkBiblioteca", function (req, res) {
+    maquinasController.listarMediaRede(req, res);
+});
+
 module.exports = router;

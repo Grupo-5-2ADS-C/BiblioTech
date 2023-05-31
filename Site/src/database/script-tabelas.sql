@@ -99,7 +99,8 @@ fk_especificacao INT,
 fk_componente_maquina INT,
 fk_maquina INT,
 FOREIGN KEY (fk_especificacao, fk_componente_maquina, fk_maquina) REFERENCES [dbo].[especificacao_componente_maquina](id_especificacao, fk_componente_maquina, fk_maquina) ON DELETE CASCADE,
-total_processos INT
+total_processos INT,
+dt_hora DATETIME
 );
 
 -- Entidade tipo_alerta
