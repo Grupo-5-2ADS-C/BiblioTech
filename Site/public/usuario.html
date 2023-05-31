@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/dashboard-especifica.css">
     <link rel="stylesheet" href="css/cadastroMaquinas.css">
     <link rel="stylesheet" href="css/perfilUsuario.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <title>Usuário</title>
 </head>
 
@@ -103,47 +104,47 @@
         <div class="content">
             <div class="content__first-elements">
                 <h1 class="content__title">Perfil de Usuário</h1>
-                <div class="content__separation"></div>
-                <h3 class="content__subtitle">Olá, <span id="identificacaoUsuario"></span></h3>
+                <div class="content__separation" style="background-color: var(--toggle-color);"></div>
+                <h3 class="content__subtitle">Olá, <span id="identificacaoUsuario" style="color: var(--cor-fonte);"></span></h3>
             </div>
 
             <div class="content__first-row">
                 <div class="first-row__left">
                     <div class="first-row__image">
-                        <img src="img/person_FILL0_wght400_GRAD0_opsz48.svg" alt="Ícon user">
+                        <ion-icon name="person-outline" class="icon"></ion-icon>
                     </div>
                     <div class="first-row__text">
                         <h2>Nome de usuário</h2>
-                        <p id="nomeUsuario"></p>
+                        <p id="nomeUsuario" class="response"></p>
                     </div>
                 </div>
                 <div class="first-row__right">
                     <div class="first-row__image">
-                        <img src="img/call_FILL0_wght400_GRAD0_opsz48.svg" alt="Ícon phone">
+                        <ion-icon name="call-outline" class="icon"></ion-icon>
                     </div>
                     <div class="first-row__text">
                         <h2>Celular</h2>
-                        <p id="celularUsuario"></p>
+                        <p id="celularUsuario" class="response"></p>
                     </div>
                 </div>
             </div>
             <div class="content__second-row">
                 <div class="second-row__left">
                     <div class="second-row__image">
-                        <img src="img/mail_FILL0_wght400_GRAD0_opsz48.svg" alt="Ícon email">
+                        <ion-icon name="mail-outline" class="icon"></ion-icon>
                     </div>
                     <div class="second-row__text">
                         <h2>E-mail</h2>
-                        <p id="emailUsuario"></p>
+                        <p id="emailUsuario" class="response"></p>
                     </div>
                 </div>
                 <div class="second-row__right">
                     <div class="second-row__image">
-                        <img src="img/apartment_FILL0_wght400_GRAD0_opsz48.svg" alt="Ícon phone">
+                        <ion-icon name="business-outline" class="icon"></ion-icon>
                     </div>
                     <div class="second-row__text">
                         <h2>Cargo</h2>
-                        <p id="cargoUsuario"></p>
+                        <p id="cargoUsuario" class="response"></p>
                     </div>
                 </div>
             </div>

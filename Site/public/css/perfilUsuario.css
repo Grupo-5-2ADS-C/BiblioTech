@@ -9,6 +9,9 @@
     --cor-fonte: #171717;
     --cor-fonte-sec: #505050;
     --switch-color: #ffffff;
+    --cor-underline: #989898;
+    --box-shadow: rgba(39, 39, 39, 0.1);
+
   }
   
   body.dark {
@@ -22,12 +25,27 @@
     --cor-fonte-sec: #f1f1f1;
     --toggle-color: #57b4ce;
     --switch-color: #ffffff;
+    --cor-underline: #eaeaea;
+    --box-shadow: rgba(87, 180, 206, 0.8);
   }
 
 .content__first-row {
     margin-top: 50px;
     display: flex;
     width: 80%;
+}
+
+.icon{
+    color: var(--cor-fonte);
+    font-size: 45px;
+}
+
+.menu {
+    border-right: 2px solid var(--toggle-color);
+}
+
+.response{
+    color: var(--cor-fonte);
 }
 
 .first-row__left {
@@ -48,12 +66,14 @@
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 5px;
+    color: var(--cor-fonte);
 }
 
 .content__first-row p {
     font-size: 1rem;
     font-weight: 500;
     opacity: 0.5;
+    color: var(--cor-fonte);
 }
 
 .first-row__right {
@@ -85,17 +105,23 @@
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 5px;
+    color: var(--cor-fonte);
 }
 
 .content__second-row p {
     font-size: 1rem;
     font-weight: 500;
     opacity: 0.5;
+    color: var(--cor-fonte);
 }
 
 .second-row__right {
     display: flex;
     width: 50%;
+}
+
+.content{
+    background-color: var(--cor-primaria);
 }
 
 .button {
@@ -107,7 +133,7 @@
 .button button {
     width: fit-content;
     padding: 8px 16px;
-    background-color: #57B4CE;
+    background-color: var(--cor-secundaria);
     border-radius: 8px;
     font-size: 1rem;
     color: white;

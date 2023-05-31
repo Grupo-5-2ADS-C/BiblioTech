@@ -68,14 +68,14 @@ var myChartCpu = new Chart(ctx, {
     scales: {
       x: {
         grid: {
-          color: [''],
+          color: ['#f7f5f5'],
         }
       },
       y: {
         border: {
         },
         grid: {
-          color: ['#f7f5f5']
+          color: ['']
         }
 
       }
@@ -106,14 +106,14 @@ var myChartMemoria = new Chart(ctx, {
     scales: {
       x: {
         grid: {
-          color: [''],
+          color: ['#f7f5f5'],
         }
       },
       y: {
         border: {
         },
         grid: {
-          color: ['#f7f5f5']
+          color: ['']
         }
 
       }
@@ -172,14 +172,14 @@ var myChartRede = new Chart(ctx, {
     scales: {
       x: {
         grid: {
-          color: [''],
+          color: ['#f7f5f5'],
         }
       },
       y: {
         border: {
         },
         grid: {
-          color: ['#f7f5f5']
+          color: ['']
         }
 
       }

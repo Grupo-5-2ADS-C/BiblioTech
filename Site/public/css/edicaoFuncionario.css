@@ -1,9 +1,71 @@
+:root {
+    /* Cores da pagina */
+    --body-color: #f3f3f3;
+    --sidebar-color: #ffffff;
+    --cor-primaria: #ffffff;
+    --cor-secundaria: #57B4CE;
+    --hover-color: #f5f5f5;
+    --toggle-color: #dedada;
+    --cor-fonte: #171717;
+    --cor-fonte-sec: #505050;
+    --switch-color: #ffffff;
+    --cor-underline: #989898;
+    --box-shadow: rgba(39, 39, 39, 0.1);
+
+  }
+  
+  body.dark {
+    /* Cores da pagina */
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --cor-primaria: #242526;
+    --cor-secundaria: #57b4ce;
+    --hover-color: #57c4ce;
+    --cor-fonte: #ffffff;
+    --cor-fonte-sec: #f1f1f1;
+    --toggle-color: #57b4ce;
+    --switch-color: #ffffff;
+    --cor-underline: #eaeaea;
+    --box-shadow: rgba(87, 180, 206, 0.8);
+  }
+
+  .menu{
+    border-right: 2px solid var(--toggle-color);
+  }
+
+  .content{
+    background-color: var(--body-color);
+  }
+
+  label{
+    color: var(--cor-fonte);
+  }
+
+  .content__inputs input, 
+  .content__inputs2 input,
+  .content__inputs3 input,
+  .content__inputs2 select{
+    border: 1px solid var(--toggle-color);
+    background-color: var(--cor-primaria);
+    color: var(--cor-fonte);
+  }
+
+  .content__inputs2 option{
+    color: var(--cor-fonte);
+  }
+
+  .content__button-senha{
+    background-color: var(--cor-secundaria);
+    color: var(--switch-color);
+  }
+
+
 .cbx {
     position: relative;
     top: 1px;
     width: 20px;
     height: 20px;
-    border: 1px solid #c8ccd4;
+    border: 1px solid var(--body-color);
     border-radius: 3px;
     transition: background 0.1s ease;
     cursor: pointer;
@@ -19,10 +81,14 @@
     height: 14px;
     opacity: 0;
     transform: rotate(45deg) scale(0);
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-right: 2px solid var(--cor-primaria);
+    border-bottom: 2px solid var(--cor-primaria);
     transition: all 0.3s ease;
     transition-delay: 0.15s;
+}
+
+#nomeFuncionario{
+    color: var(--cor-fonte);
 }
 
 .lbl {
@@ -33,7 +99,7 @@
 
 #cbx:checked~.cbx {
     border-color: transparent;
-    background: #57B4CE;
+    background: var(--cor-secundaria);
     animation: jelly 0.6s ease;
 }
 
